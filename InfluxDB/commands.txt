@@ -1,0 +1,16 @@
+InfluxDB show commands:
+influx -execute "show databases"
+influx -execute "show measurements" -database="mdt_db"
+influx -execute "show retention policies" -database="mdt_db"
+influx -execute "show diagnostics"
+influx -execute "show tag values with key=Producer" -database="mdt_db"
+influx -execute "SELECT \"bytes-received\" FROM \"Cisco-IOS-XR-infra-statsd-oper:infra-statistics/interfaces/interface/latest/generic-counters\" \
+WHERE (\"Producer\" = 'NCS5501_top' AND \"interface-name\" = 'Bundle-Ether12' AND time > now() - 1m)" -database="mdt_db"
+
+InfluxDB database management commands:
+influx -execute "create database test with duration 48h shard duration 6h"
+influx -execute "alter retention policy \"autogen\" on \"test\" duration 96h"
+influx -execute "alter retention policy \"autogen\" on \"test\" shard duration 12h"
+influx -execute "drop database XR"
+influx -execute "drop series from /.*/" -database="XR"
+

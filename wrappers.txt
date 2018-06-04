@@ -1,0 +1,191 @@
+alias screen='sudo screen'
+if [ -z "$PS1" ]; then
+    return
+fi
+pipeline() {
+    if [[ $@ == "troubleshooting start" ]]; then
+        command `PID=$(pgrep pipeline); sudo kill -9 $PID; sudo pkill screen 2>/dev/null`
+        command `sudo sed -i '43,48s/^# //' ~/analytics/pipeline/pipeline.conf`
+        command `sudo rm ~/analytics/pipeline/bin/dump.txt && sudo touch ~/analytics/pipeline/bin/dump.txt`
+        command `screen -dm -S Pipeline bash -c 'cd ~/analytics/pipeline; sudo ./bin/pipeline -config pipeline.conf -pem ~/.ssh/id_rsa -log= -debug; exec /bin/bash'`
+        echo -e "\e[1;32m Done! Go to ~/analytics/pipeline/bin/ and execute 'sudo tail -f dump.txt'\e[0m";
+
+    elif [[ $@ == "troubleshooting stop" ]]; then
+        command `PID=$(pgrep pipeline); sudo kill -9 $PID; sudo pkill screen 2>/dev/null`
+        command `sudo sed -i '43,48s/^/# /' ~/analytics/pipeline/pipeline.conf`
+        command `sudo rm ~/analytics/pipeline/bin/dump.txt && sudo touch ~/analytics/pipeline/bin/dump.txt`
+        command `screen -dm -S Pipeline bash -c 'cd ~/analytics/pipeline; sudo ./bin/pipeline -config pipeline.conf -pem ~/.ssh/id_rsa; exec /bin/bash'`
+        echo -e "\e[1;32m Done! \e[0m";
+    fi
+}
+show() {
+    if [[ $@ == "influxdb" ]]; then
+        if pgrep -x "influxd" > /dev/null
+                then
+                    echo -e "\e[1;32m InfluxDB is running \e[0m";
+                else
+                    echo -e "\e[1;31m InfluxDB is not running \e[0m";
+        fi
+    elif [[ $@ == "telegraf" ]]; then
+      if pgrep -x "telegraf" > /dev/null
+              then
+                  echo -e "\e[1;32m Telegraf is running \e[0m";
+              else
+                  echo -e "\e[1;31m Telegraf is not running \e[0m";
+      fi
+
+    elif [[ $@ == "kapacitor" ]]; then
+      if pgrep -x "kapacitord" > /dev/null
+              then
+                  echo -e "\e[1;32m Kapacitor is running \e[0m";
+              else
+                  echo -e "\e[1;31m Kapacitor is not running \e[0m";
+      fi
+
+    elif [[ $@ == "prometheus" ]]; then
+        if pgrep -x "prometheus" > /dev/null
+                then
+                    echo -e "\e[1;32m Prometheus is running \e[0m";
+                else
+                    echo -e "\e[1;31m Prometheus is not running \e[0m";
+        fi
+    elif [[ $@ == "grafana" ]]; then
+      if pgrep -x "grafana-server" > /dev/null
+              then
+                  echo -e "\e[1;32m Grafana is running \e[0m";
+              else
+                  echo -e "\e[1;31m Grafana is not running \e[0m";
+      fi
+
+    elif [[ $@ == "pipeline" ]]; then
+        if pgrep -x "pipeline" > /dev/null
+                then
+                    echo -e "\e[1;32m Pipeline is running \e[0m";
+                else
+                    echo -e "\e[1;31m Pipeline is not running \e[0m";
+                fi
+    else
+	echo -e "\e[1;31m Sorry, you made a typo. Please, try again \e[0m";
+    fi
+}
+
+start() {
+    if [[ $@ == "influxdb" ]]; then
+        command `sudo influxd -config /etc/influxdb/influxdb.conf`
+                                echo -e "\e[1;32m Done! \e[0m";
+    elif [[ $@ == "telegraf" ]]; then
+        command `sudo systemctl start telegraf`
+                                echo -e "\e[1;32m Done! \e[0m";
+    elif [[ $@ == "kapacitor" ]]; then
+        command `sudo systemctl start kapacitor`
+                                echo -e "\e[1;32m Done! \e[0m";
+    elif [[ $@ == "prometheus" ]]; then
+        command `cd ~/analytics/prometheus/prometheus-1.5.2.linux-amd64; sudo ~/analytics/prometheus/prometheus-1.5.2.linux-amd64/prometheus`
+                                echo -e "\e[1;32m Done! \e[0m";
+    elif [[ $@ == "grafana" ]]; then
+        command `sudo systemctl start grafana-server`
+                                echo -e "\e[1;32m Done! \e[0m";
+    elif [[ $@ == "pipeline" ]]; then
+        command `screen -dm -S Pipeline bash -c 'cd ~/analytics/pipeline; sudo ./bin/pipeline -config pipeline.conf -pem ~/.ssh/id_rsa; exec /bin/bash'`
+                                echo -e "\e[1;32m Done! \e[0m";
+    else
+        echo -e "\e[1;31m Sorry, you made a typo. Please, try again \e[0m";
+    fi
+}
+
+stop() {
+    if [[ $@ == "influxdb" ]]; then
+        command `PID=$(pgrep influxd); sudo kill -9 $PID;`
+                                echo -e "\e[1;32m Done! \e[0m";
+    elif [[ $@ == "telegraf" ]]; then
+        command `sudo systemctl stop telegraf`
+                                echo -e "\e[1;32m Done! \e[0m";
+    elif [[ $@ == "kapacitor" ]]; then
+        command `sudo systemctl stop kapacitor`
+                                echo -e "\e[1;32m Done! \e[0m";
+    elif [[ $@ == "prometheus" ]]; then
+        command `PID=$(pgrep prometheus); sudo kill -9 $PID;`
+                                echo -e "\e[1;32m Done! \e[0m";
+    elif [[ $@ == "grafana" ]]; then
+        command `sudo systemctl stop grafana-server`
+                                echo -e "\e[1;32m Done! \e[0m";
+    elif [[ $@ == "pipeline" ]]; then
+        command `PID=$(pgrep pipeline); sudo kill -9 $PID; sudo pkill screen 2>/dev/null`
+                                echo -e "\e[1;32m Done! \e[0m";
+    else
+        echo -e "\e[1;31m Sorry, you made a typo. Please, try again \e[0m";
+    fi
+}
+echo
+echo -e "\e[1;46m Welcome to IOS XR Telemetry Consumption Stack \e[0m";
+echo -e "\e[1;46m The system is ready for you. \e[0m";
+echo -e "\e[1;46m Here is a short reminder of commands for your convenience \e[0m";
+echo -e "\e[1;46m Please use next CLI to work with your Telemetry Stack \e[0m";
+printf  "\e[1;34m%-40s\e[m %-40s\n" "show influxdb" "- to check the current state of InfluxDB";
+printf  "\e[1;34m%-40s\e[m %-40s\n" "start influxdb &" "- to start InfluxDB";
+printf  "\e[1;34m%-40s\e[m %-40s\n" "stop influxdb" "- to stop InfluxDB";
+echo
+printf  "\e[1;34m%-40s\e[m %-40s\n" "show telegraf" "- to check the current state of Telegraf";
+printf  "\e[1;34m%-40s\e[m %-40s\n" "start telegraf &" "- to start Telegraf";
+printf  "\e[1;34m%-40s\e[m %-40s\n" "stop telegraf" "- to stop Telegraf";
+echo
+printf  "\e[1;34m%-40s\e[m %-40s\n" "show kapacitor" "- to check the current state of Kapacitor";
+printf  "\e[1;34m%-40s\e[m %-40s\n" "start kapacitor &" "- to start Kapacitor";
+printf  "\e[1;34m%-40s\e[m %-40s\n" "stop kapacitor" "- to stop Kapacitor";
+echo
+printf  "\e[1;34m%-40s\e[m %-40s\n" "show prometheus" "- to check the current state of Prometheus";
+printf  "\e[1;34m%-40s\e[m %-40s\n" "start prometheus &" "- to start Prometheus";
+printf  "\e[1;34m%-40s\e[m %-40s\n" "stop prometheus" "- to stop Prometheus";
+echo
+printf  "\e[1;34m%-40s\e[m %-40s\n" "show grafana" "- to check the current state of Grafana";
+printf  "\e[1;34m%-40s\e[m %-40s\n" "start grafana &" "- to start Grafana";
+printf  "\e[1;34m%-40s\e[m %-40s\n" "stop grafana" "- to stop Grafana";
+echo
+printf  "\e[1;34m%-40s\e[m %-40s\n" "show pipeline" "- to check the current state of Pipeline";
+printf  "\e[1;34m%-40s\e[m %-40s\n" "start pipeline &" "- to start Pipeline";
+printf  "\e[1;34m%-40s\e[m %-40s\n" "stop pipeline" "- to stop Pipeline";
+echo
+printf  "\e[1;34m%-40s\e[m %-40s\n" "pipeline troubleshooting start" "- to start dumping data into 'dump.txt' (an empty 'dump.txt' each time)";
+printf  "\e[1;34m%-40s\e[m %-40s\n" "pipeline troubleshooting stop" "- to start dumping data into 'dump.txt' ";
+echo
+echo
+echo -ne "\e[1;46m Here is the list of helpful InfluxDB \e[0m" && \
+echo -ne "\e[1;31;46m SHOW commands \e[0m" && \
+echo -e "\e[1;46m you might want to use in your testings \e[0m";
+printf  "\e[1;34m%-85s\e[m %-65s\n" "influx -execute \"show databases\"" "- to see all current databases";
+printf  "\e[1;34m%-85s\e[m %-65s\n" "influx -execute \"show diagnostics\"" "- to see diagnostic information";
+printf  "\e[1;34m%-85s\e[m %-65s\n" "influx -execute \"show measurements\" -database=\"mdt_db\"" \
+"- to see all measurements(or sensor-paths) in a specified database (mdt_db, as an example)";
+printf  "\e[1;34m%-85s\e[m %-65s\n" "influx -execute \"show retention policies\" -database=\"mdt_db\"" \
+"- to see retention policies in a specified database (mdt_db, as an example)";
+printf  "\e[1;34m%-85s\e[m %-65s\n" "influx -execute \"show tag values with key=Producer\" -database=\"mdt_db\"" \
+"- to see active routers per every measurement (sensor path), per database (mdt_db, as an example)";
+echo
+echo -e "\e[1;32m Use the command below to check stats under a specific measurement and a specific field, time frame: \e[0m";
+echo -e "\e[1;34minflux -execute \"SELECT \\\"bytes-received\\\" \
+FROM \\\"Cisco-IOS-XR-infra-statsd-oper:infra-statistics/interfaces/interface/latest/generic-counters\\\" \
+WHERE (\\\"Producer\\\" = 'NCS5501_top' AND \\\"interface-name\\\" = 'Bundle-Ether12' AND time > now() - 1m)\" -database=\"mdt_db\" \e[0m"
+echo -e "\e[1;32m In that command all \"bytes-received\" stats from \"Bundle-Ether12\" interface from \"NCS5501-top\" \
+router from Interface Counters sensor-path for the last minute were collected \e[0m";
+echo
+echo
+echo -ne "\e[1;46m Here is the list of helpful InfluxDB \e[0m" && \
+echo -ne "\e[1;31;46m DataBase Management commands \e[0m" && \
+echo -e "\e[1;46m you might want to use in your testings \e[0m";
+printf  "\e[1;34m%-85s\e[m %-65s\n" "influx -execute \"create database XR with duration 48h shard duration 6h\"" \
+"- to create a database (XR) with retention time (48h) and shard duration (6h)";
+printf  "\e[1;34m%-85s\e[m %-65s\n" "influx -execute \"alter retention policy \\\"autogen\\\" on \\\"XR\\\" duration 96h\"" \
+"- to modify retention policy (autogen) of the database (XR) to a new time (96h)";
+printf  "\e[1;34m%-85s\e[m %-65s\n" "influx -execute \"alter retention policy \\\"autogen\\\" on \\\"XR\\\" shard duration 12h\"" \
+"- to modify shard retention policy (autogen) of the database (XR) to a new time (12h)";
+printf  "\e[1;34m%-85s\e[m %-65s\n" "influx -execute \"drop database XR\"" \
+"- to delete a specific database (XR, in example)";
+printf  "\e[1;34m%-85s\e[m %-65s\n" "influx -execute \"drop series from /.*/\" -database=\"XR\"" \
+"- to drop all counters from all measurements on a specific database (XR, in example)";
+echo && echo
+echo -e "\e[1;46m Here is the list of helpful Kapacitor commands you might want to use in your testings \e[0m";
+printf  "\e[1;34m%-85s\e[m %-65s\n" "kapacitor list tasks" "- to see all current tick scripts within Kapacitor";
+printf  "\e[1;34m%-85s\e[m %-65s\n" "kapacitor define CPU-ALERT-ROUTERS -tick ~/analytics/kapacitor/CPU-ALERT-ROUTERS.tick" \
+"- to define a tick policy script within Kapacitor";
+printf  "\e[1;34m%-85s\e[m %-65s\n" "kapacitor enable CPU-ALERT-ROUTERS" "- to activate the defined tick script";
+echo && echo

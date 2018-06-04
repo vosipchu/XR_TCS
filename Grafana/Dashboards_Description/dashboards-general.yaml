@@ -1,0 +1,14 @@
+# # config file version
+apiVersion: 1
+
+providers:
+ - name: 'InfluxDB'
+   orgId: 1
+   folder: 'XR-Telemetry'
+   type: file
+   editable: true
+   disableDeletion: false
+   options:
+     datasource: InfluxDB
+#     prefix: InfluxDB
+     path: /var/lib/grafana/dashboards/general

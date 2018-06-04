@@ -1,0 +1,82 @@
+name = "snmp"
+
+[[inputs.snmp.field]]
+  name = "hostname"
+  oid = "RFC1213-MIB::sysName.0"
+  is_tag = true
+
+[[inputs.snmp.table]]
+  name = "snmp"
+  inherit_tags = [ "hostname" ]
+  oid = "IF-MIB::ifXTable"
+
+[[inputs.snmp.table.field]]
+  name = "ifName"
+  oid = "IF-MIB::ifName"
+  is_tag = true
+
+[[inputs.snmp.field]]
+  name = "location"
+  oid = "SNMPv2-MIB::sysLocation.0"
+  is_tag = true
+
+[[inputs.snmp.field]]
+  name = "contact"
+  oid = "SNMPv2-MIB::sysContact.0"
+  is_tag = true
+
+[[inputs.snmp.table]]
+  name = "inventory"
+  inherit_tags = [ "location", "contact" ]
+  oid = "ENTITY-MIB::entPhysicalTable"
+  index_as_tag = true
+
+[[inputs.snmp.table.field]]
+  name = "IsFRU"
+  oid = "ENTITY-MIB::entPhysicalIsFRU"
+  is_tag = true
+
+[[inputs.snmp.table.field]]
+  name = "ModelName"
+  oid = "ENTITY-MIB::entPhysicalModelName"
+  is_tag = true
+
+[[inputs.snmp.table.field]]
+  name = "Class"
+  oid = "ENTITY-MIB::entPhysicalClass"
+  is_tag = true
+
+[[inputs.snmp.table.field]]
+  name = "MfgName"
+  oid = "ENTITY-MIB::entPhysicalMfgName"
+  is_tag = true
+
+[[inputs.snmp.table]]
+  name = "cpu-router"
+  oid = "CISCO-PROCESS-MIB::cpmCPUTotalTable"
+  index_as_tag = true
+
+[[inputs.snmp.table.field]]
+  name = "PhysicalIndex"
+  oid = "CISCO-PROCESS-MIB::cpmCPUTotalPhysicalIndex"
+  is_tag = true
+
+[[inputs.snmp.table]]
+    name = "memory"
+    oid = "CISCO-ENHANCED-MEMPOOL-MIB::cempMemPoolTable"
+    index_as_tag = true
+
+[[inputs.snmp.table.field]]
+    name = "PoolName"
+    oid = "CISCO-ENHANCED-MEMPOOL-MIB::cempMemPoolName"
+    is_tag = true
+
+[[inputs.snmp.table]]
+    name = "BGP-peer"
+    oid = "CISCO-BGP4-MIB::cbgpPeerTable"
+    index_as_tag = true
+
+[[inputs.snmp.table]]
+    name = "MPLS-total"
+    oid = "MPLS-TE-STD-MIB::mplsTunnelTable"
+    index_as_tag = true

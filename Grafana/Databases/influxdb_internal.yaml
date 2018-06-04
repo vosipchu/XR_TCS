@@ -1,0 +1,38 @@
+# # config file version
+apiVersion: 1
+
+deleteDatasources:
+  - name: InfluxDB-Internal
+    orgId: 1
+
+# # list of datasources to insert/update depending
+# # on what's available in the datbase
+datasources:
+#   # <string, required> name of the datasource. Required
+ - name: InfluxDB-Internal
+#   # <string, required> datasource type. Required
+   type: influxdb
+#   # <string, required> access mode. direct or proxy. Required
+   access: proxy
+#   # <int> org id. will default to orgId 1 if not specified
+   orgId: 1
+#   # <string> url
+   url: http://localhost:8086
+#   # <string> database password, if used
+   password: admin
+#   # <string> database user, if used
+   user: admin
+#   # <string> database name, if used
+   database: _internal
+#   # <bool> enable/disable basic auth
+   basicAuth: false
+#   # <bool> enable/disable with credentials headers
+   withCredentials: false
+#   # <bool> mark as default datasource. Max one per org
+   isDefault: false
+#   # <map> fields that will be converted to json and stored in json_data
+   jsonData: {}
+#      tlsAuth: false
+#      tlsAuthWithCACert: false
+
+   editable: true

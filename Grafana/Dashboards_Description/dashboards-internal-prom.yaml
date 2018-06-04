@@ -1,0 +1,14 @@
+# # config file version
+apiVersion: 1
+
+providers:
+ - name: 'Prometheus'
+   orgId: 1
+   folder: 'Pipeline Monitoring'
+   type: file
+   editable: true
+   disableDeletion: false
+   options:
+     datasource: Prometheus
+#     prefix: InfluxDB
+     path: /var/lib/grafana/dashboards/internal-prom

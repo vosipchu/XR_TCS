@@ -1,0 +1,1173 @@
+[
+  {
+   "basepath" : "Cisco-IOS-XR-nto-misc-shmem-oper:memory-summary/nodes/node/summary",
+   "spec" : {
+           "fields" : [
+                   {"name":"node-name", "tag": true},
+                   {"name":"ram-memory"},
+                   {"name":"free-physical-memory"},
+                   {"name":"system-ram-memory"},
+                   {"name":"free-application-memory"}
+                      ]
+          }
+  },
+{
+  "basepath" : "Cisco-IOS-XR-wdsysmon-fd-oper:system-monitoring/cpu-utilization",
+  "spec" : {
+    "fields" : [
+      {"name":"node-name", "tag": true},
+      {"name":"total-cpu-one-minute"},
+      {"name":"total-cpu-five-minute"},
+      {"name":"total-cpu-fifteen-minute"},
+      {"name":"process-cpu",
+        "fields" : [
+          {"name":"process-name", "tag": true},
+          {"name":"process-cpu-one-minute"},
+          {"name":"process-cpu-five-minute"},
+          {"name":"process-cpu-fifteen-minute"}
+        ]
+      }
+    ]
+  }
+ },
+{
+  "basepath" : "Cisco-IOS-XR-nto-misc-oper:memory-summary/nodes/node/summary",
+  "spec" : {
+    "fields" : [
+      {"name":"node-name", "tag": true},
+      {"name":"ram-memory"},
+      {"name":"free-physical-memory"},
+      {"name":"system-ram-memory"},
+      {"name":"free-application-memory"}
+    ]
+  }
+ },
+{
+ "basepath" : "Cisco-IOS-XR-shellutil-oper:system-time/uptime",
+ "spec" : {
+   "fields" : [
+     {"name":"host-name"},
+     {"name":"uptime"}
+       ]
+     }
+},
+{
+  "basepath": "Cisco-IOS-XR-pfi-im-cmd-oper:interfaces/interface-summary",
+  "spec": {
+    "fields": [
+      {
+        "name": "interface-counts",
+        "fields": [
+          {
+            "name": "interface-count"
+          },
+          {
+            "name": "up-interface-count"
+          },
+          {
+            "name": "down-interface-count"
+          },
+          {
+            "name": "admin-down-interface-count"
+          }
+        ]
+      },
+      {
+        "name": "interface-type",
+        "fields": [
+          {
+            "name": "interface-counts",
+            "fields": [
+              {
+                "name": "interface-count"
+              },
+              {
+                "name": "up-interface-count"
+              },
+              {
+                "name": "down-interface-count"
+              },
+              {
+                "name": "admin-down-interface-count"
+              }
+            ]
+          },
+          {
+            "name": "interface-type-name"
+          },
+          {
+            "name": "interface-type-description"
+          }
+        ]
+      }
+    ]
+  }
+},
+{
+  "basepath" : "Cisco-IOS-XR-infra-statsd-oper:infra-statistics/interfaces/interface/latest/generic-counters",
+  "spec" : {
+    "fields" : [
+      {"name" : "interface-name", "tag" : true},
+      {"name" : "packets-received"},
+      {"name" : "bytes-received"},
+      {"name" : "packets-sent", "track": true},
+      {"name" : "bytes-sent"},
+      {"name" : "output-drops"},
+      {"name" : "output-queue-drops"},
+      {"name" : "input-drops"},
+      {"name" : "input-queue-drops"},
+      {"name" : "input-errors"},
+      {"name" : "crc-errors"},
+      {"name" : "input-ignored-packets"},
+      {"name" : "output-errors"},
+      {"name" : "output-buffer-failures"},
+      {"name" : "carrier-transitions"}
+    ]
+  }
+},
+{
+  "basepath" : "Cisco-IOS-XR-controller-optics-oper:optics-oper/optics-ports/optics-port/optics-info",
+  "spec" : {
+    "fields" : [
+      {"name":"name", "tag": true},
+      {"name" : "name", "tag" : true},
+      {"name" : "controller-state"},
+      {"name" : "dwdm-carrier-channel"},
+      {"name" : "dwdm-carrier-wavelength"},
+      {"name" : "optical-signal-to-noise-ratio"},
+      {"name" : "optics-type"},
+      {"name" : "total-rx-power"},
+      {"name" : "total-tx-power"},
+      {"name" : "voltage"},
+      {"name" : "temperature",
+        "name": "lane-data",
+        "fields" : [
+          {"name":"lane-index", "tag": true},
+          {"name":"laser-bias-current-milli-amps"},
+          {"name":"receive-power"},
+          {"name":"transmit-power"}
+        ]
+      }
+    ]
+  }
+},
+{
+  "basepath" : "Cisco-IOS-XR-ip-rib-ipv4-oper:rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/isis/as/information",
+  "spec" : {
+    "fields" : [
+      {"name" : "vrf-name", "tag" : true},
+      {"name" : "af-name", "tag" : true},
+      {"name" : "saf-name", "tag" : true},
+      {"name" : "route-table-name", "tag" : true},
+      {"name" : "as", "tag" : true},
+      {"name" : "routes-counts"},
+      {"name" : "active-routes-count"},
+      {"name" : "deleted-routes-count"},
+      {"name" : "paths-count"},
+      {"name" : "protocol-route-memory"},
+      {"name" : "backup-routes-count"}
+    ]
+  }
+},
+{
+  "basepath": "Cisco-IOS-XR-clns-isis-oper:isis/instances/instance/levels/level/adjacencies/adjacency",
+  "spec": {
+    "fields": [
+      {
+        "name": "system-id"
+      },
+      {
+        "name": "interface-name"
+      },
+      {
+        "name": "adjacency-system-id"
+      },
+      {
+        "name": "adjacency-snpa"
+      },
+      {
+        "name": "adjacency-interface"
+      },
+      {
+        "name": "adjacency-media-type"
+      },
+      {
+        "name": "adjacency-state"
+      },
+      {
+        "name": "adjacency-bfd-state"
+      },
+      {
+        "name": "adjacency-ipv6bfd-state"
+      },
+      {
+        "name": "adj-ipv4bfd-retry-running"
+      },
+      {
+        "name": "adj-ipv6bfd-retry-running"
+      },
+      {
+        "name": "adj-ipv4bfd-retry-exp"
+      },
+      {
+        "name": "adj-ipv6bfd-retry-exp"
+      },
+      {
+        "name": "adj-ipv4bfd-retry-count"
+      },
+      {
+        "name": "adj-ipv6bfd-retry-count"
+      },
+      {
+        "name": "adjacency-uptime-valid-flag"
+      },
+      {
+        "name": "adjacency-uptime"
+      },
+      {
+        "name": "adjacency-holdtime"
+      },
+      {
+        "name": "adjacency-checkpoint-object-id"
+      },
+      {
+        "name": "adjacency-ietf-nsf-capable-flag"
+      },
+      {
+        "name": "adjacency-dispriority"
+      },
+      {
+        "name": "adjacency-neighbor-priority"
+      },
+      {
+        "name": "adjacency-local-priority"
+      },
+      {
+        "name": "local-dis-flag"
+      },
+      {
+        "name": "neighbor-dis-flag"
+      },
+      {
+        "name": "nsr-standby"
+      },
+      {
+        "name": "adjacency-area-address",
+        "fields": [
+          {
+            "name": "entry"
+          }
+        ]
+      },
+      {
+        "name": "adjacency-topology",
+        "fields": [
+          {
+            "name": "id",
+            "fields": [
+              {
+                "name": "af-name"
+              },
+              {
+                "name": "saf-name"
+              },
+              {
+                "name": "vrf-name"
+              },
+              {
+                "name": "topology-name"
+              }
+            ]
+          },
+          {
+            "name": "topology-status"
+          },
+          {
+            "name": "parallel-p2p-link-suppressed-flag"
+          }
+        ]
+      },
+      {
+        "name": "adjacency-per-address-family-data",
+        "fields": [
+          {
+            "name": "ipv4",
+            "fields": [
+              {
+                "name": "adjacency-sid",
+                "fields": [
+                  {
+                    "name": "adjacency-sid-backup",
+                    "fields": [
+                      {
+                        "name": "backup-label-stack-size"
+                      },
+                      {
+                        "name": "backup-node-address"
+                      },
+                      {
+                        "name": "backup-nexthop"
+                      },
+                      {
+                        "name": "backup-interface"
+                      },
+                      {
+                        "name": "backup-label-stack",
+                        "fields": [
+                          {
+                            "name": "entry"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "name": "adjacency-sid-backup-te",
+                    "fields": [
+                      {
+                        "name": "backup-label-stack-size"
+                      },
+                      {
+                        "name": "backup-node-address"
+                      },
+                      {
+                        "name": "backup-nexthop"
+                      },
+                      {
+                        "name": "backup-interface"
+                      },
+                      {
+                        "name": "backup-label-stack",
+                        "fields": [
+                          {
+                            "name": "entry"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "name": "adjacency-sid-value"
+                  }
+                ]
+              },
+              {
+                "name": "non-frr-adjacency-sid",
+                "fields": [
+                  {
+                    "name": "adjacency-sid-backup",
+                    "fields": [
+                      {
+                        "name": "backup-label-stack-size"
+                      },
+                      {
+                        "name": "backup-node-address"
+                      },
+                      {
+                        "name": "backup-nexthop"
+                      },
+                      {
+                        "name": "backup-interface"
+                      },
+                      {
+                        "name": "backup-label-stack",
+                        "fields": [
+                          {
+                            "name": "entry"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "name": "adjacency-sid-backup-te",
+                    "fields": [
+                      {
+                        "name": "backup-label-stack-size"
+                      },
+                      {
+                        "name": "backup-node-address"
+                      },
+                      {
+                        "name": "backup-nexthop"
+                      },
+                      {
+                        "name": "backup-interface"
+                      },
+                      {
+                        "name": "backup-label-stack",
+                        "fields": [
+                          {
+                            "name": "entry"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "name": "adjacency-sid-value"
+                  }
+                ]
+              },
+              {
+                "name": "next-hop"
+              },
+              {
+                "name": "interface-address",
+                "fields": [
+                  {
+                    "name": "entry"
+                  }
+                ]
+              },
+              {
+                "name": "underlying-adjacency-sid",
+                "fields": [
+                  {
+                    "name": "entry"
+                  }
+                ]
+              },
+              {
+                "name": "underlying-interface",
+                "fields": [
+                  {
+                    "name": "interface-handle"
+                  },
+                  {
+                    "name": "interface-name"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "name": "ipv6",
+            "fields": [
+              {
+                "name": "adjacency-sid",
+                "fields": [
+                  {
+                    "name": "adjacency-sid-backup",
+                    "fields": [
+                      {
+                        "name": "backup-label-stack-size"
+                      },
+                      {
+                        "name": "backup-node-address"
+                      },
+                      {
+                        "name": "backup-nexthop"
+                      },
+                      {
+                        "name": "backup-interface"
+                      },
+                      {
+                        "name": "backup-label-stack",
+                        "fields": [
+                          {
+                            "name": "entry"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "name": "adjacency-sid-backup-te",
+                    "fields": [
+                      {
+                        "name": "backup-label-stack-size"
+                      },
+                      {
+                        "name": "backup-node-address"
+                      },
+                      {
+                        "name": "backup-nexthop"
+                      },
+                      {
+                        "name": "backup-interface"
+                      },
+                      {
+                        "name": "backup-label-stack",
+                        "fields": [
+                          {
+                            "name": "entry"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "name": "adjacency-sid-value"
+                  }
+                ]
+              },
+              {
+                "name": "non-frr-adjacency-sid",
+                "fields": [
+                  {
+                    "name": "adjacency-sid-backup",
+                    "fields": [
+                      {
+                        "name": "backup-label-stack-size"
+                      },
+                      {
+                        "name": "backup-node-address"
+                      },
+                      {
+                        "name": "backup-nexthop"
+                      },
+                      {
+                        "name": "backup-interface"
+                      },
+                      {
+                        "name": "backup-label-stack",
+                        "fields": [
+                          {
+                            "name": "entry"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "name": "adjacency-sid-backup-te",
+                    "fields": [
+                      {
+                        "name": "backup-label-stack-size"
+                      },
+                      {
+                        "name": "backup-node-address"
+                      },
+                      {
+                        "name": "backup-nexthop"
+                      },
+                      {
+                        "name": "backup-interface"
+                      },
+                      {
+                        "name": "backup-label-stack",
+                        "fields": [
+                          {
+                            "name": "entry"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "name": "adjacency-sid-value"
+                  }
+                ]
+              },
+              {
+                "name": "next-hop"
+              },
+              {
+                "name": "interface-address",
+                "fields": [
+                  {
+                    "name": "entry"
+                  }
+                ]
+              },
+              {
+                "name": "underlying-adjacency-sid",
+                "fields": [
+                  {
+                    "name": "entry"
+                  }
+                ]
+              },
+              {
+                "name": "underlying-interface",
+                "fields": [
+                  {
+                    "name": "interface-handle"
+                  },
+                  {
+                    "name": "interface-name"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "name": "af-name"
+          }
+        ]
+      },
+      {
+        "name": "level",
+        "tag": true
+      },
+      {
+        "name": "instance-name",
+        "tag": true
+      }
+    ]
+  }
+},
+{
+  "basepath": "Cisco-IOS-XR-clns-isis-oper:isis/instances/instance/statistics-global",
+  "spec": {
+    "fields": [
+      {
+        "name": "statistics",
+        "fields": [
+          {
+            "name": "avg-hello-process-time",
+            "fields": [
+              {
+                "name": "seconds"
+              },
+              {
+                "name": "nano-seconds"
+              }
+            ]
+          },
+          {
+            "name": "avg-csnp-process-time",
+            "fields": [
+              {
+                "name": "seconds"
+              },
+              {
+                "name": "nano-seconds"
+              }
+            ]
+          },
+          {
+            "name": "avg-psnp-process-time",
+            "fields": [
+              {
+                "name": "seconds"
+              },
+              {
+                "name": "nano-seconds"
+              }
+            ]
+          },
+          {
+            "name": "avg-lsp-process-time",
+            "fields": [
+              {
+                "name": "seconds"
+              },
+              {
+                "name": "nano-seconds"
+              }
+            ]
+          },
+          {
+            "name": "avg-hello-transmit-time",
+            "fields": [
+              {
+                "name": "seconds"
+              },
+              {
+                "name": "nano-seconds"
+              }
+            ]
+          },
+          {
+            "name": "avg-csnp-transmit-time",
+            "fields": [
+              {
+                "name": "seconds"
+              },
+              {
+                "name": "nano-seconds"
+              }
+            ]
+          },
+          {
+            "name": "avg-psnp-transmit-time",
+            "fields": [
+              {
+                "name": "seconds"
+              },
+              {
+                "name": "nano-seconds"
+              }
+            ]
+          },
+          {
+            "name": "avg-lsp-transmit-time",
+            "fields": [
+              {
+                "name": "seconds"
+              },
+              {
+                "name": "nano-seconds"
+              }
+            ]
+          },
+          {
+            "name": "fast-psnp-lookup-count"
+          },
+          {
+            "name": "fast-psnp-lookup-hit-count"
+          },
+          {
+            "name": "fast-csnp-lookup-count"
+          },
+          {
+            "name": "fast-csnp-lookup-hit-count"
+          },
+          {
+            "name": "fast-csnp-cache-update-count"
+          },
+          {
+            "name": "zero-holdtime-lsp-count"
+          },
+          {
+            "name": "invalid-checksum-lsp-count"
+          },
+          {
+            "name": "iih-dropped-count"
+          },
+          {
+            "name": "lsp-dropped-count"
+          },
+          {
+            "name": "snp-dropped-count"
+          },
+          {
+            "name": "maximum-iih-queue-length"
+          },
+          {
+            "name": "maximum-pdu-queue-length"
+          },
+          {
+            "name": "pdu-queue-length"
+          },
+          {
+            "name": "avg-hello-recv-rate"
+          },
+          {
+            "name": "avg-csnp-recv-rate"
+          },
+          {
+            "name": "avg-psnp-recv-rate"
+          },
+          {
+            "name": "avg-lsp-recv-rate"
+          },
+          {
+            "name": "avg-hello-send-rate"
+          },
+          {
+            "name": "avg-csnp-send-rate"
+          },
+          {
+            "name": "avg-psnp-send-rate"
+          },
+          {
+            "name": "avg-lsp-send-rate"
+          }
+        ]
+      },
+      {
+        "name": "per-area-data",
+        "fields": [
+          {
+            "name": "statistics",
+            "fields": [
+              {
+                "name": "system-lsp-build-count"
+              },
+              {
+                "name": "system-lsp-refresh-count"
+              }
+            ]
+          },
+          {
+            "name": "level"
+          },
+          {
+            "name": "per-topology-data",
+            "fields": [
+              {
+                "name": "id",
+                "fields": [
+                  {
+                    "name": "af-name"
+                  },
+                  {
+                    "name": "saf-name"
+                  },
+                  {
+                    "name": "vrf-name"
+                  },
+                  {
+                    "name": "topology-name"
+                  }
+                ]
+              },
+              {
+                "name": "statistics",
+                "fields": [
+                  {
+                    "name": "spf-run-count"
+                  },
+                  {
+                    "name": "ispf-run-count"
+                  },
+                  {
+                    "name": "nhc-run-count"
+                  },
+                  {
+                    "name": "prc-run-count"
+                  },
+                  {
+                    "name": "periodic-run-count"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "instance-name",
+        "tag": true
+      }
+    ]
+  }
+},
+{
+   "basepath" : "Cisco-IOS-XR-ipv4-bgp-oper:bgp/instances/instance/instance-active/default-vrf/process-info",
+   "spec" : {
+     "fields" : [
+       {"name":"instance-name", "tag": true},
+       {"name":"global",
+         "fields" : [
+           {"name":"restart-count"},
+           {"name":"as-path-entry-count"},
+           {"name":"path-attributes-entry-count"},
+           {"name":"nexthop-count"},
+           {"name":"neighbors-count-total"},
+           {"name":"established-neighbors-count-total"}
+         ]
+       },
+       {"name":"vrf",
+         "fields" : [
+           {"name":"neighbors-count"},
+           {"name":"established-neighbors-count"},
+           {"name":"network-count"},
+           {"name":"path-count"},
+           {"name":"yellow-oor-threshold-percent"},
+           {"name":"inuse-objects"}
+         ]
+       }
+     ]
+   }
+},
+{
+		"basepath" : "Cisco-IOS-XR-mpls-te-oper:mpls-te/tunnels/summary",
+		"spec" : {
+			"fields" : [
+				{"name" : "auto-bandwidth-tunnels"},
+				{"name" : "backup-tunnels"},
+				{"name" : "bw-protected-tunnels"},
+				{"name" : "node-protected-tunnels"},
+				{"name" : "link-protected-tunnels"},
+				{"name" : "frr-head-tunnels"},
+				{"name" : "frr-mid-point-tunnels"},
+				{"name" : "protected-head-tunnels"},
+				{"name" : "protected-mid-point-tunnels"},
+				{"name" : "p2p-head-tunnels"},
+				{"name" : "frr-protected-interfaces"}
+			]
+		}
+},
+{
+    "basepath": "Cisco-IOS-XR-ip-rsvp-oper:rsvp/interface-briefs/interface-brief",
+    "spec": {
+      "fields": [
+        {
+          "name": "interface-name",
+          "tag": true
+        },
+        {
+          "name": "bandwidth-information",
+          "fields": [
+            {
+              "name": "pre-standard-dste-interface",
+              "fields": [
+                {
+                  "name": "allocated-bit-rate"
+                },
+                {
+                  "name": "max-flow-bandwidth"
+                },
+                {
+                  "name": "max-bandwidth"
+                },
+                {
+                  "name": "max-subpool-bandwidth"
+                },
+                {
+                  "name": "is-max-bandwidth-absolute"
+                },
+                {
+                  "name": "is-max-subpool-bandwidth-absolute"
+                }
+              ]
+            },
+            {
+              "name": "standard-dste-interface",
+              "fields": [
+                {
+                  "name": "allocated-bit-rate"
+                },
+                {
+                  "name": "max-flow-bandwidth"
+                },
+                {
+                  "name": "max-bandwidth"
+                },
+                {
+                  "name": "max-pool0-bandwidth"
+                },
+                {
+                  "name": "max-pool1-bandwidth"
+                },
+                {
+                  "name": "is-max-bandwidth-absolute"
+                },
+                {
+                  "name": "is-max-bc0-bandwidth-absolute"
+                },
+                {
+                  "name": "is-max-bc1-bandwidth-absolute"
+                }
+              ]
+            },
+            {
+              "name": "dste-mode"
+            }
+          ]
+        },
+        {
+          "name": "interface-name-xr"
+        }
+      ]
+    }
+},
+{
+    "basepath": "Cisco-IOS-XR-ip-rsvp-oper:rsvp/counters/interface-messages/interface-message",
+    "spec": {
+      "fields": [
+        {
+          "name": "interface-name",
+          "tag": true
+        },
+        {
+          "name": "received-messages",
+          "fields": [
+            {
+              "name": "path"
+            },
+            {
+              "name": "reservation"
+            },
+            {
+              "name": "path-error"
+            },
+            {
+              "name": "reservation-error"
+            },
+            {
+              "name": "path-tear"
+            },
+            {
+              "name": "reservation-tear"
+            },
+            {
+              "name": "reservation-confirm"
+            },
+            {
+              "name": "bundle"
+            },
+            {
+              "name": "ack"
+            },
+            {
+              "name": "srefresh"
+            },
+            {
+              "name": "hello"
+            },
+            {
+              "name": "challenge"
+            },
+            {
+              "name": "response"
+            }
+          ]
+        },
+        {
+          "name": "transmitted-messages",
+          "fields": [
+            {
+              "name": "path"
+            },
+            {
+              "name": "reservation"
+            },
+            {
+              "name": "path-error"
+            },
+            {
+              "name": "reservation-error"
+            },
+            {
+              "name": "path-tear"
+            },
+            {
+              "name": "reservation-tear"
+            },
+            {
+              "name": "reservation-confirm"
+            },
+            {
+              "name": "bundle"
+            },
+            {
+              "name": "ack"
+            },
+            {
+              "name": "srefresh"
+            },
+            {
+              "name": "hello"
+            },
+            {
+              "name": "challenge"
+            },
+            {
+              "name": "response"
+            }
+          ]
+        },
+        {
+          "name": "bundle-received-messages",
+          "fields": [
+            {
+              "name": "path"
+            },
+            {
+              "name": "reservation"
+            },
+            {
+              "name": "path-error"
+            },
+            {
+              "name": "reservation-error"
+            },
+            {
+              "name": "path-tear"
+            },
+            {
+              "name": "reservation-tear"
+            },
+            {
+              "name": "reservation-confirm"
+            },
+            {
+              "name": "bundle"
+            },
+            {
+              "name": "ack"
+            },
+            {
+              "name": "srefresh"
+            },
+            {
+              "name": "hello"
+            },
+            {
+              "name": "challenge"
+            },
+            {
+              "name": "response"
+            }
+          ]
+        },
+        {
+          "name": "bundle-transmitted-messages",
+          "fields": [
+            {
+              "name": "path"
+            },
+            {
+              "name": "reservation"
+            },
+            {
+              "name": "path-error"
+            },
+            {
+              "name": "reservation-error"
+            },
+            {
+              "name": "path-tear"
+            },
+            {
+              "name": "reservation-tear"
+            },
+            {
+              "name": "reservation-confirm"
+            },
+            {
+              "name": "bundle"
+            },
+            {
+              "name": "ack"
+            },
+            {
+              "name": "srefresh"
+            },
+            {
+              "name": "hello"
+            },
+            {
+              "name": "challenge"
+            },
+            {
+              "name": "response"
+            }
+          ]
+        },
+        {
+          "name": "retransmitted-messages"
+        },
+        {
+          "name": "out-of-order-messages"
+        },
+        {
+          "name": "rate-limited-messages"
+        }
+      ]
+    }
+  },
+  {
+    "basepath" : "Cisco-IOS-XR-ip-rib-ipv6-oper:ipv6-rib/vrfs/vrf/afs/af/safs/saf/ip-rib-route-table-names/ip-rib-route-table-name/protocol/isis/as/information",
+    "spec" : {
+        "fields" : [
+            {"name" : "vrf-name", "tag" : true},
+            {"name" : "af-name", "tag" : true},
+            {"name" : "saf-name", "tag" : true},
+            {"name" : "route-table-name", "tag" : true},
+            {"name" : "as", "tag" : true},
+            {"name" : "routes-counts"},
+            {"name" : "active-routes-count"},
+            {"name" : "deleted-routes-count"},
+            {"name" : "paths-count"},
+            {"name" : "protocol-route-memory"},
+            {"name" : "backup-routes-count"}
+          ]
+       }
+    }
+]

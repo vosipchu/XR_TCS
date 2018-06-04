@@ -1,0 +1,20 @@
+dbrp "mdt_db"."autogen"
+
+stream
+    // Select just the cpu measurement from our created mdt_db database.
+    |from()
+        .measurement('Cisco-IOS-XR-wdsysmon-fd-oper:system-monitoring/cpu-utilization')
+        .groupBy('Producer', 'node-name', 'process-cpu__process-name')
+    // This defines the action we want to create
+    |alert()
+	// 15 is the threshold. Crossing 15 means something is wrong
+        .info(lambda: "total-cpu-one-minute" > 15)
+	// Add different levels of alarms if you want
+        //        .warn(lambda: "total-cpu-one-minute" > 20)
+        //        .crit(lambda: "total-cpu-one-minute" > 25)
+        .log('/tmp/alerts.log')
+	// Sending our alarm notification to the python script
+        .post('http://localhost:5200/relay')
+	// Every alarm will be generated only once after crossing the threshold above
+	// Remove this line if you want to have alarms constantly (when above the threshold)
+	.stateChangesOnly()
