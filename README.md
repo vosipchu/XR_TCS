@@ -82,7 +82,7 @@ This procedure assumes you have a freshly installed Ubuntu server. This code was
 Follow these basic steps to have the described stack up and running:
 
 1. Download the [Collection Stack repo](https://github.com/vosipchu/XR_TCS) on your server. [cd ~ && wget https://github.com/vosipchu/XR_TCS/archive/master.zip]
-2. Install ZIP and extract the archive with the specific name (sudo apt-get -y install zip && unzip master.zip -d IOSXR-Telemetry-Collection-Stack)
+2. Install ZIP, extract the archive, rename the directory (sudo apt-get -y install zip && unzip master.zip && mv XR_TCS-master IOSXR-Telemetry-Collection-Stack)
 3. Run the “init.sh” script from that directory (~/IOSXR-Telemetry-Collection-Stack/init.sh) and log off.
 4. Log in back and update the “BuildUP-help.doc” file from that directory (nano  ~/IOSXR-Telemetry-Collection-Stack/BuildUP-help.doc). See how to update the document right below.
 5. Run the main script (sudo ~/IOSXR-Telemetry-Collection-Stack/IOS-XR-Telemetry-BuildUP-stack.sh < ~/IOSXR-Telemetry-Collection-Stack/BuildUP-help.doc)
