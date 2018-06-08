@@ -261,8 +261,8 @@ echo -e "\e[1;32m Copying four MIBs for our profile \e[0m";
 mkdir -p /etc/telegraf/.snmp/mibs && cp ~/.snmp/mibs/* /etc/telegraf/.snmp/mibs
 sleep 5
 echo -e "\e[1;32m All is good, ready to start Telegraf \e[0m";
-sleep 2
 systemctl start telegraf > /dev/null
+sleep 2
 ## Check that Telegraf is running
 if pgrep -x "telegraf" > /dev/null
 then
