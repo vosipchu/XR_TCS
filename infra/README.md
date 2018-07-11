@@ -236,7 +236,7 @@ The first component to monitor is the total CPU (per core) utilization. You shou
 
 Here is a snapshot from a dashboard with the total CPU per core usage:
 
-![](https://github.com/vosipchu/XR_TCS/tree/master/infra/docs/01_cpu_total_1router.png?raw=true)
+![](https://github.com/vosipchu/XR_TCS/blob/master/infra/docs/01_cpu_total_1router.png?raw=true)
 
 One second granularity is not good enough to catch the instantaneous load of the cores, but it shows that all the cores are loaded equally, and there are spikes up to ~10-11%. (in the idle mode, before the testing, all the cores were about ~1-2%)
 
@@ -263,14 +263,14 @@ exe = "pipeline"
 
 And here is a snapshot from the per-process load when there is a single active router:
 
-![](https://github.com/vosipchu/XR_TCS/tree/master/infra/docs/02_cpu_per_process_1router.png?raw=true)
+![](https://github.com/vosipchu/XR_TCS/blob/master/infra/docs/02_cpu_per_process_1router.png?raw=true)
 
 InfluxDB takes the most CPU power across all the monitored processes. It is roughly ~120%-140% of the load. Pipeline takes ~50%, and the load of Grafana is almost nothing comparing to the first two applications (and this confirms [the words of the developer](https://community.grafana.com/t/hardware-requirements-for-a-grafana-server/2853/2))
 This picture seems reasonable, as InfluxDB does reads, compressions, writes; hence, it takes the most power.
 
 The final step here, for checking CPU, is to get a snapshot from Linux itself. To do this ["htop"](https://github.com/hishamhm/htop) was used.
 
-![](https://github.com/vosipchu/XR_TCS/tree/master/infra/docs/03_cpu_linux_1router.png?raw=true)
+![](https://github.com/vosipchu/XR_TCS/blob/master/infra/docs/03_cpu_linux_1router.png?raw=true)
 
 "htop" updates data pretty fast, and every ~5s it is possible to catch the top load for Influxdb as well as Pipeline.
 And we got the confirmation for Telegraf data seen before (a big spike was caught).
@@ -289,7 +289,7 @@ There is no secret that InfluxDB reads and writes data using internal [algorithm
 
 Here is a snapshot of DRAM utilization over several hours:
 
-![](https://github.com/vosipchu/XR_TCS/tree/master/infra/docs/04_dram_1router.png?raw=true)
+![](https://github.com/vosipchu/XR_TCS/blob/master/infra/docs/04_dram_1router.png?raw=true)
 
 In the idle mode, it was about 1.3GB of DRAM used. According to the graph it roughly takes around 2.5G of DRAM now. The difference leaves ~1.2GB to process ~350k counters at five seconds interval.
 
@@ -345,7 +345,7 @@ This will monitor the full disk. There was nothing else running on the server, s
 
 Here is a snapshot of the hard disk utilization based on two days of monitoring:
 
-![](https://github.com/vosipchu/XR_TCS/tree/master/infra/docs/05_disk_1router.png?raw=true)
+![](https://github.com/vosipchu/XR_TCS/blob/master/infra/docs/05_disk_1router.png?raw=true)
 
 As you can see, it constantly goes up and down, with a midpoint of around 4GB.
 Here is an instant snapshot from the server itself:
@@ -378,13 +378,13 @@ To have write speed monitoring added in Telegraf, you should have these lines in
 
 Here is a snapshot of the hard disk write speed with just a single router pushing data:
 
-![](https://github.com/vosipchu/XR_TCS/tree/master/infra/docs/06_iospeed_1router.png?raw=true)
+![](https://github.com/vosipchu/XR_TCS/blob/master/infra/docs/06_iospeed_1router.png?raw=true)
 
 The write speed is within the range from ~60MBps to ~90MBps.
 
 This can also be confirmed with the output from the Linux server itself ([iotop tool](https://www.cyberciti.biz/hardware/linux-iotop-simple-top-like-io-monitor/) was used to get this data):
 
-![](https://github.com/vosipchu/XR_TCS/tree/master/infra/docs/07_iospeed_linux_1router.png?raw=true)
+![](https://github.com/vosipchu/XR_TCS/blob/master/infra/docs/07_iospeed_linux_1router.png?raw=true)
 
 This snapshot confirms the value we saw in Telegraf (it will show the top value once in ~5 seconds).
 
@@ -704,26 +704,26 @@ NIC statistics:
 
 This is a snapshot of RX (and TX) load of the interface, where streaming telemetry was pushed to:
 
-![](https://github.com/vosipchu/XR_TCS/tree/master/infra/docs/08_server_rx_1router.png?raw=true)
+![](https://github.com/vosipchu/XR_TCS/blob/master/infra/docs/08_server_rx_1router.png?raw=true)
 
 As you can see, the bandwidth profile is pretty close to the picture you might already have in your mind. Every fifth second you see two spikes of bandwidth utilization. The first one is pretty small (~12Mbps, it contains a set of "fast" collections) and then the big one follows (~73Mbps, it includes mostly MPLS-TE counters).
 This is something expected, as Telemetry works every sample interval and the amount of data is (roughly) the same (there were no changes/updates done in the router).
 
 Let's now check the transmission rate from the Management interface of the router used in the test:
 
-![](https://github.com/vosipchu/XR_TCS/tree/master/infra/docs/09_router_tx_1router.png?raw=true)
+![](https://github.com/vosipchu/XR_TCS/blob/master/infra/docs/09_router_tx_1router.png?raw=true)
 
 The traffic profile is totally the same! You can see the small spikes (for fast collections) followed by the big spikes (MPLS-TE collections) with the same values.
 
 You can also use any of the existing tools that collect counters from networking interfaces to calculate the rate. ["Speedometer"](http://excess.org/speedometer/) was used in the testing. Speedometer also gets counters from [/proc/net/dev](https://github.com/wardi/speedometer/blob/master/speedometer.py#L606-L612), so, it will be shown here just once to check Telegraf.
 
-![](https://github.com/vosipchu/XR_TCS/tree/master/infra/docs/10_server_tool_rx_1router.png?raw=true)
+![](https://github.com/vosipchu/XR_TCS/blob/master/infra/docs/10_server_tool_rx_1router.png?raw=true)
 
 This graph gives a bit better granularity, but, overall, confirms the graph we saw with Telegraf. There are several peaks with a higher rate (83Mbps vs. 73Mbps), mostly because several packets from smaller spikes were added to the big ones during the rate calculation.
 
 And here is an example of how telemetry push looks through several hours of observation:
 
-![](https://github.com/vosipchu/XR_TCS/tree/master/infra/docs/11_router_tx_1router_long.png?raw=true)
+![](https://github.com/vosipchu/XR_TCS/blob/master/infra/docs/11_router_tx_1router_long.png?raw=true)
 
 The Management interface load stays constant as expected.
 
@@ -735,12 +735,12 @@ All you need is to follow the graphs.
 
 Here is a snapshot of the Pipeline load while processing counters from a single router:
 
-![](https://github.com/vosipchu/XR_TCS/tree/master/infra/docs/12_pipeline_30min_1router.png?raw=true)
+![](https://github.com/vosipchu/XR_TCS/blob/master/infra/docs/12_pipeline_30min_1router.png?raw=true)
 
 Throughput is something around 2.2MBps. (try to guess the subscription the pink color corresponds to ;) )
 No surprise, this load is the same and stable across a couple of days:
 
-![](https://github.com/vosipchu/XR_TCS/tree/master/infra/docs/13_pipeline_2days_1router.png?raw=true)
+![](https://github.com/vosipchu/XR_TCS/blob/master/infra/docs/13_pipeline_2days_1router.png?raw=true)
 
 
 ## Step Two: Two Routers
@@ -756,7 +756,7 @@ Let's look through the snapshots to find the math.
 As before, let's start with the per core CPU load.
 Here is a snapshot of the graph, showing CPU load for the last 24h:
 
-![](https://github.com/vosipchu/XR_TCS/tree/master/infra/docs/14_cpu_total_2routers.png?raw=true)
+![](https://github.com/vosipchu/XR_TCS/blob/master/infra/docs/14_cpu_total_2routers.png?raw=true)
 
 The addition of the router was around "14:00" on that graph (the time is marked on this graph and follow similar marks of the following graphs).
 More spikes are seen after the second router started pushing its telemetry data. The max value of spikes now is around 25%, and the midpoint is approximately 15%.
@@ -767,7 +767,7 @@ It is hard to do the analysis based on this graph only, so, let's see the per-pr
 
 Okay, let's check what is the situation with our three main processes:
 
-![](https://github.com/vosipchu/XR_TCS/tree/master/infra/docs/15_cpu_per_process_2routers.png?raw=true)
+![](https://github.com/vosipchu/XR_TCS/blob/master/infra/docs/15_cpu_per_process_2routers.png?raw=true)
 
 To remind, with a single router we saw ~130% of InfluxDB and ~50% of Pipeline load.
 After adding the second router, it is seen that Pipeline is around 100% of the load. This gives us an assumption that Pipeline needs ~0.5 of vCPU per router.
@@ -776,13 +776,13 @@ Grafana load is still nothing, comparing to both, Pipeline and InflxuDB.
 
 Here is a snapshot for the 24h of per-process load monitoring:
 
-![](https://github.com/vosipchu/XR_TCS/tree/master/infra/docs/16_cpu_per_process_24h_2routers.png?raw=true)
+![](https://github.com/vosipchu/XR_TCS/blob/master/infra/docs/16_cpu_per_process_24h_2routers.png?raw=true)
 
 InfluxDB midpoint is really ~250% (with random spikes to ~350%-400%), while Pipeline stayed almost flat around 100%.
 
 And the final check on the Linux itself:
 
-![](https://github.com/vosipchu/XR_TCS/tree/master/infra/docs/17_cpu_linux_2routers.png?raw=true)
+![](https://github.com/vosipchu/XR_TCS/blob/master/infra/docs/17_cpu_linux_2routers.png?raw=true)
 
 A snapshot was done at one of the highest spikes, and it confirms that InfluxDB goes up to ~290%, with Pipeline close to ~100%.
 
@@ -790,7 +790,7 @@ A snapshot was done at one of the highest spikes, and it confirms that InfluxDB 
 
 A single router took around 1.2GB of the DRAM from the server. Here is a snapshot of DRAM stats for 24 hours:
 
-![](https://github.com/vosipchu/XR_TCS/tree/master/infra/docs/18_dram_2routers.png?raw=true)
+![](https://github.com/vosipchu/XR_TCS/blob/master/infra/docs/18_dram_2routers.png?raw=true)
 
 DRAM utilization moved from ~2.5GB to ~3.6GB-3.7GB after the second router was added.
 It is something about ~1,1GB-1.2GB increase for the new router (the value is consistent)
@@ -813,7 +813,7 @@ The result is pretty close to what we see with Telegraf.
 
 To store information from the first router, ~4GB of the space was needed. Keep on using the same retention policy, here is a snapshot of the 2-day disk utilization monitoring after the second router was added:
 
-![](https://github.com/vosipchu/XR_TCS/tree/master/infra/docs/19_disk_2routers.png?raw=true)
+![](https://github.com/vosipchu/XR_TCS/blob/master/infra/docs/19_disk_2routers.png?raw=true)
 
 The disk utilization is now around 8GB. It means that adding one more device with the similar scale adds right the same amount of disk utilization (4GB per a router).
 
@@ -833,13 +833,13 @@ cisco@ubuntu:~$ sudo du -sh /var/lib/influxdb/data/
 The write speed for the first router was ~60MBps-90MBps during the periods of counters coming to the server.
 This is a snapshot of the write speed with two routers:
 
-![](https://github.com/vosipchu/XR_TCS/tree/master/infra/docs/20_iospeed_2routers.png?raw=true)
+![](https://github.com/vosipchu/XR_TCS/blob/master/infra/docs/20_iospeed_2routers.png?raw=true)
 
 There are many spikes up to ~600MBps, but the dense part is now ~200-250MBps. It looks like a new router needs at least ~90MBps of the write speed.
 
 Here is one of the peaks caught from the Linux console:
 
-![](https://github.com/vosipchu/XR_TCS/tree/master/infra/docs/21_iospeed_linux_2routers.png?raw=true)
+![](https://github.com/vosipchu/XR_TCS/blob/master/infra/docs/21_iospeed_linux_2routers.png?raw=true)
 
 IOTOP shows a smaller value, that is more relevant to the normal mode (not spikes).
 
@@ -853,7 +853,7 @@ In the first case, you will see the max peak value multiplied by 2x. In the seco
 
 In the tests, the second situation was observed:
 
-![](https://github.com/vosipchu/XR_TCS/tree/master/infra/docs/22_server_RX_2routers.png?raw=true)
+![](https://github.com/vosipchu/XR_TCS/blob/master/infra/docs/22_server_RX_2routers.png?raw=true)
 
 With the first router, the peak value was ~72Mbps. Right now several collections are aligned in time. The peak value for several collections is ~90Mbps and the second peak around 80Mbps. (Again, the worst case scenario would be start time alignment and peak values up to ~150Mbps).
 
@@ -864,7 +864,7 @@ There is no need to show the long-term snapshot, as with streaming telemetry you
 With the first router, we observed 2.2MBps of Pipeline throughput.
 Here is a snapshot with the load after adding the second one:
 
-![](https://github.com/vosipchu/XR_TCS/tree/master/infra/docs/23_pipeline_load_2routers.png?raw=true)
+![](https://github.com/vosipchu/XR_TCS/blob/master/infra/docs/23_pipeline_load_2routers.png?raw=true)
 
 The volume of decoded messages grew up exactly two times! It means, every new similar router will need the same amount of processing power (~2.2MBps)
 
@@ -878,7 +878,7 @@ Three more routers were added to the testbed. All were NCS5502 with 6.3.2 IOS XR
 
 As before, let's start with the total CPU load:
 
-![](https://github.com/vosipchu/XR_TCS/tree/master/infra/docs/24_cpu_total_5routers.png?raw=true)
+![](https://github.com/vosipchu/XR_TCS/blob/master/infra/docs/24_cpu_total_5routers.png?raw=true)
 
 We observed the peak values ~25% and midpoint was ~15% with two routers. With five routers we can see ~22-25% as the midpoint, and peak values are up to 40%. This test confirms that all the processes are balanced almost equally across the cores, and we don't see a linear increase on just a subset of cores. More details should be available in the per-process view.
 
@@ -886,7 +886,7 @@ We observed the peak values ~25% and midpoint was ~15% with two routers. With fi
 
 Let's jump directly to the comparison of the per-process load with a long time of monitoring:
 
-![](https://github.com/vosipchu/XR_TCS/tree/master/infra/docs/25_cpu_per_process_5routers.png?raw=true)
+![](https://github.com/vosipchu/XR_TCS/blob/master/infra/docs/25_cpu_per_process_5routers.png?raw=true)
 
 Based on this graph we can see that Pipeline now takes 250% and InfluxDB takes around 650%. This confirms our previous thoughts that Pipeline needs approximately 50% (~0.5 vCPU) to process a single router with ~350k of counters every five seconds. InfluxDB needs something around 120-130% per a router (~1.3 vCPU)
 
@@ -895,7 +895,7 @@ Based on this graph we can see that Pipeline now takes 250% and InfluxDB takes a
 In our previous test, we saw that around ~1.1GB-1.2GB of the DRAM was needed to process streaming telemetry from a router.
 Let's see the graph with the five routers:
 
-![](https://github.com/vosipchu/XR_TCS/tree/master/infra/docs/26_dram_5routers.png?raw=true)
+![](https://github.com/vosipchu/XR_TCS/blob/master/infra/docs/26_dram_5routers.png?raw=true)
 
 We can see that the used DRAM moved from ~3.6GB to something ~7.2GB-7.3GB (midpoint). This test confirms that ~1.1GB-1.2GB of DRAM is needed to process a router with ~350k counters every five seconds.  
 
@@ -903,7 +903,7 @@ We can see that the used DRAM moved from ~3.6GB to something ~7.2GB-7.3GB (midpo
 
 According to our previous tests, we needed ~4GB to store data from a single router and around ~8GB for two of them. Let's see the disk utilization with five routers streaming telemetry data:
 
-![](https://github.com/vosipchu/XR_TCS/tree/master/infra/docs/27_disk_5routers.png?raw=true)
+![](https://github.com/vosipchu/XR_TCS/blob/master/infra/docs/27_disk_5routers.png?raw=true)
 
 It looks like that the utilization is around 20-25GB and this confirms our assumption that ~4GB of the hard disk is needed to store all the data from five routers.
 The retention policy configured is 3h+1h. This tells us that, roughly, an hour of storage of ~350k counters pushed every five seconds takes ~1GB of the hard disk.  
@@ -912,7 +912,7 @@ The retention policy configured is 3h+1h. This tells us that, roughly, an hour o
 
 Here is the graph with the write speed on the hard disk:
 
-![](https://github.com/vosipchu/XR_TCS/tree/master/infra/docs/28_iospeed_5routers.png?raw=true)
+![](https://github.com/vosipchu/XR_TCS/blob/master/infra/docs/28_iospeed_5routers.png?raw=true)
 
 As you can see, the dense part "moved" from ~200MBps to ~400MBps.
 The fact of the increase in the write speed is obvious, but you can't jump over the max speed on your drive. That's why the system will keep on writing till the data is still in internal memory (hence, you see a more dense area).
@@ -923,7 +923,7 @@ Please, remember, if you write speed is not good enough to handle immediately al
 As with two routers, you might meet different situations with five routers. Sample intervals can be aligned at start time or not.
 Here is the graph from the tests:
 
-![](https://github.com/vosipchu/XR_TCS/tree/master/infra/docs/29_server_rx_5routers.png?raw=true)
+![](https://github.com/vosipchu/XR_TCS/blob/master/infra/docs/29_server_rx_5routers.png?raw=true)
 
 Several routers were aligned in their intervals, that's why you're able to see spikes up to ~185Mbps. The result here is that the total bandwidth will depend on the number of simultaneous pushes and a single router can take ~72Mbps.
 
@@ -931,7 +931,7 @@ Several routers were aligned in their intervals, that's why you're able to see s
 
 The final piece to look at is Pipeline. Here is a snapshot:
 
-![](https://github.com/vosipchu/XR_TCS/tree/master/infra/docs/30_pipeline_5routers.png?raw=true)
+![](https://github.com/vosipchu/XR_TCS/blob/master/infra/docs/30_pipeline_5routers.png?raw=true)
 
 Again, no surprise here. Every new router added ~2MBps of the load for the tool. You can also see that most of the processing was taken by just a single subscription from every router. This graph, actually, confirms that the number of counters of every router was almost the same!
 
