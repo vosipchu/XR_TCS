@@ -162,7 +162,7 @@ def isis (dut):
 ## main part for catching updates from Kapacitor
 app = Flask(__name__)
 
-TOKEN = 'T4GNJG4BV/B8WBWCM45/gwpFByQ1U14CnidljFwxqmIp'
+TOKEN = 'TokenID'
 SLACK_BASE = 'https://hooks.slack.com/services/'
 
 
