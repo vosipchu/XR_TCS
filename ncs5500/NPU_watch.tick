@@ -1,0 +1,21 @@
+dbrp "mdt_db"."autogen"
+
+stream
+    // Select BCM-DPA sensor path from mdt_db database.
+    |from()
+        .measurement('Cisco-IOS-XR-fretta-bcm-dpa-hw-resources-oper:dpa/stats/nodes/node/hw-resources-datas/hw-resources-data')
+        .groupBy('Producer', 'node-name')
+        .where(lambda: "resource"=='lem')
+        .where(lambda: "npu-hwr-list__lt-hwr-list__name"=='iproute')
+    // This defines the action we want to create
+    |alert()
+	// IPv4 entries is the threshold. Crossing 650k means something is wrong
+        .info(lambda: "npu-hwr-list__lt-hwr-list__hw-entries" > 650000)
+	// Add different levels of alarms if you want
+        //        .warn(lambda: "XXXX" > YYYY)
+        //        .crit(lambda: "AAAAA" > BBBB)
+	// Sending our alarm notification to the python script
+	.stateChangesOnly()
+        .post('http://10.30.110.40:5300/relay')
+	// Every alarm will be generated only once after crossing the threshold above
+	// Remove this line if you want to have alarms constantly (when above the threshold)

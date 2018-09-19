@@ -1,0 +1,6857 @@
+{
+  "__inputs": [],
+  "__requires": [
+    {
+      "type": "grafana",
+      "id": "grafana",
+      "name": "Grafana",
+      "version": "5.0.3"
+    }
+  ],
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": "-- Grafana --",
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "type": "dashboard"
+      }
+    ]
+  },
+  "editable": true,
+  "gnetId": null,
+  "graphTooltip": 0,
+  "id": null,
+  "links": [],
+  "panels": [
+    {
+      "collapsed": true,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 0
+      },
+      "id": 5,
+      "panels": [
+        {
+          "colors": [
+            "rgba(50, 172, 45, 0.97)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(245, 54, 54, 0.9)"
+          ],
+          "content": "graph LR\nA[\"NCS5501_top\"] -- BE14 --> B[\"NCS5502_top\"]\nA -- BE13 --> C[\"NCS5502_bottom\"]\nA -- BE12 --> E[\"NCS5501_bottom\"] \nA -- BE16 --> F[\"NCS5502_center\"] ",
+          "datasource": "InfluxDB",
+          "format": "none",
+          "graphId": "diagram_2",
+          "gridPos": {
+            "h": 11,
+            "w": 11,
+            "x": 0,
+            "y": 1
+          },
+          "id": 2,
+          "init": {
+            "arrowMarkerAbsolute": true,
+            "cloneCssStyles": false,
+            "flowchart": {
+              "htmlLabels": true,
+              "useMaxWidth": true
+            },
+            "gantt": {
+              "barGap": 4,
+              "barHeight": 20,
+              "fontFamily": "\"Open-Sans\", \"sans-serif\"",
+              "fontSize": 11,
+              "gridLineStartPadding": 35,
+              "leftPadding": 75,
+              "numberSectionStyles": 3,
+              "titleTopMargin": 25,
+              "topPadding": 50
+            },
+            "logLevel": 3,
+            "sequenceDiagram": {
+              "actorMargin": 50,
+              "bottomMarginAdj": 1,
+              "boxMargin": 10,
+              "boxTextMargin": 5,
+              "diagramMarginX": 50,
+              "diagramMarginY": 10,
+              "height": 65,
+              "messageMargin": 35,
+              "mirrorActors": true,
+              "noteMargin": 10,
+              "useMaxWidth": true,
+              "width": 150
+            },
+            "startOnLoad": false
+          },
+          "legend": {
+            "avg": true,
+            "current": true,
+            "gradient": {
+              "enabled": true,
+              "show": true
+            },
+            "max": true,
+            "min": true,
+            "show": false,
+            "total": true
+          },
+          "links": [],
+          "mappingType": 1,
+          "maxDataPoints": 100,
+          "maxWidth": false,
+          "nullPointMode": "connected",
+          "seriesOverrides": [],
+          "targets": [
+            {
+              "alias": "[[tag_Producer]]",
+              "groupBy": [
+                {
+                  "params": [
+                    "Producer"
+                  ],
+                  "type": "tag"
+                }
+              ],
+              "measurement": "Cisco-IOS-XR-fretta-bcm-dpa-hw-resources-oper:dpa/stats/nodes/node/hw-resources-datas/hw-resources-data",
+              "orderByTime": "ASC",
+              "policy": "default",
+              "refId": "A",
+              "resultFormat": "time_series",
+              "select": [
+                [
+                  {
+                    "params": [
+                      "npu-hwr-list__inuse-objects"
+                    ],
+                    "type": "field"
+                  },
+                  {
+                    "params": [],
+                    "type": "max"
+                  }
+                ]
+              ],
+              "tags": [
+                {
+                  "key": "resource",
+                  "operator": "=",
+                  "value": "lem"
+                }
+              ]
+            }
+          ],
+          "thresholds": "600000, 710000",
+          "title": "LEM TABLE",
+          "transparent": true,
+          "type": "jdbranham-diagram-panel",
+          "valueMaps": [
+            {
+              "op": "=",
+              "text": "N/A",
+              "value": "null"
+            }
+          ],
+          "valueName": "current",
+          "valueOptions": [
+            "avg",
+            "min",
+            "max",
+            "total",
+            "current"
+          ]
+        },
+        {
+          "colors": [
+            "#bf1b00",
+            "rgb(249, 240, 238)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "content": "graph LR\nA[\"NCS5501_top\"] -- BE14 --> B[\"NCS5502_top\"]\nA -- BE13 --> C[\"NCS5502_bottom\"]\nA -- BE12 --> E[\"NCS5501_bottom\"] \nA -- BE16 --> F[\"NCS5502_center\"] ",
+          "datasource": "InfluxDB",
+          "format": "none",
+          "graphId": "diagram_3",
+          "gridPos": {
+            "h": 11,
+            "w": 11,
+            "x": 11,
+            "y": 1
+          },
+          "id": 3,
+          "init": {
+            "arrowMarkerAbsolute": true,
+            "cloneCssStyles": false,
+            "flowchart": {
+              "htmlLabels": true,
+              "useMaxWidth": true
+            },
+            "gantt": {
+              "barGap": 4,
+              "barHeight": 20,
+              "fontFamily": "\"Open-Sans\", \"sans-serif\"",
+              "fontSize": 11,
+              "gridLineStartPadding": 35,
+              "leftPadding": 75,
+              "numberSectionStyles": 3,
+              "titleTopMargin": 25,
+              "topPadding": 50
+            },
+            "logLevel": 3,
+            "sequenceDiagram": {
+              "actorMargin": 50,
+              "bottomMarginAdj": 1,
+              "boxMargin": 10,
+              "boxTextMargin": 5,
+              "diagramMarginX": 50,
+              "diagramMarginY": 10,
+              "height": 65,
+              "messageMargin": 35,
+              "mirrorActors": true,
+              "noteMargin": 10,
+              "useMaxWidth": true,
+              "width": 150
+            },
+            "startOnLoad": false
+          },
+          "legend": {
+            "avg": true,
+            "current": true,
+            "gradient": {
+              "enabled": false,
+              "show": true
+            },
+            "max": true,
+            "min": true,
+            "show": false,
+            "total": true
+          },
+          "links": [],
+          "mappingType": 1,
+          "maxDataPoints": 100,
+          "maxWidth": false,
+          "nullPointMode": "connected",
+          "seriesOverrides": [],
+          "targets": [
+            {
+              "alias": "[[tag_Producer]]",
+              "groupBy": [
+                {
+                  "params": [
+                    "$interval"
+                  ],
+                  "type": "time"
+                },
+                {
+                  "params": [
+                    "Producer"
+                  ],
+                  "type": "tag"
+                }
+              ],
+              "measurement": "Cisco-IOS-XR-fretta-bcm-dpa-hw-resources-oper:dpa/stats/nodes/node/hw-resources-datas/hw-resources-data",
+              "orderByTime": "ASC",
+              "policy": "default",
+              "refId": "A",
+              "resultFormat": "time_series",
+              "select": [
+                [
+                  {
+                    "params": [
+                      "npu-hwr-list__inuse-objects"
+                    ],
+                    "type": "field"
+                  },
+                  {
+                    "params": [],
+                    "type": "max"
+                  },
+                  {
+                    "params": [],
+                    "type": "difference"
+                  }
+                ]
+              ],
+              "tags": [
+                {
+                  "key": "resource",
+                  "operator": "=",
+                  "value": "lem"
+                }
+              ]
+            }
+          ],
+          "thresholds": "-.1,.1",
+          "title": "LEM TABLE CHANGE",
+          "transparent": true,
+          "type": "jdbranham-diagram-panel",
+          "valueMaps": [
+            {
+              "op": "=",
+              "text": "N/A",
+              "value": "null"
+            }
+          ],
+          "valueName": "current",
+          "valueOptions": [
+            "avg",
+            "min",
+            "max",
+            "total",
+            "current"
+          ]
+        }
+      ],
+      "title": "LEM Table Instant View",
+      "type": "row"
+    },
+    {
+      "collapsed": true,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 1
+      },
+      "id": 7,
+      "panels": [
+        {
+          "colors": [
+            "rgba(50, 172, 45, 0.97)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(245, 54, 54, 0.9)"
+          ],
+          "content": "graph LR\nA[\"NCS5501_top\"] -- BE14 --> B[\"NCS5502_top\"]\nA -- BE13 --> C[\"NCS5502_bottom\"]\nA -- BE12 --> E[\"NCS5501_bottom\"] \nA -- BE16 --> F[\"NCS5502_center\"] ",
+          "datasource": "InfluxDB",
+          "format": "none",
+          "graphId": "diagram_8",
+          "gridPos": {
+            "h": 11,
+            "w": 11,
+            "x": 0,
+            "y": 13
+          },
+          "id": 8,
+          "init": {
+            "arrowMarkerAbsolute": true,
+            "cloneCssStyles": false,
+            "flowchart": {
+              "htmlLabels": true,
+              "useMaxWidth": true
+            },
+            "gantt": {
+              "barGap": 4,
+              "barHeight": 20,
+              "fontFamily": "\"Open-Sans\", \"sans-serif\"",
+              "fontSize": 11,
+              "gridLineStartPadding": 35,
+              "leftPadding": 75,
+              "numberSectionStyles": 3,
+              "titleTopMargin": 25,
+              "topPadding": 50
+            },
+            "logLevel": 3,
+            "sequenceDiagram": {
+              "actorMargin": 50,
+              "bottomMarginAdj": 1,
+              "boxMargin": 10,
+              "boxTextMargin": 5,
+              "diagramMarginX": 50,
+              "diagramMarginY": 10,
+              "height": 65,
+              "messageMargin": 35,
+              "mirrorActors": true,
+              "noteMargin": 10,
+              "useMaxWidth": true,
+              "width": 150
+            },
+            "startOnLoad": false
+          },
+          "legend": {
+            "avg": true,
+            "current": true,
+            "gradient": {
+              "enabled": true,
+              "show": true
+            },
+            "max": true,
+            "min": true,
+            "show": false,
+            "total": true
+          },
+          "links": [],
+          "mappingType": 1,
+          "maxDataPoints": 100,
+          "maxWidth": false,
+          "nullPointMode": "connected",
+          "seriesOverrides": [],
+          "targets": [
+            {
+              "alias": "[[tag_Producer]]",
+              "groupBy": [
+                {
+                  "params": [
+                    "Producer"
+                  ],
+                  "type": "tag"
+                }
+              ],
+              "measurement": "Cisco-IOS-XR-fretta-bcm-dpa-hw-resources-oper:dpa/stats/nodes/node/hw-resources-datas/hw-resources-data",
+              "orderByTime": "ASC",
+              "policy": "default",
+              "refId": "A",
+              "resultFormat": "time_series",
+              "select": [
+                [
+                  {
+                    "params": [
+                      "npu-hwr-list__inuse-objects"
+                    ],
+                    "type": "field"
+                  },
+                  {
+                    "params": [],
+                    "type": "max"
+                  }
+                ]
+              ],
+              "tags": [
+                {
+                  "key": "resource",
+                  "operator": "=",
+                  "value": "lpm"
+                }
+              ]
+            }
+          ],
+          "thresholds": "200000, 245000",
+          "title": "LPM TABLE",
+          "transparent": true,
+          "type": "jdbranham-diagram-panel",
+          "valueMaps": [
+            {
+              "op": "=",
+              "text": "N/A",
+              "value": "null"
+            }
+          ],
+          "valueName": "current",
+          "valueOptions": [
+            "avg",
+            "min",
+            "max",
+            "total",
+            "current"
+          ]
+        },
+        {
+          "colors": [
+            "#bf1b00",
+            "rgb(249, 240, 238)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "content": "graph LR\nA[\"NCS5501_top\"] -- BE14 --> B[\"NCS5502_top\"]\nA -- BE13 --> C[\"NCS5502_bottom\"]\nA -- BE12 --> E[\"NCS5501_bottom\"] \nA -- BE16 --> F[\"NCS5502_center\"] ",
+          "datasource": "InfluxDB",
+          "format": "none",
+          "graphId": "diagram_9",
+          "gridPos": {
+            "h": 11,
+            "w": 11,
+            "x": 11,
+            "y": 13
+          },
+          "id": 9,
+          "init": {
+            "arrowMarkerAbsolute": true,
+            "cloneCssStyles": false,
+            "flowchart": {
+              "htmlLabels": true,
+              "useMaxWidth": true
+            },
+            "gantt": {
+              "barGap": 4,
+              "barHeight": 20,
+              "fontFamily": "\"Open-Sans\", \"sans-serif\"",
+              "fontSize": 11,
+              "gridLineStartPadding": 35,
+              "leftPadding": 75,
+              "numberSectionStyles": 3,
+              "titleTopMargin": 25,
+              "topPadding": 50
+            },
+            "logLevel": 3,
+            "sequenceDiagram": {
+              "actorMargin": 50,
+              "bottomMarginAdj": 1,
+              "boxMargin": 10,
+              "boxTextMargin": 5,
+              "diagramMarginX": 50,
+              "diagramMarginY": 10,
+              "height": 65,
+              "messageMargin": 35,
+              "mirrorActors": true,
+              "noteMargin": 10,
+              "useMaxWidth": true,
+              "width": 150
+            },
+            "startOnLoad": false
+          },
+          "legend": {
+            "avg": true,
+            "current": true,
+            "gradient": {
+              "enabled": false,
+              "show": true
+            },
+            "max": true,
+            "min": true,
+            "show": false,
+            "total": true
+          },
+          "links": [],
+          "mappingType": 1,
+          "maxDataPoints": 100,
+          "maxWidth": false,
+          "nullPointMode": "connected",
+          "seriesOverrides": [],
+          "targets": [
+            {
+              "alias": "[[tag_Producer]]",
+              "groupBy": [
+                {
+                  "params": [
+                    "$interval"
+                  ],
+                  "type": "time"
+                },
+                {
+                  "params": [
+                    "Producer"
+                  ],
+                  "type": "tag"
+                }
+              ],
+              "measurement": "Cisco-IOS-XR-fretta-bcm-dpa-hw-resources-oper:dpa/stats/nodes/node/hw-resources-datas/hw-resources-data",
+              "orderByTime": "ASC",
+              "policy": "default",
+              "refId": "A",
+              "resultFormat": "time_series",
+              "select": [
+                [
+                  {
+                    "params": [
+                      "npu-hwr-list__inuse-objects"
+                    ],
+                    "type": "field"
+                  },
+                  {
+                    "params": [],
+                    "type": "max"
+                  },
+                  {
+                    "params": [],
+                    "type": "difference"
+                  }
+                ]
+              ],
+              "tags": [
+                {
+                  "key": "resource",
+                  "operator": "=",
+                  "value": "lpm"
+                }
+              ]
+            }
+          ],
+          "thresholds": "-.1,.1",
+          "title": "LPM TABLE CHANGE",
+          "transparent": true,
+          "type": "jdbranham-diagram-panel",
+          "valueMaps": [
+            {
+              "op": "=",
+              "text": "N/A",
+              "value": "null"
+            }
+          ],
+          "valueName": "current",
+          "valueOptions": [
+            "avg",
+            "min",
+            "max",
+            "total",
+            "current"
+          ]
+        }
+      ],
+      "title": "LPM Table Instant View",
+      "type": "row"
+    },
+    {
+      "collapsed": true,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 2
+      },
+      "id": 11,
+      "panels": [
+        {
+          "colors": [
+            "rgba(50, 172, 45, 0.97)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(245, 54, 54, 0.9)"
+          ],
+          "content": "graph LR\nA[\"NCS5501_top\"] -- BE14 --> B[\"NCS5502_top\"]\nA -- BE13 --> C[\"NCS5502_bottom\"]\nA -- BE12 --> E[\"NCS5501_bottom\"] \nA -- BE16 --> F[\"NCS5502_center\"] ",
+          "datasource": "InfluxDB",
+          "format": "none",
+          "graphId": "diagram_12",
+          "gridPos": {
+            "h": 11,
+            "w": 11,
+            "x": 0,
+            "y": 3
+          },
+          "id": 12,
+          "init": {
+            "arrowMarkerAbsolute": true,
+            "cloneCssStyles": false,
+            "flowchart": {
+              "htmlLabels": true,
+              "useMaxWidth": true
+            },
+            "gantt": {
+              "barGap": 4,
+              "barHeight": 20,
+              "fontFamily": "\"Open-Sans\", \"sans-serif\"",
+              "fontSize": 11,
+              "gridLineStartPadding": 35,
+              "leftPadding": 75,
+              "numberSectionStyles": 3,
+              "titleTopMargin": 25,
+              "topPadding": 50
+            },
+            "logLevel": 3,
+            "sequenceDiagram": {
+              "actorMargin": 50,
+              "bottomMarginAdj": 1,
+              "boxMargin": 10,
+              "boxTextMargin": 5,
+              "diagramMarginX": 50,
+              "diagramMarginY": 10,
+              "height": 65,
+              "messageMargin": 35,
+              "mirrorActors": true,
+              "noteMargin": 10,
+              "useMaxWidth": true,
+              "width": 150
+            },
+            "startOnLoad": false
+          },
+          "legend": {
+            "avg": true,
+            "current": true,
+            "gradient": {
+              "enabled": true,
+              "show": true
+            },
+            "max": true,
+            "min": true,
+            "show": false,
+            "total": true
+          },
+          "links": [],
+          "mappingType": 1,
+          "maxDataPoints": 100,
+          "maxWidth": false,
+          "nullPointMode": "connected",
+          "seriesOverrides": [],
+          "targets": [
+            {
+              "alias": "[[tag_Producer]]",
+              "groupBy": [
+                {
+                  "params": [
+                    "Producer"
+                  ],
+                  "type": "tag"
+                }
+              ],
+              "measurement": "Cisco-IOS-XR-fretta-bcm-dpa-hw-resources-oper:dpa/stats/nodes/node/hw-resources-datas/hw-resources-data",
+              "orderByTime": "ASC",
+              "policy": "default",
+              "refId": "A",
+              "resultFormat": "time_series",
+              "select": [
+                [
+                  {
+                    "params": [
+                      "npu-hwr-list__inuse-objects"
+                    ],
+                    "type": "field"
+                  },
+                  {
+                    "params": [],
+                    "type": "max"
+                  }
+                ]
+              ],
+              "tags": [
+                {
+                  "key": "resource",
+                  "operator": "=",
+                  "value": "fec"
+                }
+              ]
+            }
+          ],
+          "thresholds": "102000, 121000",
+          "title": "FEC TABLE",
+          "transparent": true,
+          "type": "jdbranham-diagram-panel",
+          "valueMaps": [
+            {
+              "op": "=",
+              "text": "N/A",
+              "value": "null"
+            }
+          ],
+          "valueName": "current",
+          "valueOptions": [
+            "avg",
+            "min",
+            "max",
+            "total",
+            "current"
+          ]
+        },
+        {
+          "colors": [
+            "#bf1b00",
+            "rgb(249, 240, 238)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "content": "graph LR\nA[\"NCS5501_top\"] -- BE14 --> B[\"NCS5502_top\"]\nA -- BE13 --> C[\"NCS5502_bottom\"]\nA -- BE12 --> E[\"NCS5501_bottom\"] \nA -- BE16 --> F[\"NCS5502_center\"] ",
+          "datasource": "InfluxDB",
+          "format": "none",
+          "graphId": "diagram_13",
+          "gridPos": {
+            "h": 11,
+            "w": 11,
+            "x": 11,
+            "y": 3
+          },
+          "id": 13,
+          "init": {
+            "arrowMarkerAbsolute": true,
+            "cloneCssStyles": false,
+            "flowchart": {
+              "htmlLabels": true,
+              "useMaxWidth": true
+            },
+            "gantt": {
+              "barGap": 4,
+              "barHeight": 20,
+              "fontFamily": "\"Open-Sans\", \"sans-serif\"",
+              "fontSize": 11,
+              "gridLineStartPadding": 35,
+              "leftPadding": 75,
+              "numberSectionStyles": 3,
+              "titleTopMargin": 25,
+              "topPadding": 50
+            },
+            "logLevel": 3,
+            "sequenceDiagram": {
+              "actorMargin": 50,
+              "bottomMarginAdj": 1,
+              "boxMargin": 10,
+              "boxTextMargin": 5,
+              "diagramMarginX": 50,
+              "diagramMarginY": 10,
+              "height": 65,
+              "messageMargin": 35,
+              "mirrorActors": true,
+              "noteMargin": 10,
+              "useMaxWidth": true,
+              "width": 150
+            },
+            "startOnLoad": false
+          },
+          "legend": {
+            "avg": true,
+            "current": true,
+            "gradient": {
+              "enabled": false,
+              "show": true
+            },
+            "max": true,
+            "min": true,
+            "show": false,
+            "total": true
+          },
+          "links": [],
+          "mappingType": 1,
+          "maxDataPoints": 100,
+          "maxWidth": false,
+          "nullPointMode": "connected",
+          "seriesOverrides": [],
+          "targets": [
+            {
+              "alias": "[[tag_Producer]]",
+              "groupBy": [
+                {
+                  "params": [
+                    "$interval"
+                  ],
+                  "type": "time"
+                },
+                {
+                  "params": [
+                    "Producer"
+                  ],
+                  "type": "tag"
+                }
+              ],
+              "measurement": "Cisco-IOS-XR-fretta-bcm-dpa-hw-resources-oper:dpa/stats/nodes/node/hw-resources-datas/hw-resources-data",
+              "orderByTime": "ASC",
+              "policy": "default",
+              "refId": "A",
+              "resultFormat": "time_series",
+              "select": [
+                [
+                  {
+                    "params": [
+                      "npu-hwr-list__inuse-objects"
+                    ],
+                    "type": "field"
+                  },
+                  {
+                    "params": [],
+                    "type": "max"
+                  },
+                  {
+                    "params": [],
+                    "type": "difference"
+                  }
+                ]
+              ],
+              "tags": [
+                {
+                  "key": "resource",
+                  "operator": "=",
+                  "value": "fec"
+                }
+              ]
+            }
+          ],
+          "thresholds": "-.1,.1",
+          "title": "FEC TABLE CHANGE",
+          "transparent": true,
+          "type": "jdbranham-diagram-panel",
+          "valueMaps": [
+            {
+              "op": "=",
+              "text": "N/A",
+              "value": "null"
+            }
+          ],
+          "valueName": "current",
+          "valueOptions": [
+            "avg",
+            "min",
+            "max",
+            "total",
+            "current"
+          ]
+        }
+      ],
+      "title": "FEC Table Instant View",
+      "type": "row"
+    },
+    {
+      "collapsed": true,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 3
+      },
+      "id": 15,
+      "panels": [
+        {
+          "colors": [
+            "rgba(50, 172, 45, 0.97)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(245, 54, 54, 0.9)"
+          ],
+          "content": "graph LR\nA[\"NCS5501_top\"] -- BE14 --> B[\"NCS5502_top\"]\nA -- BE13 --> C[\"NCS5502_bottom\"]\nA -- BE12 --> E[\"NCS5501_bottom\"] \nA -- BE16 --> F[\"NCS5502_center\"] ",
+          "datasource": "InfluxDB",
+          "format": "none",
+          "graphId": "diagram_16",
+          "gridPos": {
+            "h": 11,
+            "w": 11,
+            "x": 0,
+            "y": 4
+          },
+          "id": 16,
+          "init": {
+            "arrowMarkerAbsolute": true,
+            "cloneCssStyles": false,
+            "flowchart": {
+              "htmlLabels": true,
+              "useMaxWidth": true
+            },
+            "gantt": {
+              "barGap": 4,
+              "barHeight": 20,
+              "fontFamily": "\"Open-Sans\", \"sans-serif\"",
+              "fontSize": 11,
+              "gridLineStartPadding": 35,
+              "leftPadding": 75,
+              "numberSectionStyles": 3,
+              "titleTopMargin": 25,
+              "topPadding": 50
+            },
+            "logLevel": 3,
+            "sequenceDiagram": {
+              "actorMargin": 50,
+              "bottomMarginAdj": 1,
+              "boxMargin": 10,
+              "boxTextMargin": 5,
+              "diagramMarginX": 50,
+              "diagramMarginY": 10,
+              "height": 65,
+              "messageMargin": 35,
+              "mirrorActors": true,
+              "noteMargin": 10,
+              "useMaxWidth": true,
+              "width": 150
+            },
+            "startOnLoad": false
+          },
+          "legend": {
+            "avg": true,
+            "current": true,
+            "gradient": {
+              "enabled": true,
+              "show": true
+            },
+            "max": true,
+            "min": true,
+            "show": false,
+            "total": true
+          },
+          "links": [],
+          "mappingType": 1,
+          "maxDataPoints": 100,
+          "maxWidth": false,
+          "nullPointMode": "connected",
+          "seriesOverrides": [],
+          "targets": [
+            {
+              "alias": "[[tag_Producer]]",
+              "groupBy": [
+                {
+                  "params": [
+                    "Producer"
+                  ],
+                  "type": "tag"
+                }
+              ],
+              "measurement": "Cisco-IOS-XR-fretta-bcm-dpa-hw-resources-oper:dpa/stats/nodes/node/hw-resources-datas/hw-resources-data",
+              "orderByTime": "ASC",
+              "policy": "default",
+              "refId": "A",
+              "resultFormat": "time_series",
+              "select": [
+                [
+                  {
+                    "params": [
+                      "npu-hwr-list__inuse-objects"
+                    ],
+                    "type": "field"
+                  },
+                  {
+                    "params": [],
+                    "type": "max"
+                  }
+                ]
+              ],
+              "tags": [
+                {
+                  "key": "resource",
+                  "operator": "=",
+                  "value": "ecmpfec"
+                }
+              ]
+            }
+          ],
+          "thresholds": "3200, 3800",
+          "title": "ECMP-FEC TABLE",
+          "transparent": true,
+          "type": "jdbranham-diagram-panel",
+          "valueMaps": [
+            {
+              "op": "=",
+              "text": "N/A",
+              "value": "null"
+            }
+          ],
+          "valueName": "current",
+          "valueOptions": [
+            "avg",
+            "min",
+            "max",
+            "total",
+            "current"
+          ]
+        },
+        {
+          "colors": [
+            "#bf1b00",
+            "rgb(249, 240, 238)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "content": "graph LR\nA[\"NCS5501_top\"] -- BE14 --> B[\"NCS5502_top\"]\nA -- BE13 --> C[\"NCS5502_bottom\"]\nA -- BE12 --> E[\"NCS5501_bottom\"] \nA -- BE16 --> F[\"NCS5502_center\"] ",
+          "datasource": "InfluxDB",
+          "format": "none",
+          "graphId": "diagram_17",
+          "gridPos": {
+            "h": 11,
+            "w": 11,
+            "x": 11,
+            "y": 4
+          },
+          "id": 17,
+          "init": {
+            "arrowMarkerAbsolute": true,
+            "cloneCssStyles": false,
+            "flowchart": {
+              "htmlLabels": true,
+              "useMaxWidth": true
+            },
+            "gantt": {
+              "barGap": 4,
+              "barHeight": 20,
+              "fontFamily": "\"Open-Sans\", \"sans-serif\"",
+              "fontSize": 11,
+              "gridLineStartPadding": 35,
+              "leftPadding": 75,
+              "numberSectionStyles": 3,
+              "titleTopMargin": 25,
+              "topPadding": 50
+            },
+            "logLevel": 3,
+            "sequenceDiagram": {
+              "actorMargin": 50,
+              "bottomMarginAdj": 1,
+              "boxMargin": 10,
+              "boxTextMargin": 5,
+              "diagramMarginX": 50,
+              "diagramMarginY": 10,
+              "height": 65,
+              "messageMargin": 35,
+              "mirrorActors": true,
+              "noteMargin": 10,
+              "useMaxWidth": true,
+              "width": 150
+            },
+            "startOnLoad": false
+          },
+          "legend": {
+            "avg": true,
+            "current": true,
+            "gradient": {
+              "enabled": false,
+              "show": true
+            },
+            "max": true,
+            "min": true,
+            "show": false,
+            "total": true
+          },
+          "links": [],
+          "mappingType": 1,
+          "maxDataPoints": 100,
+          "maxWidth": false,
+          "nullPointMode": "connected",
+          "seriesOverrides": [],
+          "targets": [
+            {
+              "alias": "[[tag_Producer]]",
+              "groupBy": [
+                {
+                  "params": [
+                    "$interval"
+                  ],
+                  "type": "time"
+                },
+                {
+                  "params": [
+                    "Producer"
+                  ],
+                  "type": "tag"
+                }
+              ],
+              "measurement": "Cisco-IOS-XR-fretta-bcm-dpa-hw-resources-oper:dpa/stats/nodes/node/hw-resources-datas/hw-resources-data",
+              "orderByTime": "ASC",
+              "policy": "default",
+              "refId": "A",
+              "resultFormat": "time_series",
+              "select": [
+                [
+                  {
+                    "params": [
+                      "npu-hwr-list__inuse-objects"
+                    ],
+                    "type": "field"
+                  },
+                  {
+                    "params": [],
+                    "type": "max"
+                  },
+                  {
+                    "params": [],
+                    "type": "difference"
+                  }
+                ]
+              ],
+              "tags": [
+                {
+                  "key": "resource",
+                  "operator": "=",
+                  "value": "ecmpfec"
+                }
+              ]
+            }
+          ],
+          "thresholds": "-.1,.1",
+          "title": "ECMP-FEC TABLE CHANGE",
+          "transparent": true,
+          "type": "jdbranham-diagram-panel",
+          "valueMaps": [
+            {
+              "op": "=",
+              "text": "N/A",
+              "value": "null"
+            }
+          ],
+          "valueName": "current",
+          "valueOptions": [
+            "avg",
+            "min",
+            "max",
+            "total",
+            "current"
+          ]
+        }
+      ],
+      "title": "ECMP-FEC Table Instant View",
+      "type": "row"
+    },
+    {
+      "collapsed": true,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 4
+      },
+      "id": 19,
+      "panels": [
+        {
+          "colors": [
+            "rgba(50, 172, 45, 0.97)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(245, 54, 54, 0.9)"
+          ],
+          "content": "graph LR\nA[\"NCS5501_top\"] -- BE14 --> B[\"NCS5502_top\"]\nA -- BE13 --> C[\"NCS5502_bottom\"]\nA -- BE12 --> E[\"NCS5501_bottom\"] \nA -- BE16 --> F[\"NCS5502_center\"] ",
+          "datasource": "InfluxDB",
+          "format": "none",
+          "graphId": "diagram_20",
+          "gridPos": {
+            "h": 11,
+            "w": 11,
+            "x": 0,
+            "y": 5
+          },
+          "id": 20,
+          "init": {
+            "arrowMarkerAbsolute": true,
+            "cloneCssStyles": false,
+            "flowchart": {
+              "htmlLabels": true,
+              "useMaxWidth": true
+            },
+            "gantt": {
+              "barGap": 4,
+              "barHeight": 20,
+              "fontFamily": "\"Open-Sans\", \"sans-serif\"",
+              "fontSize": 11,
+              "gridLineStartPadding": 35,
+              "leftPadding": 75,
+              "numberSectionStyles": 3,
+              "titleTopMargin": 25,
+              "topPadding": 50
+            },
+            "logLevel": 3,
+            "sequenceDiagram": {
+              "actorMargin": 50,
+              "bottomMarginAdj": 1,
+              "boxMargin": 10,
+              "boxTextMargin": 5,
+              "diagramMarginX": 50,
+              "diagramMarginY": 10,
+              "height": 65,
+              "messageMargin": 35,
+              "mirrorActors": true,
+              "noteMargin": 10,
+              "useMaxWidth": true,
+              "width": 150
+            },
+            "startOnLoad": false
+          },
+          "legend": {
+            "avg": true,
+            "current": true,
+            "gradient": {
+              "enabled": true,
+              "show": true
+            },
+            "max": true,
+            "min": true,
+            "show": false,
+            "total": true
+          },
+          "links": [],
+          "mappingType": 1,
+          "maxDataPoints": 100,
+          "maxWidth": false,
+          "nullPointMode": "connected",
+          "seriesOverrides": [],
+          "targets": [
+            {
+              "alias": "[[tag_Producer]]",
+              "groupBy": [
+                {
+                  "params": [
+                    "Producer"
+                  ],
+                  "type": "tag"
+                }
+              ],
+              "measurement": "Cisco-IOS-XR-fretta-bcm-dpa-hw-resources-oper:dpa/stats/nodes/node/hw-resources-datas/hw-resources-data",
+              "orderByTime": "ASC",
+              "policy": "default",
+              "refId": "A",
+              "resultFormat": "time_series",
+              "select": [
+                [
+                  {
+                    "params": [
+                      "npu-hwr-list__inuse-objects"
+                    ],
+                    "type": "field"
+                  },
+                  {
+                    "params": [],
+                    "type": "max"
+                  }
+                ]
+              ],
+              "tags": [
+                {
+                  "key": "resource",
+                  "operator": "=",
+                  "value": "encap"
+                },
+                {
+                  "condition": "AND",
+                  "key": "node-name",
+                  "operator": "=",
+                  "value": "0/0/CPU0"
+                }
+              ]
+            }
+          ],
+          "thresholds": "76800, 91200",
+          "title": "ENCAP TABLE",
+          "transparent": true,
+          "type": "jdbranham-diagram-panel",
+          "valueMaps": [
+            {
+              "op": "=",
+              "text": "N/A",
+              "value": "null"
+            }
+          ],
+          "valueName": "current",
+          "valueOptions": [
+            "avg",
+            "min",
+            "max",
+            "total",
+            "current"
+          ]
+        },
+        {
+          "colors": [
+            "#bf1b00",
+            "rgb(249, 240, 238)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "content": "graph LR\nA[\"NCS5501_top\"] -- BE14 --> B[\"NCS5502_top\"]\nA -- BE13 --> C[\"NCS5502_bottom\"]\nA -- BE12 --> E[\"NCS5501_bottom\"] \nA -- BE16 --> F[\"NCS5502_center\"] ",
+          "datasource": "InfluxDB",
+          "format": "none",
+          "graphId": "diagram_21",
+          "gridPos": {
+            "h": 11,
+            "w": 11,
+            "x": 11,
+            "y": 5
+          },
+          "id": 21,
+          "init": {
+            "arrowMarkerAbsolute": true,
+            "cloneCssStyles": false,
+            "flowchart": {
+              "htmlLabels": true,
+              "useMaxWidth": true
+            },
+            "gantt": {
+              "barGap": 4,
+              "barHeight": 20,
+              "fontFamily": "\"Open-Sans\", \"sans-serif\"",
+              "fontSize": 11,
+              "gridLineStartPadding": 35,
+              "leftPadding": 75,
+              "numberSectionStyles": 3,
+              "titleTopMargin": 25,
+              "topPadding": 50
+            },
+            "logLevel": 3,
+            "sequenceDiagram": {
+              "actorMargin": 50,
+              "bottomMarginAdj": 1,
+              "boxMargin": 10,
+              "boxTextMargin": 5,
+              "diagramMarginX": 50,
+              "diagramMarginY": 10,
+              "height": 65,
+              "messageMargin": 35,
+              "mirrorActors": true,
+              "noteMargin": 10,
+              "useMaxWidth": true,
+              "width": 150
+            },
+            "startOnLoad": false
+          },
+          "legend": {
+            "avg": true,
+            "current": true,
+            "gradient": {
+              "enabled": false,
+              "show": true
+            },
+            "max": true,
+            "min": true,
+            "show": false,
+            "total": true
+          },
+          "links": [],
+          "mappingType": 1,
+          "maxDataPoints": 100,
+          "maxWidth": false,
+          "nullPointMode": "connected",
+          "seriesOverrides": [],
+          "targets": [
+            {
+              "alias": "[[tag_Producer]]",
+              "groupBy": [
+                {
+                  "params": [
+                    "$interval"
+                  ],
+                  "type": "time"
+                },
+                {
+                  "params": [
+                    "Producer"
+                  ],
+                  "type": "tag"
+                }
+              ],
+              "measurement": "Cisco-IOS-XR-fretta-bcm-dpa-hw-resources-oper:dpa/stats/nodes/node/hw-resources-datas/hw-resources-data",
+              "orderByTime": "ASC",
+              "policy": "default",
+              "refId": "A",
+              "resultFormat": "time_series",
+              "select": [
+                [
+                  {
+                    "params": [
+                      "npu-hwr-list__inuse-objects"
+                    ],
+                    "type": "field"
+                  },
+                  {
+                    "params": [],
+                    "type": "max"
+                  },
+                  {
+                    "params": [],
+                    "type": "difference"
+                  }
+                ]
+              ],
+              "tags": [
+                {
+                  "key": "resource",
+                  "operator": "=",
+                  "value": "encap"
+                },
+                {
+                  "condition": "AND",
+                  "key": "node-name",
+                  "operator": "=",
+                  "value": "0/0/CPU0"
+                }
+              ]
+            }
+          ],
+          "thresholds": "-.1,.1",
+          "title": "ENCAP TABLE CHANGE",
+          "transparent": true,
+          "type": "jdbranham-diagram-panel",
+          "valueMaps": [
+            {
+              "op": "=",
+              "text": "N/A",
+              "value": "null"
+            }
+          ],
+          "valueName": "current",
+          "valueOptions": [
+            "avg",
+            "min",
+            "max",
+            "total",
+            "current"
+          ]
+        }
+      ],
+      "title": "ENCAP (EEDB) Table Instant View",
+      "type": "row"
+    },
+    {
+      "collapsed": true,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 5
+      },
+      "id": 23,
+      "panels": [
+        {
+          "colors": [
+            "rgba(50, 172, 45, 0.97)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(245, 54, 54, 0.9)"
+          ],
+          "content": "graph LR\nA[\"NCS5501_top\"] -- BE14 --> B[\"NCS5502_top\"]\nA -- BE13 --> C[\"NCS5502_bottom\"]\nA -- BE12 --> E[\"NCS5501_bottom\"] \nA -- BE16 --> F[\"NCS5502_center\"] ",
+          "datasource": "InfluxDB",
+          "format": "none",
+          "graphId": "diagram_24",
+          "gridPos": {
+            "h": 11,
+            "w": 11,
+            "x": 0,
+            "y": 6
+          },
+          "id": 24,
+          "init": {
+            "arrowMarkerAbsolute": true,
+            "cloneCssStyles": false,
+            "flowchart": {
+              "htmlLabels": true,
+              "useMaxWidth": true
+            },
+            "gantt": {
+              "barGap": 4,
+              "barHeight": 20,
+              "fontFamily": "\"Open-Sans\", \"sans-serif\"",
+              "fontSize": 11,
+              "gridLineStartPadding": 35,
+              "leftPadding": 75,
+              "numberSectionStyles": 3,
+              "titleTopMargin": 25,
+              "topPadding": 50
+            },
+            "logLevel": 3,
+            "sequenceDiagram": {
+              "actorMargin": 50,
+              "bottomMarginAdj": 1,
+              "boxMargin": 10,
+              "boxTextMargin": 5,
+              "diagramMarginX": 50,
+              "diagramMarginY": 10,
+              "height": 65,
+              "messageMargin": 35,
+              "mirrorActors": true,
+              "noteMargin": 10,
+              "useMaxWidth": true,
+              "width": 150
+            },
+            "startOnLoad": false
+          },
+          "legend": {
+            "avg": true,
+            "current": true,
+            "gradient": {
+              "enabled": true,
+              "show": true
+            },
+            "max": true,
+            "min": true,
+            "show": false,
+            "total": true
+          },
+          "links": [],
+          "mappingType": 1,
+          "maxDataPoints": 100,
+          "maxWidth": false,
+          "nullPointMode": "connected",
+          "seriesOverrides": [],
+          "targets": [
+            {
+              "alias": "[[tag_Producer]]",
+              "groupBy": [
+                {
+                  "params": [
+                    "Producer"
+                  ],
+                  "type": "tag"
+                }
+              ],
+              "measurement": "Cisco-IOS-XR-fretta-bcm-dpa-hw-resources-oper:dpa/stats/nodes/node/hw-resources-datas/hw-resources-data",
+              "orderByTime": "ASC",
+              "policy": "default",
+              "refId": "A",
+              "resultFormat": "time_series",
+              "select": [
+                [
+                  {
+                    "params": [
+                      "npu-hwr-list__inuse-objects"
+                    ],
+                    "type": "field"
+                  },
+                  {
+                    "params": [],
+                    "type": "max"
+                  }
+                ]
+              ],
+              "tags": [
+                {
+                  "key": "resource",
+                  "operator": "=",
+                  "value": "ext-tcam-ipv4"
+                }
+              ]
+            }
+          ],
+          "thresholds": "1000000, 2000000",
+          "title": "eTCAM IPv4 TABLE",
+          "transparent": true,
+          "type": "jdbranham-diagram-panel",
+          "valueMaps": [
+            {
+              "op": "=",
+              "text": "N/A",
+              "value": "null"
+            }
+          ],
+          "valueName": "current",
+          "valueOptions": [
+            "avg",
+            "min",
+            "max",
+            "total",
+            "current"
+          ]
+        },
+        {
+          "colors": [
+            "#bf1b00",
+            "rgb(249, 240, 238)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "content": "graph LR\nA[\"NCS5501_top\"] -- BE14 --> B[\"NCS5502_top\"]\nA -- BE13 --> C[\"NCS5502_bottom\"]\nA -- BE12 --> E[\"NCS5501_bottom\"] \nA -- BE16 --> F[\"NCS5502_center\"] ",
+          "datasource": "InfluxDB",
+          "format": "none",
+          "graphId": "diagram_25",
+          "gridPos": {
+            "h": 11,
+            "w": 11,
+            "x": 11,
+            "y": 6
+          },
+          "id": 25,
+          "init": {
+            "arrowMarkerAbsolute": true,
+            "cloneCssStyles": false,
+            "flowchart": {
+              "htmlLabels": true,
+              "useMaxWidth": true
+            },
+            "gantt": {
+              "barGap": 4,
+              "barHeight": 20,
+              "fontFamily": "\"Open-Sans\", \"sans-serif\"",
+              "fontSize": 11,
+              "gridLineStartPadding": 35,
+              "leftPadding": 75,
+              "numberSectionStyles": 3,
+              "titleTopMargin": 25,
+              "topPadding": 50
+            },
+            "logLevel": 3,
+            "sequenceDiagram": {
+              "actorMargin": 50,
+              "bottomMarginAdj": 1,
+              "boxMargin": 10,
+              "boxTextMargin": 5,
+              "diagramMarginX": 50,
+              "diagramMarginY": 10,
+              "height": 65,
+              "messageMargin": 35,
+              "mirrorActors": true,
+              "noteMargin": 10,
+              "useMaxWidth": true,
+              "width": 150
+            },
+            "startOnLoad": false
+          },
+          "legend": {
+            "avg": true,
+            "current": true,
+            "gradient": {
+              "enabled": false,
+              "show": true
+            },
+            "max": true,
+            "min": true,
+            "show": false,
+            "total": true
+          },
+          "links": [],
+          "mappingType": 1,
+          "maxDataPoints": 100,
+          "maxWidth": false,
+          "nullPointMode": "connected",
+          "seriesOverrides": [],
+          "targets": [
+            {
+              "alias": "[[tag_Producer]]",
+              "groupBy": [
+                {
+                  "params": [
+                    "$interval"
+                  ],
+                  "type": "time"
+                },
+                {
+                  "params": [
+                    "Producer"
+                  ],
+                  "type": "tag"
+                }
+              ],
+              "measurement": "Cisco-IOS-XR-fretta-bcm-dpa-hw-resources-oper:dpa/stats/nodes/node/hw-resources-datas/hw-resources-data",
+              "orderByTime": "ASC",
+              "policy": "default",
+              "refId": "A",
+              "resultFormat": "time_series",
+              "select": [
+                [
+                  {
+                    "params": [
+                      "npu-hwr-list__inuse-objects"
+                    ],
+                    "type": "field"
+                  },
+                  {
+                    "params": [],
+                    "type": "max"
+                  },
+                  {
+                    "params": [],
+                    "type": "difference"
+                  }
+                ]
+              ],
+              "tags": [
+                {
+                  "key": "resource",
+                  "operator": "=",
+                  "value": "ext-tcam-ipv4"
+                }
+              ]
+            }
+          ],
+          "thresholds": "-.1,.1",
+          "title": "eTCAM IPv4 TABLE CHANGE",
+          "transparent": true,
+          "type": "jdbranham-diagram-panel",
+          "valueMaps": [
+            {
+              "op": "=",
+              "text": "N/A",
+              "value": "null"
+            }
+          ],
+          "valueName": "current",
+          "valueOptions": [
+            "avg",
+            "min",
+            "max",
+            "total",
+            "current"
+          ]
+        }
+      ],
+      "title": "eTCAM Table Instant View",
+      "type": "row"
+    },
+    {
+      "collapsed": true,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 6
+      },
+      "id": 37,
+      "panels": [
+        {
+          "aliasColors": {},
+          "bars": false,
+          "dashLength": 10,
+          "dashes": false,
+          "datasource": "InfluxDB",
+          "fill": 2,
+          "gridPos": {
+            "h": 10,
+            "w": 12,
+            "x": 0,
+            "y": 7
+          },
+          "id": 39,
+          "legend": {
+            "alignAsTable": true,
+            "avg": false,
+            "current": true,
+            "max": true,
+            "min": true,
+            "rightSide": false,
+            "show": true,
+            "total": false,
+            "values": true
+          },
+          "lines": true,
+          "linewidth": 1,
+          "links": [],
+          "nullPointMode": "null",
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [],
+          "spaceLength": 10,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "alias": "Total Entries ([[tag_Producer]], [[tag_node-name]], NPU [[tag_npu-hwr-list__npu-id]])",
+              "groupBy": [
+                {
+                  "params": [
+                    "Producer"
+                  ],
+                  "type": "tag"
+                },
+                {
+                  "params": [
+                    "node-name"
+                  ],
+                  "type": "tag"
+                },
+                {
+                  "params": [
+                    "npu-hwr-list__npu-id"
+                  ],
+                  "type": "tag"
+                }
+              ],
+              "measurement": "Cisco-IOS-XR-fretta-bcm-dpa-hw-resources-oper:dpa/stats/nodes/node/hw-resources-datas/hw-resources-data",
+              "orderByTime": "ASC",
+              "policy": "default",
+              "query": "SELECT (\"npu-hwr-list__inuse-objects\") FROM \"Cisco-IOS-XR-fretta-bcm-dpa-hw-resources-oper:dpa/stats/nodes/node/hw-resources-datas/hw-resources-data\" WHERE (\"resource\" = 'lem') AND $timeFilter GROUP BY \"Producer\", \"node-name\"",
+              "rawQuery": false,
+              "refId": "A",
+              "resultFormat": "time_series",
+              "select": [
+                [
+                  {
+                    "params": [
+                      "npu-hwr-list__inuse-objects"
+                    ],
+                    "type": "field"
+                  }
+                ]
+              ],
+              "tags": [
+                {
+                  "key": "resource",
+                  "operator": "=",
+                  "value": "lem"
+                }
+              ]
+            }
+          ],
+          "thresholds": [],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "LEM TABLE TOTAL",
+          "tooltip": {
+            "shared": true,
+            "sort": 0,
+            "value_type": "individual"
+          },
+          "type": "graph",
+          "xaxis": {
+            "buckets": null,
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": []
+          },
+          "yaxes": [
+            {
+              "format": "none",
+              "label": "LEM Total Entries",
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            },
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": false
+            }
+          ]
+        },
+        {
+          "aliasColors": {},
+          "bars": false,
+          "dashLength": 10,
+          "dashes": false,
+          "datasource": "InfluxDB",
+          "fill": 2,
+          "gridPos": {
+            "h": 10,
+            "w": 12,
+            "x": 12,
+            "y": 7
+          },
+          "id": 40,
+          "legend": {
+            "alignAsTable": true,
+            "avg": false,
+            "current": true,
+            "max": true,
+            "min": true,
+            "rightSide": false,
+            "show": true,
+            "total": false,
+            "values": true
+          },
+          "lines": true,
+          "linewidth": 1,
+          "links": [],
+          "nullPointMode": "null",
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [],
+          "spaceLength": 10,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "alias": "Total Entries ([[tag_Producer]], [[tag_node-name]], NPU [[tag_npu-hwr-list__npu-id]])",
+              "groupBy": [
+                {
+                  "params": [
+                    "$interval"
+                  ],
+                  "type": "time"
+                },
+                {
+                  "params": [
+                    "Producer"
+                  ],
+                  "type": "tag"
+                },
+                {
+                  "params": [
+                    "node-name"
+                  ],
+                  "type": "tag"
+                },
+                {
+                  "params": [
+                    "npu-hwr-list__npu-id"
+                  ],
+                  "type": "tag"
+                }
+              ],
+              "measurement": "Cisco-IOS-XR-fretta-bcm-dpa-hw-resources-oper:dpa/stats/nodes/node/hw-resources-datas/hw-resources-data",
+              "orderByTime": "ASC",
+              "policy": "default",
+              "refId": "A",
+              "resultFormat": "time_series",
+              "select": [
+                [
+                  {
+                    "params": [
+                      "npu-hwr-list__inuse-objects"
+                    ],
+                    "type": "field"
+                  },
+                  {
+                    "params": [],
+                    "type": "last"
+                  },
+                  {
+                    "params": [],
+                    "type": "difference"
+                  }
+                ]
+              ],
+              "tags": [
+                {
+                  "key": "resource",
+                  "operator": "=",
+                  "value": "lem"
+                }
+              ]
+            }
+          ],
+          "thresholds": [],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "LEM TABLE TOTAL CHANGE",
+          "tooltip": {
+            "shared": true,
+            "sort": 0,
+            "value_type": "individual"
+          },
+          "type": "graph",
+          "xaxis": {
+            "buckets": null,
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": []
+          },
+          "yaxes": [
+            {
+              "format": "none",
+              "label": "LEM Total Entries Change",
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            },
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            }
+          ]
+        },
+        {
+          "aliasColors": {},
+          "bars": false,
+          "dashLength": 10,
+          "dashes": false,
+          "datasource": "InfluxDB",
+          "fill": 2,
+          "gridPos": {
+            "h": 10,
+            "w": 12,
+            "x": 0,
+            "y": 17
+          },
+          "id": 41,
+          "legend": {
+            "alignAsTable": true,
+            "avg": false,
+            "current": true,
+            "max": true,
+            "min": true,
+            "rightSide": false,
+            "show": true,
+            "total": false,
+            "values": true
+          },
+          "lines": true,
+          "linewidth": 1,
+          "links": [],
+          "nullPointMode": "null",
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [],
+          "spaceLength": 10,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "alias": "IPv4 Entries ([[tag_Producer]], [[tag_node-name]], NPU [[tag_npu-hwr-list__npu-id]])",
+              "groupBy": [
+                {
+                  "params": [
+                    "Producer"
+                  ],
+                  "type": "tag"
+                },
+                {
+                  "params": [
+                    "node-name"
+                  ],
+                  "type": "tag"
+                },
+                {
+                  "params": [
+                    "npu-hwr-list__npu-id"
+                  ],
+                  "type": "tag"
+                }
+              ],
+              "measurement": "Cisco-IOS-XR-fretta-bcm-dpa-hw-resources-oper:dpa/stats/nodes/node/hw-resources-datas/hw-resources-data",
+              "orderByTime": "ASC",
+              "policy": "default",
+              "query": "SELECT \"npu-hwr-list__lt-hwr-list__hw-entries\" FROM \"Cisco-IOS-XR-fretta-bcm-dpa-hw-resources-oper:dpa/stats/nodes/node/hw-resources-datas/hw-resources-data\" WHERE (\"resource\" = 'lem' AND \"npu-hwr-list__lt-hwr-list__name\" = 'iproute') AND $timeFilter GROUP BY \"Producer\", \"node-name\", \"npu-hwr-list__lt-hwr-list__name\"",
+              "rawQuery": false,
+              "refId": "A",
+              "resultFormat": "time_series",
+              "select": [
+                [
+                  {
+                    "params": [
+                      "npu-hwr-list__lt-hwr-list__hw-entries"
+                    ],
+                    "type": "field"
+                  }
+                ]
+              ],
+              "tags": [
+                {
+                  "key": "resource",
+                  "operator": "=",
+                  "value": "lem"
+                },
+                {
+                  "condition": "AND",
+                  "key": "npu-hwr-list__lt-hwr-list__name",
+                  "operator": "=",
+                  "value": "iproute"
+                }
+              ]
+            }
+          ],
+          "thresholds": [],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "LEM TABLE IPv4",
+          "tooltip": {
+            "shared": true,
+            "sort": 0,
+            "value_type": "individual"
+          },
+          "type": "graph",
+          "xaxis": {
+            "buckets": null,
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": []
+          },
+          "yaxes": [
+            {
+              "format": "none",
+              "label": "LEM IPv4 Entries",
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            },
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            }
+          ]
+        },
+        {
+          "aliasColors": {},
+          "bars": false,
+          "dashLength": 10,
+          "dashes": false,
+          "datasource": "InfluxDB",
+          "fill": 2,
+          "gridPos": {
+            "h": 10,
+            "w": 12,
+            "x": 12,
+            "y": 17
+          },
+          "id": 42,
+          "legend": {
+            "alignAsTable": true,
+            "avg": false,
+            "current": true,
+            "max": true,
+            "min": true,
+            "rightSide": false,
+            "show": true,
+            "total": false,
+            "values": true
+          },
+          "lines": true,
+          "linewidth": 1,
+          "links": [],
+          "nullPointMode": "null",
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [],
+          "spaceLength": 10,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "alias": "IPv4 Entries ([[tag_Producer]], [[tag_node-name]], NPU [[tag_npu-hwr-list__npu-id]])",
+              "groupBy": [
+                {
+                  "params": [
+                    "$interval"
+                  ],
+                  "type": "time"
+                },
+                {
+                  "params": [
+                    "Producer"
+                  ],
+                  "type": "tag"
+                },
+                {
+                  "params": [
+                    "node-name"
+                  ],
+                  "type": "tag"
+                },
+                {
+                  "params": [
+                    "npu-hwr-list__npu-id"
+                  ],
+                  "type": "tag"
+                }
+              ],
+              "measurement": "Cisco-IOS-XR-fretta-bcm-dpa-hw-resources-oper:dpa/stats/nodes/node/hw-resources-datas/hw-resources-data",
+              "orderByTime": "ASC",
+              "policy": "default",
+              "refId": "A",
+              "resultFormat": "time_series",
+              "select": [
+                [
+                  {
+                    "params": [
+                      "npu-hwr-list__lt-hwr-list__hw-entries"
+                    ],
+                    "type": "field"
+                  },
+                  {
+                    "params": [],
+                    "type": "last"
+                  },
+                  {
+                    "params": [],
+                    "type": "difference"
+                  }
+                ]
+              ],
+              "tags": [
+                {
+                  "key": "resource",
+                  "operator": "=",
+                  "value": "lem"
+                },
+                {
+                  "condition": "AND",
+                  "key": "npu-hwr-list__lt-hwr-list__name",
+                  "operator": "=",
+                  "value": "iproute"
+                }
+              ]
+            }
+          ],
+          "thresholds": [],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "LEM TABLE IPv4 CHANGE",
+          "tooltip": {
+            "shared": true,
+            "sort": 0,
+            "value_type": "individual"
+          },
+          "type": "graph",
+          "xaxis": {
+            "buckets": null,
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": []
+          },
+          "yaxes": [
+            {
+              "format": "none",
+              "label": "LEM IPv4 Entries Change",
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            },
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            }
+          ]
+        },
+        {
+          "aliasColors": {},
+          "bars": false,
+          "dashLength": 10,
+          "dashes": false,
+          "datasource": "InfluxDB",
+          "fill": 2,
+          "gridPos": {
+            "h": 10,
+            "w": 12,
+            "x": 0,
+            "y": 27
+          },
+          "id": 43,
+          "legend": {
+            "alignAsTable": true,
+            "avg": false,
+            "current": true,
+            "max": true,
+            "min": true,
+            "rightSide": false,
+            "show": true,
+            "total": false,
+            "values": true
+          },
+          "lines": true,
+          "linewidth": 1,
+          "links": [],
+          "nullPointMode": "null",
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [],
+          "spaceLength": 10,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "alias": "IPv6 Entries ([[tag_Producer]], [[tag_node-name]], NPU [[tag_npu-hwr-list__npu-id]])",
+              "groupBy": [
+                {
+                  "params": [
+                    "Producer"
+                  ],
+                  "type": "tag"
+                },
+                {
+                  "params": [
+                    "node-name"
+                  ],
+                  "type": "tag"
+                },
+                {
+                  "params": [
+                    "npu-hwr-list__npu-id"
+                  ],
+                  "type": "tag"
+                }
+              ],
+              "measurement": "Cisco-IOS-XR-fretta-bcm-dpa-hw-resources-oper:dpa/stats/nodes/node/hw-resources-datas/hw-resources-data",
+              "orderByTime": "ASC",
+              "policy": "default",
+              "refId": "A",
+              "resultFormat": "time_series",
+              "select": [
+                [
+                  {
+                    "params": [
+                      "npu-hwr-list__lt-hwr-list__hw-entries"
+                    ],
+                    "type": "field"
+                  }
+                ]
+              ],
+              "tags": [
+                {
+                  "key": "resource",
+                  "operator": "=",
+                  "value": "lem"
+                },
+                {
+                  "condition": "AND",
+                  "key": "npu-hwr-list__lt-hwr-list__name",
+                  "operator": "=",
+                  "value": "ip6route"
+                }
+              ]
+            }
+          ],
+          "thresholds": [],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "LEM TABLE IPv6",
+          "tooltip": {
+            "shared": true,
+            "sort": 0,
+            "value_type": "individual"
+          },
+          "type": "graph",
+          "xaxis": {
+            "buckets": null,
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": []
+          },
+          "yaxes": [
+            {
+              "format": "none",
+              "label": "LEM IPv6 Entries",
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            },
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            }
+          ]
+        },
+        {
+          "aliasColors": {},
+          "bars": false,
+          "dashLength": 10,
+          "dashes": false,
+          "datasource": "InfluxDB",
+          "fill": 2,
+          "gridPos": {
+            "h": 10,
+            "w": 12,
+            "x": 12,
+            "y": 27
+          },
+          "id": 44,
+          "legend": {
+            "alignAsTable": true,
+            "avg": false,
+            "current": true,
+            "max": true,
+            "min": true,
+            "rightSide": false,
+            "show": true,
+            "total": false,
+            "values": true
+          },
+          "lines": true,
+          "linewidth": 1,
+          "links": [],
+          "nullPointMode": "null",
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [],
+          "spaceLength": 10,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "alias": "IPv6 Entries ([[tag_Producer]], [[tag_node-name]], NPU [[tag_npu-hwr-list__npu-id]])",
+              "groupBy": [
+                {
+                  "params": [
+                    "$interval"
+                  ],
+                  "type": "time"
+                },
+                {
+                  "params": [
+                    "Producer"
+                  ],
+                  "type": "tag"
+                },
+                {
+                  "params": [
+                    "node-name"
+                  ],
+                  "type": "tag"
+                },
+                {
+                  "params": [
+                    "npu-hwr-list__npu-id"
+                  ],
+                  "type": "tag"
+                }
+              ],
+              "measurement": "Cisco-IOS-XR-fretta-bcm-dpa-hw-resources-oper:dpa/stats/nodes/node/hw-resources-datas/hw-resources-data",
+              "orderByTime": "ASC",
+              "policy": "default",
+              "refId": "A",
+              "resultFormat": "time_series",
+              "select": [
+                [
+                  {
+                    "params": [
+                      "npu-hwr-list__lt-hwr-list__hw-entries"
+                    ],
+                    "type": "field"
+                  },
+                  {
+                    "params": [],
+                    "type": "last"
+                  },
+                  {
+                    "params": [],
+                    "type": "difference"
+                  }
+                ]
+              ],
+              "tags": [
+                {
+                  "key": "resource",
+                  "operator": "=",
+                  "value": "lem"
+                },
+                {
+                  "condition": "AND",
+                  "key": "npu-hwr-list__lt-hwr-list__name",
+                  "operator": "=",
+                  "value": "ip6route"
+                }
+              ]
+            }
+          ],
+          "thresholds": [],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "LEM TABLE IPv6 CHANGE",
+          "tooltip": {
+            "shared": true,
+            "sort": 0,
+            "value_type": "individual"
+          },
+          "type": "graph",
+          "xaxis": {
+            "buckets": null,
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": []
+          },
+          "yaxes": [
+            {
+              "format": "none",
+              "label": "LEM IPv6 Entries Change",
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            },
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            }
+          ]
+        },
+        {
+          "aliasColors": {},
+          "bars": false,
+          "dashLength": 10,
+          "dashes": false,
+          "datasource": "InfluxDB",
+          "fill": 2,
+          "gridPos": {
+            "h": 10,
+            "w": 12,
+            "x": 0,
+            "y": 37
+          },
+          "id": 45,
+          "legend": {
+            "alignAsTable": true,
+            "avg": false,
+            "current": true,
+            "max": true,
+            "min": true,
+            "rightSide": false,
+            "show": true,
+            "total": false,
+            "values": true
+          },
+          "lines": true,
+          "linewidth": 1,
+          "links": [],
+          "nullPointMode": "null",
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [],
+          "spaceLength": 10,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "alias": "MPLS Entries ([[tag_Producer]], [[tag_node-name]], NPU [[tag_npu-hwr-list__npu-id]])",
+              "groupBy": [
+                {
+                  "params": [
+                    "Producer"
+                  ],
+                  "type": "tag"
+                },
+                {
+                  "params": [
+                    "node-name"
+                  ],
+                  "type": "tag"
+                },
+                {
+                  "params": [
+                    "npu-hwr-list__npu-id"
+                  ],
+                  "type": "tag"
+                }
+              ],
+              "measurement": "Cisco-IOS-XR-fretta-bcm-dpa-hw-resources-oper:dpa/stats/nodes/node/hw-resources-datas/hw-resources-data",
+              "orderByTime": "ASC",
+              "policy": "default",
+              "refId": "A",
+              "resultFormat": "time_series",
+              "select": [
+                [
+                  {
+                    "params": [
+                      "npu-hwr-list__lt-hwr-list__hw-entries"
+                    ],
+                    "type": "field"
+                  }
+                ]
+              ],
+              "tags": [
+                {
+                  "key": "resource",
+                  "operator": "=",
+                  "value": "lem"
+                },
+                {
+                  "condition": "AND",
+                  "key": "npu-hwr-list__lt-hwr-list__name",
+                  "operator": "=",
+                  "value": "mplslabel"
+                }
+              ]
+            }
+          ],
+          "thresholds": [],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "LEM TABLE MPLS",
+          "tooltip": {
+            "shared": true,
+            "sort": 0,
+            "value_type": "individual"
+          },
+          "type": "graph",
+          "xaxis": {
+            "buckets": null,
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": []
+          },
+          "yaxes": [
+            {
+              "format": "none",
+              "label": "LEM MPLS Entries",
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            },
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            }
+          ]
+        },
+        {
+          "aliasColors": {},
+          "bars": false,
+          "dashLength": 10,
+          "dashes": false,
+          "datasource": "InfluxDB",
+          "fill": 2,
+          "gridPos": {
+            "h": 10,
+            "w": 12,
+            "x": 12,
+            "y": 37
+          },
+          "id": 46,
+          "legend": {
+            "alignAsTable": true,
+            "avg": false,
+            "current": true,
+            "max": true,
+            "min": true,
+            "rightSide": false,
+            "show": true,
+            "total": false,
+            "values": true
+          },
+          "lines": true,
+          "linewidth": 1,
+          "links": [],
+          "nullPointMode": "null",
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [],
+          "spaceLength": 10,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "alias": "MPLS Entries ([[tag_Producer]], [[tag_node-name]], NPU [[tag_npu-hwr-list__npu-id]])",
+              "groupBy": [
+                {
+                  "params": [
+                    "$interval"
+                  ],
+                  "type": "time"
+                },
+                {
+                  "params": [
+                    "Producer"
+                  ],
+                  "type": "tag"
+                },
+                {
+                  "params": [
+                    "node-name"
+                  ],
+                  "type": "tag"
+                },
+                {
+                  "params": [
+                    "npu-hwr-list__npu-id"
+                  ],
+                  "type": "tag"
+                }
+              ],
+              "measurement": "Cisco-IOS-XR-fretta-bcm-dpa-hw-resources-oper:dpa/stats/nodes/node/hw-resources-datas/hw-resources-data",
+              "orderByTime": "ASC",
+              "policy": "default",
+              "refId": "A",
+              "resultFormat": "time_series",
+              "select": [
+                [
+                  {
+                    "params": [
+                      "npu-hwr-list__lt-hwr-list__hw-entries"
+                    ],
+                    "type": "field"
+                  },
+                  {
+                    "params": [],
+                    "type": "last"
+                  },
+                  {
+                    "params": [],
+                    "type": "difference"
+                  }
+                ]
+              ],
+              "tags": [
+                {
+                  "key": "resource",
+                  "operator": "=",
+                  "value": "lem"
+                },
+                {
+                  "condition": "AND",
+                  "key": "npu-hwr-list__lt-hwr-list__name",
+                  "operator": "=",
+                  "value": "mplslabel"
+                }
+              ]
+            }
+          ],
+          "thresholds": [],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "LEM TABLE MPLS CHANGE",
+          "tooltip": {
+            "shared": true,
+            "sort": 0,
+            "value_type": "individual"
+          },
+          "type": "graph",
+          "xaxis": {
+            "buckets": null,
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": []
+          },
+          "yaxes": [
+            {
+              "format": "none",
+              "label": "LEM MPLS Entries Change",
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            },
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            }
+          ]
+        }
+      ],
+      "title": "LEM Table Historical",
+      "type": "row"
+    },
+    {
+      "collapsed": true,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 7
+      },
+      "id": 27,
+      "panels": [
+        {
+          "aliasColors": {},
+          "bars": false,
+          "dashLength": 10,
+          "dashes": false,
+          "datasource": "InfluxDB",
+          "fill": 2,
+          "gridPos": {
+            "h": 10,
+            "w": 12,
+            "x": 0,
+            "y": 8
+          },
+          "id": 47,
+          "legend": {
+            "alignAsTable": true,
+            "avg": false,
+            "current": true,
+            "max": true,
+            "min": true,
+            "rightSide": false,
+            "show": true,
+            "total": false,
+            "values": true
+          },
+          "lines": true,
+          "linewidth": 1,
+          "links": [],
+          "nullPointMode": "null",
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [],
+          "spaceLength": 10,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "alias": "Total ([[tag_Producer]], [[tag_node-name]], NPU [[tag_npu-hwr-list__npu-id]])",
+              "groupBy": [
+                {
+                  "params": [
+                    "Producer"
+                  ],
+                  "type": "tag"
+                },
+                {
+                  "params": [
+                    "node-name"
+                  ],
+                  "type": "tag"
+                },
+                {
+                  "params": [
+                    "npu-hwr-list__npu-id"
+                  ],
+                  "type": "tag"
+                }
+              ],
+              "measurement": "Cisco-IOS-XR-fretta-bcm-dpa-hw-resources-oper:dpa/stats/nodes/node/hw-resources-datas/hw-resources-data",
+              "orderByTime": "ASC",
+              "policy": "default",
+              "refId": "A",
+              "resultFormat": "time_series",
+              "select": [
+                [
+                  {
+                    "params": [
+                      "npu-hwr-list__inuse-objects"
+                    ],
+                    "type": "field"
+                  }
+                ]
+              ],
+              "tags": [
+                {
+                  "key": "resource",
+                  "operator": "=",
+                  "value": "lpm"
+                }
+              ]
+            }
+          ],
+          "thresholds": [],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "LPM TABLE TOTAL",
+          "tooltip": {
+            "shared": true,
+            "sort": 0,
+            "value_type": "individual"
+          },
+          "type": "graph",
+          "xaxis": {
+            "buckets": null,
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": []
+          },
+          "yaxes": [
+            {
+              "format": "none",
+              "label": "LPM Total Entries",
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            },
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            }
+          ]
+        },
+        {
+          "aliasColors": {},
+          "bars": false,
+          "dashLength": 10,
+          "dashes": false,
+          "datasource": "InfluxDB",
+          "fill": 2,
+          "gridPos": {
+            "h": 10,
+            "w": 12,
+            "x": 12,
+            "y": 8
+          },
+          "id": 48,
+          "legend": {
+            "alignAsTable": true,
+            "avg": false,
+            "current": true,
+            "max": true,
+            "min": true,
+            "rightSide": false,
+            "show": true,
+            "total": false,
+            "values": true
+          },
+          "lines": true,
+          "linewidth": 1,
+          "links": [],
+          "nullPointMode": "null",
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [],
+          "spaceLength": 10,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "alias": "Total ([[tag_Producer]], [[tag_node-name]], NPU [[tag_npu-hwr-list__npu-id]])",
+              "groupBy": [
+                {
+                  "params": [
+                    "$interval"
+                  ],
+                  "type": "time"
+                },
+                {
+                  "params": [
+                    "Producer"
+                  ],
+                  "type": "tag"
+                },
+                {
+                  "params": [
+                    "node-name"
+                  ],
+                  "type": "tag"
+                },
+                {
+                  "params": [
+                    "npu-hwr-list__npu-id"
+                  ],
+                  "type": "tag"
+                }
+              ],
+              "measurement": "Cisco-IOS-XR-fretta-bcm-dpa-hw-resources-oper:dpa/stats/nodes/node/hw-resources-datas/hw-resources-data",
+              "orderByTime": "ASC",
+              "policy": "default",
+              "refId": "A",
+              "resultFormat": "time_series",
+              "select": [
+                [
+                  {
+                    "params": [
+                      "npu-hwr-list__inuse-objects"
+                    ],
+                    "type": "field"
+                  },
+                  {
+                    "params": [],
+                    "type": "last"
+                  },
+                  {
+                    "params": [],
+                    "type": "difference"
+                  }
+                ]
+              ],
+              "tags": [
+                {
+                  "key": "resource",
+                  "operator": "=",
+                  "value": "lpm"
+                }
+              ]
+            }
+          ],
+          "thresholds": [],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "LPM TABLE TOTAL CHANGE",
+          "tooltip": {
+            "shared": true,
+            "sort": 0,
+            "value_type": "individual"
+          },
+          "type": "graph",
+          "xaxis": {
+            "buckets": null,
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": []
+          },
+          "yaxes": [
+            {
+              "format": "none",
+              "label": "LPM Total Entries Change",
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            },
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            }
+          ]
+        },
+        {
+          "aliasColors": {},
+          "bars": false,
+          "dashLength": 10,
+          "dashes": false,
+          "datasource": "InfluxDB",
+          "fill": 2,
+          "gridPos": {
+            "h": 10,
+            "w": 12,
+            "x": 0,
+            "y": 18
+          },
+          "id": 51,
+          "legend": {
+            "alignAsTable": true,
+            "avg": false,
+            "current": true,
+            "max": true,
+            "min": true,
+            "rightSide": false,
+            "show": true,
+            "total": false,
+            "values": true
+          },
+          "lines": true,
+          "linewidth": 1,
+          "links": [],
+          "nullPointMode": "null",
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [],
+          "spaceLength": 10,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "alias": "IPv6 Entries ([[tag_Producer]], [[tag_node-name]], NPU [[tag_npu-hwr-list__npu-id]])",
+              "groupBy": [
+                {
+                  "params": [
+                    "Producer"
+                  ],
+                  "type": "tag"
+                },
+                {
+                  "params": [
+                    "node-name"
+                  ],
+                  "type": "tag"
+                },
+                {
+                  "params": [
+                    "npu-hwr-list__npu-id"
+                  ],
+                  "type": "tag"
+                }
+              ],
+              "measurement": "Cisco-IOS-XR-fretta-bcm-dpa-hw-resources-oper:dpa/stats/nodes/node/hw-resources-datas/hw-resources-data",
+              "orderByTime": "ASC",
+              "policy": "default",
+              "refId": "A",
+              "resultFormat": "time_series",
+              "select": [
+                [
+                  {
+                    "params": [
+                      "npu-hwr-list__lt-hwr-list__hw-entries"
+                    ],
+                    "type": "field"
+                  }
+                ]
+              ],
+              "tags": [
+                {
+                  "key": "resource",
+                  "operator": "=",
+                  "value": "lpm"
+                },
+                {
+                  "condition": "AND",
+                  "key": "npu-hwr-list__lt-hwr-list__name",
+                  "operator": "=",
+                  "value": "ip6route"
+                }
+              ]
+            }
+          ],
+          "thresholds": [],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "LPM TABLE IPv6",
+          "tooltip": {
+            "shared": true,
+            "sort": 0,
+            "value_type": "individual"
+          },
+          "type": "graph",
+          "xaxis": {
+            "buckets": null,
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": []
+          },
+          "yaxes": [
+            {
+              "format": "none",
+              "label": "LPM IPv6 Entries",
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            },
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            }
+          ]
+        },
+        {
+          "aliasColors": {},
+          "bars": false,
+          "dashLength": 10,
+          "dashes": false,
+          "datasource": "InfluxDB",
+          "fill": 2,
+          "gridPos": {
+            "h": 10,
+            "w": 12,
+            "x": 12,
+            "y": 18
+          },
+          "id": 52,
+          "legend": {
+            "alignAsTable": true,
+            "avg": false,
+            "current": true,
+            "max": true,
+            "min": true,
+            "rightSide": false,
+            "show": true,
+            "total": false,
+            "values": true
+          },
+          "lines": true,
+          "linewidth": 1,
+          "links": [],
+          "nullPointMode": "null",
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [],
+          "spaceLength": 10,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "alias": "IPv6 Entries ([[tag_Producer]], [[tag_node-name]], NPU [[tag_npu-hwr-list__npu-id]])",
+              "groupBy": [
+                {
+                  "params": [
+                    "$interval"
+                  ],
+                  "type": "time"
+                },
+                {
+                  "params": [
+                    "Producer"
+                  ],
+                  "type": "tag"
+                },
+                {
+                  "params": [
+                    "node-name"
+                  ],
+                  "type": "tag"
+                },
+                {
+                  "params": [
+                    "npu-hwr-list__npu-id"
+                  ],
+                  "type": "tag"
+                }
+              ],
+              "measurement": "Cisco-IOS-XR-fretta-bcm-dpa-hw-resources-oper:dpa/stats/nodes/node/hw-resources-datas/hw-resources-data",
+              "orderByTime": "ASC",
+              "policy": "default",
+              "refId": "A",
+              "resultFormat": "time_series",
+              "select": [
+                [
+                  {
+                    "params": [
+                      "npu-hwr-list__lt-hwr-list__hw-entries"
+                    ],
+                    "type": "field"
+                  },
+                  {
+                    "params": [],
+                    "type": "last"
+                  },
+                  {
+                    "params": [],
+                    "type": "difference"
+                  }
+                ]
+              ],
+              "tags": [
+                {
+                  "key": "resource",
+                  "operator": "=",
+                  "value": "lpm"
+                },
+                {
+                  "condition": "AND",
+                  "key": "npu-hwr-list__lt-hwr-list__name",
+                  "operator": "=",
+                  "value": "ip6route"
+                }
+              ]
+            }
+          ],
+          "thresholds": [],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "LPM TABLE IPv6 CHANGE",
+          "tooltip": {
+            "shared": true,
+            "sort": 0,
+            "value_type": "individual"
+          },
+          "type": "graph",
+          "xaxis": {
+            "buckets": null,
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": []
+          },
+          "yaxes": [
+            {
+              "format": "none",
+              "label": "LPM IPv6 Entries Change",
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            },
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            }
+          ]
+        },
+        {
+          "aliasColors": {},
+          "bars": false,
+          "dashLength": 10,
+          "dashes": false,
+          "datasource": "InfluxDB",
+          "fill": 2,
+          "gridPos": {
+            "h": 10,
+            "w": 12,
+            "x": 0,
+            "y": 28
+          },
+          "id": 49,
+          "legend": {
+            "alignAsTable": true,
+            "avg": false,
+            "current": true,
+            "max": true,
+            "min": true,
+            "rightSide": false,
+            "show": true,
+            "total": false,
+            "values": true
+          },
+          "lines": true,
+          "linewidth": 1,
+          "links": [],
+          "nullPointMode": "null",
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [],
+          "spaceLength": 10,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "alias": "IPv4 MC Entries ([[tag_Producer]], [[tag_node-name]], NPU [[tag_npu-hwr-list__npu-id]])",
+              "groupBy": [
+                {
+                  "params": [
+                    "Producer"
+                  ],
+                  "type": "tag"
+                },
+                {
+                  "params": [
+                    "node-name"
+                  ],
+                  "type": "tag"
+                },
+                {
+                  "params": [
+                    "npu-hwr-list__npu-id"
+                  ],
+                  "type": "tag"
+                }
+              ],
+              "measurement": "Cisco-IOS-XR-fretta-bcm-dpa-hw-resources-oper:dpa/stats/nodes/node/hw-resources-datas/hw-resources-data",
+              "orderByTime": "ASC",
+              "policy": "default",
+              "refId": "A",
+              "resultFormat": "time_series",
+              "select": [
+                [
+                  {
+                    "params": [
+                      "npu-hwr-list__lt-hwr-list__hw-entries"
+                    ],
+                    "type": "field"
+                  }
+                ]
+              ],
+              "tags": [
+                {
+                  "key": "resource",
+                  "operator": "=",
+                  "value": "lpm"
+                },
+                {
+                  "condition": "AND",
+                  "key": "npu-hwr-list__lt-hwr-list__name",
+                  "operator": "=",
+                  "value": "ipmcroute"
+                }
+              ]
+            }
+          ],
+          "thresholds": [],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "LPM TABLE IPv4 MULTICAST",
+          "tooltip": {
+            "shared": true,
+            "sort": 0,
+            "value_type": "individual"
+          },
+          "type": "graph",
+          "xaxis": {
+            "buckets": null,
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": []
+          },
+          "yaxes": [
+            {
+              "format": "none",
+              "label": "LPM IPv4 MC Entries",
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            },
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            }
+          ]
+        },
+        {
+          "aliasColors": {},
+          "bars": false,
+          "dashLength": 10,
+          "dashes": false,
+          "datasource": "InfluxDB",
+          "fill": 2,
+          "gridPos": {
+            "h": 10,
+            "w": 12,
+            "x": 12,
+            "y": 28
+          },
+          "id": 50,
+          "legend": {
+            "alignAsTable": true,
+            "avg": false,
+            "current": true,
+            "max": true,
+            "min": true,
+            "rightSide": false,
+            "show": true,
+            "total": false,
+            "values": true
+          },
+          "lines": true,
+          "linewidth": 1,
+          "links": [],
+          "nullPointMode": "null",
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [],
+          "spaceLength": 10,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "alias": "IPv4 MC Entries ([[tag_Producer]], [[tag_node-name]], NPU [[tag_npu-hwr-list__npu-id]])",
+              "groupBy": [
+                {
+                  "params": [
+                    "$interval"
+                  ],
+                  "type": "time"
+                },
+                {
+                  "params": [
+                    "Producer"
+                  ],
+                  "type": "tag"
+                },
+                {
+                  "params": [
+                    "node-name"
+                  ],
+                  "type": "tag"
+                },
+                {
+                  "params": [
+                    "npu-hwr-list__npu-id"
+                  ],
+                  "type": "tag"
+                }
+              ],
+              "measurement": "Cisco-IOS-XR-fretta-bcm-dpa-hw-resources-oper:dpa/stats/nodes/node/hw-resources-datas/hw-resources-data",
+              "orderByTime": "ASC",
+              "policy": "default",
+              "refId": "A",
+              "resultFormat": "time_series",
+              "select": [
+                [
+                  {
+                    "params": [
+                      "npu-hwr-list__lt-hwr-list__hw-entries"
+                    ],
+                    "type": "field"
+                  },
+                  {
+                    "params": [],
+                    "type": "last"
+                  },
+                  {
+                    "params": [],
+                    "type": "difference"
+                  }
+                ]
+              ],
+              "tags": [
+                {
+                  "key": "resource",
+                  "operator": "=",
+                  "value": "lpm"
+                },
+                {
+                  "condition": "AND",
+                  "key": "npu-hwr-list__lt-hwr-list__name",
+                  "operator": "=",
+                  "value": "ipmcroute"
+                }
+              ]
+            }
+          ],
+          "thresholds": [],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "LEM TABLE IPv4 MULTICAST CHANGE",
+          "tooltip": {
+            "shared": true,
+            "sort": 0,
+            "value_type": "individual"
+          },
+          "type": "graph",
+          "xaxis": {
+            "buckets": null,
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": []
+          },
+          "yaxes": [
+            {
+              "format": "none",
+              "label": "IPv4 MC Entries Change",
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            },
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            }
+          ]
+        },
+        {
+          "aliasColors": {},
+          "bars": false,
+          "dashLength": 10,
+          "dashes": false,
+          "datasource": "InfluxDB",
+          "fill": 2,
+          "gridPos": {
+            "h": 10,
+            "w": 12,
+            "x": 0,
+            "y": 38
+          },
+          "id": 55,
+          "legend": {
+            "alignAsTable": true,
+            "avg": false,
+            "current": true,
+            "max": true,
+            "min": true,
+            "rightSide": false,
+            "show": true,
+            "total": false,
+            "values": true
+          },
+          "lines": true,
+          "linewidth": 1,
+          "links": [],
+          "nullPointMode": "null",
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [],
+          "spaceLength": 10,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "alias": "IPv6 MC Entries ([[tag_Producer]], [[tag_node-name]], NPU [[tag_npu-hwr-list__npu-id]])",
+              "groupBy": [
+                {
+                  "params": [
+                    "Producer"
+                  ],
+                  "type": "tag"
+                },
+                {
+                  "params": [
+                    "node-name"
+                  ],
+                  "type": "tag"
+                },
+                {
+                  "params": [
+                    "npu-hwr-list__npu-id"
+                  ],
+                  "type": "tag"
+                }
+              ],
+              "measurement": "Cisco-IOS-XR-fretta-bcm-dpa-hw-resources-oper:dpa/stats/nodes/node/hw-resources-datas/hw-resources-data",
+              "orderByTime": "ASC",
+              "policy": "default",
+              "refId": "A",
+              "resultFormat": "time_series",
+              "select": [
+                [
+                  {
+                    "params": [
+                      "npu-hwr-list__lt-hwr-list__hw-entries"
+                    ],
+                    "type": "field"
+                  }
+                ]
+              ],
+              "tags": [
+                {
+                  "key": "resource",
+                  "operator": "=",
+                  "value": "lpm"
+                },
+                {
+                  "condition": "AND",
+                  "key": "npu-hwr-list__lt-hwr-list__name",
+                  "operator": "=",
+                  "value": "ip6mcroute"
+                }
+              ]
+            }
+          ],
+          "thresholds": [],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "LPM TABLE IPv6 MULTICAST",
+          "tooltip": {
+            "shared": true,
+            "sort": 0,
+            "value_type": "individual"
+          },
+          "type": "graph",
+          "xaxis": {
+            "buckets": null,
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": []
+          },
+          "yaxes": [
+            {
+              "format": "none",
+              "label": "LPM IPv6 MC Entries",
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            },
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            }
+          ]
+        },
+        {
+          "aliasColors": {},
+          "bars": false,
+          "dashLength": 10,
+          "dashes": false,
+          "datasource": "InfluxDB",
+          "fill": 2,
+          "gridPos": {
+            "h": 10,
+            "w": 12,
+            "x": 12,
+            "y": 38
+          },
+          "id": 56,
+          "legend": {
+            "alignAsTable": true,
+            "avg": false,
+            "current": true,
+            "max": true,
+            "min": true,
+            "rightSide": false,
+            "show": true,
+            "total": false,
+            "values": true
+          },
+          "lines": true,
+          "linewidth": 1,
+          "links": [],
+          "nullPointMode": "null",
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [],
+          "spaceLength": 10,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "alias": "IPv6 MC Entries ([[tag_Producer]], [[tag_node-name]], NPU [[tag_npu-hwr-list__npu-id]])",
+              "groupBy": [
+                {
+                  "params": [
+                    "$interval"
+                  ],
+                  "type": "time"
+                },
+                {
+                  "params": [
+                    "Producer"
+                  ],
+                  "type": "tag"
+                },
+                {
+                  "params": [
+                    "node-name"
+                  ],
+                  "type": "tag"
+                },
+                {
+                  "params": [
+                    "npu-hwr-list__npu-id"
+                  ],
+                  "type": "tag"
+                }
+              ],
+              "measurement": "Cisco-IOS-XR-fretta-bcm-dpa-hw-resources-oper:dpa/stats/nodes/node/hw-resources-datas/hw-resources-data",
+              "orderByTime": "ASC",
+              "policy": "default",
+              "refId": "A",
+              "resultFormat": "time_series",
+              "select": [
+                [
+                  {
+                    "params": [
+                      "npu-hwr-list__lt-hwr-list__hw-entries"
+                    ],
+                    "type": "field"
+                  },
+                  {
+                    "params": [],
+                    "type": "last"
+                  },
+                  {
+                    "params": [],
+                    "type": "difference"
+                  }
+                ]
+              ],
+              "tags": [
+                {
+                  "key": "resource",
+                  "operator": "=",
+                  "value": "lpm"
+                },
+                {
+                  "condition": "AND",
+                  "key": "npu-hwr-list__lt-hwr-list__name",
+                  "operator": "=",
+                  "value": "ipmcroute"
+                }
+              ]
+            }
+          ],
+          "thresholds": [],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "LEM TABLE IPv6 MULTICAST CHANGE",
+          "tooltip": {
+            "shared": true,
+            "sort": 0,
+            "value_type": "individual"
+          },
+          "type": "graph",
+          "xaxis": {
+            "buckets": null,
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": []
+          },
+          "yaxes": [
+            {
+              "format": "none",
+              "label": "IPv6 MC Entries Change",
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            },
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            }
+          ]
+        }
+      ],
+      "title": "LPM Table Historical",
+      "type": "row"
+    },
+    {
+      "collapsed": true,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 8
+      },
+      "id": 31,
+      "panels": [
+        {
+          "aliasColors": {},
+          "bars": false,
+          "dashLength": 10,
+          "dashes": false,
+          "datasource": "InfluxDB",
+          "fill": 2,
+          "gridPos": {
+            "h": 10,
+            "w": 12,
+            "x": 0,
+            "y": 9
+          },
+          "id": 53,
+          "legend": {
+            "alignAsTable": true,
+            "avg": false,
+            "current": true,
+            "max": true,
+            "min": true,
+            "rightSide": false,
+            "show": true,
+            "total": false,
+            "values": true
+          },
+          "lines": true,
+          "linewidth": 1,
+          "links": [],
+          "nullPointMode": "null",
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [],
+          "spaceLength": 10,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "alias": "Total Entries ([[tag_Producer]], [[tag_node-name]], NPU [[tag_npu-hwr-list__npu-id]])",
+              "groupBy": [
+                {
+                  "params": [
+                    "Producer"
+                  ],
+                  "type": "tag"
+                },
+                {
+                  "params": [
+                    "node-name"
+                  ],
+                  "type": "tag"
+                },
+                {
+                  "params": [
+                    "npu-hwr-list__npu-id"
+                  ],
+                  "type": "tag"
+                }
+              ],
+              "measurement": "Cisco-IOS-XR-fretta-bcm-dpa-hw-resources-oper:dpa/stats/nodes/node/hw-resources-datas/hw-resources-data",
+              "orderByTime": "ASC",
+              "policy": "default",
+              "refId": "A",
+              "resultFormat": "time_series",
+              "select": [
+                [
+                  {
+                    "params": [
+                      "npu-hwr-list__inuse-objects"
+                    ],
+                    "type": "field"
+                  }
+                ]
+              ],
+              "tags": [
+                {
+                  "key": "resource",
+                  "operator": "=",
+                  "value": "fec"
+                }
+              ]
+            }
+          ],
+          "thresholds": [],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "FEC TABLE TOTAL",
+          "tooltip": {
+            "shared": true,
+            "sort": 0,
+            "value_type": "individual"
+          },
+          "type": "graph",
+          "xaxis": {
+            "buckets": null,
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": []
+          },
+          "yaxes": [
+            {
+              "format": "none",
+              "label": "FEC TOTAL Entries",
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            },
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            }
+          ]
+        },
+        {
+          "aliasColors": {},
+          "bars": false,
+          "dashLength": 10,
+          "dashes": false,
+          "datasource": "InfluxDB",
+          "fill": 2,
+          "gridPos": {
+            "h": 10,
+            "w": 12,
+            "x": 12,
+            "y": 9
+          },
+          "id": 54,
+          "legend": {
+            "alignAsTable": true,
+            "avg": false,
+            "current": true,
+            "max": true,
+            "min": true,
+            "rightSide": false,
+            "show": true,
+            "total": false,
+            "values": true
+          },
+          "lines": true,
+          "linewidth": 1,
+          "links": [],
+          "nullPointMode": "null",
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [],
+          "spaceLength": 10,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "alias": "Total Entries ([[tag_Producer]], [[tag_node-name]], NPU [[tag_npu-hwr-list__npu-id]])",
+              "groupBy": [
+                {
+                  "params": [
+                    "$interval"
+                  ],
+                  "type": "time"
+                },
+                {
+                  "params": [
+                    "Producer"
+                  ],
+                  "type": "tag"
+                },
+                {
+                  "params": [
+                    "node-name"
+                  ],
+                  "type": "tag"
+                },
+                {
+                  "params": [
+                    "npu-hwr-list__npu-id"
+                  ],
+                  "type": "tag"
+                }
+              ],
+              "measurement": "Cisco-IOS-XR-fretta-bcm-dpa-hw-resources-oper:dpa/stats/nodes/node/hw-resources-datas/hw-resources-data",
+              "orderByTime": "ASC",
+              "policy": "default",
+              "refId": "A",
+              "resultFormat": "time_series",
+              "select": [
+                [
+                  {
+                    "params": [
+                      "npu-hwr-list__inuse-objects"
+                    ],
+                    "type": "field"
+                  },
+                  {
+                    "params": [],
+                    "type": "last"
+                  },
+                  {
+                    "params": [],
+                    "type": "difference"
+                  }
+                ]
+              ],
+              "tags": [
+                {
+                  "key": "resource",
+                  "operator": "=",
+                  "value": "fec"
+                }
+              ]
+            }
+          ],
+          "thresholds": [],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "FEC TABLE TOTAL CHANGE",
+          "tooltip": {
+            "shared": true,
+            "sort": 0,
+            "value_type": "individual"
+          },
+          "type": "graph",
+          "xaxis": {
+            "buckets": null,
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": []
+          },
+          "yaxes": [
+            {
+              "format": "none",
+              "label": "FEC Total Entries Change",
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            },
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            }
+          ]
+        },
+        {
+          "aliasColors": {},
+          "bars": false,
+          "dashLength": 10,
+          "dashes": false,
+          "datasource": "InfluxDB",
+          "fill": 2,
+          "gridPos": {
+            "h": 10,
+            "w": 12,
+            "x": 0,
+            "y": 19
+          },
+          "id": 59,
+          "legend": {
+            "alignAsTable": true,
+            "avg": false,
+            "current": true,
+            "max": true,
+            "min": true,
+            "rightSide": false,
+            "show": true,
+            "total": false,
+            "values": true
+          },
+          "lines": true,
+          "linewidth": 1,
+          "links": [],
+          "nullPointMode": "null",
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [],
+          "spaceLength": 10,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "alias": "IPv4 NHGroup Entries ([[tag_Producer]], [[tag_node-name]], NPU [[tag_npu-hwr-list__npu-id]])",
+              "groupBy": [
+                {
+                  "params": [
+                    "Producer"
+                  ],
+                  "type": "tag"
+                },
+                {
+                  "params": [
+                    "node-name"
+                  ],
+                  "type": "tag"
+                },
+                {
+                  "params": [
+                    "npu-hwr-list__npu-id"
+                  ],
+                  "type": "tag"
+                }
+              ],
+              "measurement": "Cisco-IOS-XR-fretta-bcm-dpa-hw-resources-oper:dpa/stats/nodes/node/hw-resources-datas/hw-resources-data",
+              "orderByTime": "ASC",
+              "policy": "default",
+              "refId": "A",
+              "resultFormat": "time_series",
+              "select": [
+                [
+                  {
+                    "params": [
+                      "npu-hwr-list__lt-hwr-list__hw-entries"
+                    ],
+                    "type": "field"
+                  }
+                ]
+              ],
+              "tags": [
+                {
+                  "key": "resource",
+                  "operator": "=",
+                  "value": "fec"
+                },
+                {
+                  "condition": "AND",
+                  "key": "npu-hwr-list__lt-hwr-list__name",
+                  "operator": "=",
+                  "value": "ipnhgroup"
+                }
+              ]
+            }
+          ],
+          "thresholds": [],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "FEC TABLE IPv4 NEXTHOP GROUP",
+          "tooltip": {
+            "shared": true,
+            "sort": 0,
+            "value_type": "individual"
+          },
+          "type": "graph",
+          "xaxis": {
+            "buckets": null,
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": []
+          },
+          "yaxes": [
+            {
+              "format": "none",
+              "label": "FEC IPv4 NH Group Entries",
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            },
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            }
+          ]
+        },
+        {
+          "aliasColors": {},
+          "bars": false,
+          "dashLength": 10,
+          "dashes": false,
+          "datasource": "InfluxDB",
+          "fill": 2,
+          "gridPos": {
+            "h": 10,
+            "w": 12,
+            "x": 12,
+            "y": 19
+          },
+          "id": 60,
+          "legend": {
+            "alignAsTable": true,
+            "avg": false,
+            "current": true,
+            "max": true,
+            "min": true,
+            "rightSide": false,
+            "show": true,
+            "total": false,
+            "values": true
+          },
+          "lines": true,
+          "linewidth": 1,
+          "links": [],
+          "nullPointMode": "null",
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [],
+          "spaceLength": 10,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "alias": "IPv4 NH Group Entries ([[tag_Producer]], [[tag_node-name]], NPU [[tag_npu-hwr-list__npu-id]])",
+              "groupBy": [
+                {
+                  "params": [
+                    "$interval"
+                  ],
+                  "type": "time"
+                },
+                {
+                  "params": [
+                    "Producer"
+                  ],
+                  "type": "tag"
+                },
+                {
+                  "params": [
+                    "node-name"
+                  ],
+                  "type": "tag"
+                },
+                {
+                  "params": [
+                    "npu-hwr-list__npu-id"
+                  ],
+                  "type": "tag"
+                }
+              ],
+              "measurement": "Cisco-IOS-XR-fretta-bcm-dpa-hw-resources-oper:dpa/stats/nodes/node/hw-resources-datas/hw-resources-data",
+              "orderByTime": "ASC",
+              "policy": "default",
+              "refId": "A",
+              "resultFormat": "time_series",
+              "select": [
+                [
+                  {
+                    "params": [
+                      "npu-hwr-list__lt-hwr-list__hw-entries"
+                    ],
+                    "type": "field"
+                  },
+                  {
+                    "params": [],
+                    "type": "last"
+                  },
+                  {
+                    "params": [],
+                    "type": "difference"
+                  }
+                ]
+              ],
+              "tags": [
+                {
+                  "key": "resource",
+                  "operator": "=",
+                  "value": "fec"
+                },
+                {
+                  "condition": "AND",
+                  "key": "npu-hwr-list__lt-hwr-list__name",
+                  "operator": "=",
+                  "value": "ipnhgroup"
+                }
+              ]
+            }
+          ],
+          "thresholds": [],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "FEC TABLE IPv4 NEXTHOP GROUP CHANGE",
+          "tooltip": {
+            "shared": true,
+            "sort": 0,
+            "value_type": "individual"
+          },
+          "type": "graph",
+          "xaxis": {
+            "buckets": null,
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": []
+          },
+          "yaxes": [
+            {
+              "format": "none",
+              "label": "IPv4 NHGroup Entries Change",
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            },
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            }
+          ]
+        },
+        {
+          "aliasColors": {},
+          "bars": false,
+          "dashLength": 10,
+          "dashes": false,
+          "datasource": "InfluxDB",
+          "fill": 2,
+          "gridPos": {
+            "h": 10,
+            "w": 12,
+            "x": 0,
+            "y": 29
+          },
+          "id": 61,
+          "legend": {
+            "alignAsTable": true,
+            "avg": false,
+            "current": true,
+            "max": true,
+            "min": true,
+            "rightSide": false,
+            "show": true,
+            "total": false,
+            "values": true
+          },
+          "lines": true,
+          "linewidth": 1,
+          "links": [],
+          "nullPointMode": "null",
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [],
+          "spaceLength": 10,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "alias": "IPv4 NHGroup Entries ([[tag_Producer]], [[tag_node-name]], NPU [[tag_npu-hwr-list__npu-id]])",
+              "groupBy": [
+                {
+                  "params": [
+                    "Producer"
+                  ],
+                  "type": "tag"
+                },
+                {
+                  "params": [
+                    "node-name"
+                  ],
+                  "type": "tag"
+                },
+                {
+                  "params": [
+                    "npu-hwr-list__npu-id"
+                  ],
+                  "type": "tag"
+                }
+              ],
+              "measurement": "Cisco-IOS-XR-fretta-bcm-dpa-hw-resources-oper:dpa/stats/nodes/node/hw-resources-datas/hw-resources-data",
+              "orderByTime": "ASC",
+              "policy": "default",
+              "refId": "A",
+              "resultFormat": "time_series",
+              "select": [
+                [
+                  {
+                    "params": [
+                      "npu-hwr-list__lt-hwr-list__hw-entries"
+                    ],
+                    "type": "field"
+                  }
+                ]
+              ],
+              "tags": [
+                {
+                  "key": "resource",
+                  "operator": "=",
+                  "value": "fec"
+                },
+                {
+                  "condition": "AND",
+                  "key": "npu-hwr-list__lt-hwr-list__name",
+                  "operator": "=",
+                  "value": "ip6nhgroup"
+                }
+              ]
+            }
+          ],
+          "thresholds": [],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "FEC TABLE IPv6 NEXTHOP GROUP",
+          "tooltip": {
+            "shared": true,
+            "sort": 0,
+            "value_type": "individual"
+          },
+          "type": "graph",
+          "xaxis": {
+            "buckets": null,
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": []
+          },
+          "yaxes": [
+            {
+              "format": "none",
+              "label": "FEC IPv6 NH Group Entries",
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            },
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            }
+          ]
+        },
+        {
+          "aliasColors": {},
+          "bars": false,
+          "dashLength": 10,
+          "dashes": false,
+          "datasource": "InfluxDB",
+          "fill": 2,
+          "gridPos": {
+            "h": 10,
+            "w": 12,
+            "x": 12,
+            "y": 29
+          },
+          "id": 62,
+          "legend": {
+            "alignAsTable": true,
+            "avg": false,
+            "current": true,
+            "max": true,
+            "min": true,
+            "rightSide": false,
+            "show": true,
+            "total": false,
+            "values": true
+          },
+          "lines": true,
+          "linewidth": 1,
+          "links": [],
+          "nullPointMode": "null",
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [],
+          "spaceLength": 10,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "alias": "IPv6 NH Group Entries ([[tag_Producer]], [[tag_node-name]], NPU [[tag_npu-hwr-list__npu-id]])",
+              "groupBy": [
+                {
+                  "params": [
+                    "$interval"
+                  ],
+                  "type": "time"
+                },
+                {
+                  "params": [
+                    "Producer"
+                  ],
+                  "type": "tag"
+                },
+                {
+                  "params": [
+                    "node-name"
+                  ],
+                  "type": "tag"
+                },
+                {
+                  "params": [
+                    "npu-hwr-list__npu-id"
+                  ],
+                  "type": "tag"
+                }
+              ],
+              "measurement": "Cisco-IOS-XR-fretta-bcm-dpa-hw-resources-oper:dpa/stats/nodes/node/hw-resources-datas/hw-resources-data",
+              "orderByTime": "ASC",
+              "policy": "default",
+              "refId": "A",
+              "resultFormat": "time_series",
+              "select": [
+                [
+                  {
+                    "params": [
+                      "npu-hwr-list__lt-hwr-list__hw-entries"
+                    ],
+                    "type": "field"
+                  },
+                  {
+                    "params": [],
+                    "type": "last"
+                  },
+                  {
+                    "params": [],
+                    "type": "difference"
+                  }
+                ]
+              ],
+              "tags": [
+                {
+                  "key": "resource",
+                  "operator": "=",
+                  "value": "fec"
+                },
+                {
+                  "condition": "AND",
+                  "key": "npu-hwr-list__lt-hwr-list__name",
+                  "operator": "=",
+                  "value": "ip6nhgroup"
+                }
+              ]
+            }
+          ],
+          "thresholds": [],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "FEC TABLE IPv6 NEXTHOP GROUP CHANGE",
+          "tooltip": {
+            "shared": true,
+            "sort": 0,
+            "value_type": "individual"
+          },
+          "type": "graph",
+          "xaxis": {
+            "buckets": null,
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": []
+          },
+          "yaxes": [
+            {
+              "format": "none",
+              "label": "IPv6 NHGroup Entries Change",
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            },
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            }
+          ]
+        }
+      ],
+      "title": "FEC Table Historical",
+      "type": "row"
+    },
+    {
+      "collapsed": true,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 9
+      },
+      "id": 33,
+      "panels": [
+        {
+          "aliasColors": {},
+          "bars": false,
+          "dashLength": 10,
+          "dashes": false,
+          "datasource": "InfluxDB",
+          "fill": 2,
+          "gridPos": {
+            "h": 10,
+            "w": 12,
+            "x": 0,
+            "y": 10
+          },
+          "id": 63,
+          "legend": {
+            "alignAsTable": true,
+            "avg": false,
+            "current": true,
+            "max": true,
+            "min": true,
+            "rightSide": false,
+            "show": true,
+            "total": false,
+            "values": true
+          },
+          "lines": true,
+          "linewidth": 1,
+          "links": [],
+          "nullPointMode": "null",
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [],
+          "spaceLength": 10,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "alias": "Total Entries ([[tag_Producer]], [[tag_node-name]], NPU [[tag_npu-hwr-list__npu-id]])",
+              "groupBy": [
+                {
+                  "params": [
+                    "Producer"
+                  ],
+                  "type": "tag"
+                },
+                {
+                  "params": [
+                    "node-name"
+                  ],
+                  "type": "tag"
+                },
+                {
+                  "params": [
+                    "npu-hwr-list__npu-id"
+                  ],
+                  "type": "tag"
+                }
+              ],
+              "measurement": "Cisco-IOS-XR-fretta-bcm-dpa-hw-resources-oper:dpa/stats/nodes/node/hw-resources-datas/hw-resources-data",
+              "orderByTime": "ASC",
+              "policy": "default",
+              "refId": "A",
+              "resultFormat": "time_series",
+              "select": [
+                [
+                  {
+                    "params": [
+                      "npu-hwr-list__inuse-objects"
+                    ],
+                    "type": "field"
+                  }
+                ]
+              ],
+              "tags": [
+                {
+                  "key": "resource",
+                  "operator": "=",
+                  "value": "ecmpfec"
+                }
+              ]
+            }
+          ],
+          "thresholds": [],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "ECMP-FEC TABLE TOTAL",
+          "tooltip": {
+            "shared": true,
+            "sort": 0,
+            "value_type": "individual"
+          },
+          "type": "graph",
+          "xaxis": {
+            "buckets": null,
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": []
+          },
+          "yaxes": [
+            {
+              "format": "none",
+              "label": "ECMP-FEC TOTAL Entries",
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            },
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            }
+          ]
+        },
+        {
+          "aliasColors": {},
+          "bars": false,
+          "dashLength": 10,
+          "dashes": false,
+          "datasource": "InfluxDB",
+          "fill": 2,
+          "gridPos": {
+            "h": 10,
+            "w": 12,
+            "x": 12,
+            "y": 10
+          },
+          "id": 64,
+          "legend": {
+            "alignAsTable": true,
+            "avg": false,
+            "current": true,
+            "max": true,
+            "min": true,
+            "rightSide": false,
+            "show": true,
+            "total": false,
+            "values": true
+          },
+          "lines": true,
+          "linewidth": 1,
+          "links": [],
+          "nullPointMode": "null",
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [],
+          "spaceLength": 10,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "alias": "Total Entries ([[tag_Producer]], [[tag_node-name]], NPU [[tag_npu-hwr-list__npu-id]])",
+              "groupBy": [
+                {
+                  "params": [
+                    "$interval"
+                  ],
+                  "type": "time"
+                },
+                {
+                  "params": [
+                    "Producer"
+                  ],
+                  "type": "tag"
+                },
+                {
+                  "params": [
+                    "node-name"
+                  ],
+                  "type": "tag"
+                },
+                {
+                  "params": [
+                    "npu-hwr-list__npu-id"
+                  ],
+                  "type": "tag"
+                }
+              ],
+              "measurement": "Cisco-IOS-XR-fretta-bcm-dpa-hw-resources-oper:dpa/stats/nodes/node/hw-resources-datas/hw-resources-data",
+              "orderByTime": "ASC",
+              "policy": "default",
+              "refId": "A",
+              "resultFormat": "time_series",
+              "select": [
+                [
+                  {
+                    "params": [
+                      "npu-hwr-list__inuse-objects"
+                    ],
+                    "type": "field"
+                  },
+                  {
+                    "params": [],
+                    "type": "last"
+                  },
+                  {
+                    "params": [],
+                    "type": "difference"
+                  }
+                ]
+              ],
+              "tags": [
+                {
+                  "key": "resource",
+                  "operator": "=",
+                  "value": "ecmpfec"
+                }
+              ]
+            }
+          ],
+          "thresholds": [],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "ECMP-FEC TABLE TOTAL CHANGE",
+          "tooltip": {
+            "shared": true,
+            "sort": 0,
+            "value_type": "individual"
+          },
+          "type": "graph",
+          "xaxis": {
+            "buckets": null,
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": []
+          },
+          "yaxes": [
+            {
+              "format": "none",
+              "label": "ECMP-FEC Entries Change",
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            },
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            }
+          ]
+        },
+        {
+          "aliasColors": {},
+          "bars": false,
+          "dashLength": 10,
+          "dashes": false,
+          "datasource": "InfluxDB",
+          "fill": 2,
+          "gridPos": {
+            "h": 10,
+            "w": 12,
+            "x": 0,
+            "y": 20
+          },
+          "id": 65,
+          "legend": {
+            "alignAsTable": true,
+            "avg": false,
+            "current": true,
+            "max": true,
+            "min": true,
+            "rightSide": false,
+            "show": true,
+            "total": false,
+            "values": true
+          },
+          "lines": true,
+          "linewidth": 1,
+          "links": [],
+          "nullPointMode": "null",
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [],
+          "spaceLength": 10,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "alias": "IPv4 NHGroup Entries ([[tag_Producer]], [[tag_node-name]], NPU [[tag_npu-hwr-list__npu-id]])",
+              "groupBy": [
+                {
+                  "params": [
+                    "Producer"
+                  ],
+                  "type": "tag"
+                },
+                {
+                  "params": [
+                    "node-name"
+                  ],
+                  "type": "tag"
+                },
+                {
+                  "params": [
+                    "npu-hwr-list__npu-id"
+                  ],
+                  "type": "tag"
+                }
+              ],
+              "measurement": "Cisco-IOS-XR-fretta-bcm-dpa-hw-resources-oper:dpa/stats/nodes/node/hw-resources-datas/hw-resources-data",
+              "orderByTime": "ASC",
+              "policy": "default",
+              "refId": "A",
+              "resultFormat": "time_series",
+              "select": [
+                [
+                  {
+                    "params": [
+                      "npu-hwr-list__lt-hwr-list__hw-entries"
+                    ],
+                    "type": "field"
+                  }
+                ]
+              ],
+              "tags": [
+                {
+                  "key": "resource",
+                  "operator": "=",
+                  "value": "ecmpfec"
+                },
+                {
+                  "condition": "AND",
+                  "key": "npu-hwr-list__lt-hwr-list__name",
+                  "operator": "=",
+                  "value": "ipnhgroup"
+                }
+              ]
+            }
+          ],
+          "thresholds": [],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "ECMP-FEC TABLE IPv4 NEXTHOP GROUP",
+          "tooltip": {
+            "shared": true,
+            "sort": 0,
+            "value_type": "individual"
+          },
+          "type": "graph",
+          "xaxis": {
+            "buckets": null,
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": []
+          },
+          "yaxes": [
+            {
+              "format": "none",
+              "label": "ECM-FEC IPv4 NH Group Entries",
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            },
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            }
+          ]
+        },
+        {
+          "aliasColors": {},
+          "bars": false,
+          "dashLength": 10,
+          "dashes": false,
+          "datasource": "InfluxDB",
+          "fill": 2,
+          "gridPos": {
+            "h": 10,
+            "w": 12,
+            "x": 12,
+            "y": 20
+          },
+          "id": 66,
+          "legend": {
+            "alignAsTable": true,
+            "avg": false,
+            "current": true,
+            "max": true,
+            "min": true,
+            "rightSide": false,
+            "show": true,
+            "total": false,
+            "values": true
+          },
+          "lines": true,
+          "linewidth": 1,
+          "links": [],
+          "nullPointMode": "null",
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [],
+          "spaceLength": 10,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "alias": "IPv4 NH Group Entries ([[tag_Producer]], [[tag_node-name]], NPU [[tag_npu-hwr-list__npu-id]])",
+              "groupBy": [
+                {
+                  "params": [
+                    "$interval"
+                  ],
+                  "type": "time"
+                },
+                {
+                  "params": [
+                    "Producer"
+                  ],
+                  "type": "tag"
+                },
+                {
+                  "params": [
+                    "node-name"
+                  ],
+                  "type": "tag"
+                },
+                {
+                  "params": [
+                    "npu-hwr-list__npu-id"
+                  ],
+                  "type": "tag"
+                }
+              ],
+              "measurement": "Cisco-IOS-XR-fretta-bcm-dpa-hw-resources-oper:dpa/stats/nodes/node/hw-resources-datas/hw-resources-data",
+              "orderByTime": "ASC",
+              "policy": "default",
+              "refId": "A",
+              "resultFormat": "time_series",
+              "select": [
+                [
+                  {
+                    "params": [
+                      "npu-hwr-list__lt-hwr-list__hw-entries"
+                    ],
+                    "type": "field"
+                  },
+                  {
+                    "params": [],
+                    "type": "last"
+                  },
+                  {
+                    "params": [],
+                    "type": "difference"
+                  }
+                ]
+              ],
+              "tags": [
+                {
+                  "key": "resource",
+                  "operator": "=",
+                  "value": "ecmpfec"
+                },
+                {
+                  "condition": "AND",
+                  "key": "npu-hwr-list__lt-hwr-list__name",
+                  "operator": "=",
+                  "value": "ipnhgroup"
+                }
+              ]
+            }
+          ],
+          "thresholds": [],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "ECMP-FEC TABLE IPv4 NEXTHOP GROUP CHANGE",
+          "tooltip": {
+            "shared": true,
+            "sort": 0,
+            "value_type": "individual"
+          },
+          "type": "graph",
+          "xaxis": {
+            "buckets": null,
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": []
+          },
+          "yaxes": [
+            {
+              "format": "none",
+              "label": "IPv4 NHGroup Entries Change",
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            },
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            }
+          ]
+        },
+        {
+          "aliasColors": {},
+          "bars": false,
+          "dashLength": 10,
+          "dashes": false,
+          "datasource": "InfluxDB",
+          "fill": 2,
+          "gridPos": {
+            "h": 10,
+            "w": 12,
+            "x": 0,
+            "y": 30
+          },
+          "id": 67,
+          "legend": {
+            "alignAsTable": true,
+            "avg": false,
+            "current": true,
+            "max": true,
+            "min": true,
+            "rightSide": false,
+            "show": true,
+            "total": false,
+            "values": true
+          },
+          "lines": true,
+          "linewidth": 1,
+          "links": [],
+          "nullPointMode": "null",
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [],
+          "spaceLength": 10,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "alias": "IPv6 NHGroup Entries ([[tag_Producer]], [[tag_node-name]], NPU [[tag_npu-hwr-list__npu-id]])",
+              "groupBy": [
+                {
+                  "params": [
+                    "Producer"
+                  ],
+                  "type": "tag"
+                },
+                {
+                  "params": [
+                    "node-name"
+                  ],
+                  "type": "tag"
+                },
+                {
+                  "params": [
+                    "npu-hwr-list__npu-id"
+                  ],
+                  "type": "tag"
+                }
+              ],
+              "measurement": "Cisco-IOS-XR-fretta-bcm-dpa-hw-resources-oper:dpa/stats/nodes/node/hw-resources-datas/hw-resources-data",
+              "orderByTime": "ASC",
+              "policy": "default",
+              "refId": "A",
+              "resultFormat": "time_series",
+              "select": [
+                [
+                  {
+                    "params": [
+                      "npu-hwr-list__lt-hwr-list__hw-entries"
+                    ],
+                    "type": "field"
+                  }
+                ]
+              ],
+              "tags": [
+                {
+                  "key": "resource",
+                  "operator": "=",
+                  "value": "ecmpfec"
+                },
+                {
+                  "condition": "AND",
+                  "key": "npu-hwr-list__lt-hwr-list__name",
+                  "operator": "=",
+                  "value": "ip6nhgroup"
+                }
+              ]
+            }
+          ],
+          "thresholds": [],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "ECMP-FEC TABLE IPv6 NEXTHOP GROUP",
+          "tooltip": {
+            "shared": true,
+            "sort": 0,
+            "value_type": "individual"
+          },
+          "type": "graph",
+          "xaxis": {
+            "buckets": null,
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": []
+          },
+          "yaxes": [
+            {
+              "format": "none",
+              "label": "ECMP-FEC IPv6 NH Group Entries",
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            },
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            }
+          ]
+        },
+        {
+          "aliasColors": {},
+          "bars": false,
+          "dashLength": 10,
+          "dashes": false,
+          "datasource": "InfluxDB",
+          "fill": 2,
+          "gridPos": {
+            "h": 10,
+            "w": 12,
+            "x": 12,
+            "y": 30
+          },
+          "id": 68,
+          "legend": {
+            "alignAsTable": true,
+            "avg": false,
+            "current": true,
+            "max": true,
+            "min": true,
+            "rightSide": false,
+            "show": true,
+            "total": false,
+            "values": true
+          },
+          "lines": true,
+          "linewidth": 1,
+          "links": [],
+          "nullPointMode": "null",
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [],
+          "spaceLength": 10,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "alias": "IPv6 NH Group Entries ([[tag_Producer]], [[tag_node-name]], NPU [[tag_npu-hwr-list__npu-id]])",
+              "groupBy": [
+                {
+                  "params": [
+                    "$interval"
+                  ],
+                  "type": "time"
+                },
+                {
+                  "params": [
+                    "Producer"
+                  ],
+                  "type": "tag"
+                },
+                {
+                  "params": [
+                    "node-name"
+                  ],
+                  "type": "tag"
+                },
+                {
+                  "params": [
+                    "npu-hwr-list__npu-id"
+                  ],
+                  "type": "tag"
+                }
+              ],
+              "measurement": "Cisco-IOS-XR-fretta-bcm-dpa-hw-resources-oper:dpa/stats/nodes/node/hw-resources-datas/hw-resources-data",
+              "orderByTime": "ASC",
+              "policy": "default",
+              "refId": "A",
+              "resultFormat": "time_series",
+              "select": [
+                [
+                  {
+                    "params": [
+                      "npu-hwr-list__lt-hwr-list__hw-entries"
+                    ],
+                    "type": "field"
+                  },
+                  {
+                    "params": [],
+                    "type": "last"
+                  },
+                  {
+                    "params": [],
+                    "type": "difference"
+                  }
+                ]
+              ],
+              "tags": [
+                {
+                  "key": "resource",
+                  "operator": "=",
+                  "value": "fec"
+                },
+                {
+                  "condition": "AND",
+                  "key": "npu-hwr-list__lt-hwr-list__name",
+                  "operator": "=",
+                  "value": "ip6nhgroup"
+                }
+              ]
+            }
+          ],
+          "thresholds": [],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "FEC TABLE IPv6 NEXTHOP GROUP CHANGE",
+          "tooltip": {
+            "shared": true,
+            "sort": 0,
+            "value_type": "individual"
+          },
+          "type": "graph",
+          "xaxis": {
+            "buckets": null,
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": []
+          },
+          "yaxes": [
+            {
+              "format": "none",
+              "label": "IPv6 NHGroup Entries Change",
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            },
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            }
+          ]
+        }
+      ],
+      "title": "ECMP-FEC Table Historical",
+      "type": "row"
+    },
+    {
+      "collapsed": true,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 10
+      },
+      "id": 35,
+      "panels": [
+        {
+          "aliasColors": {},
+          "bars": false,
+          "dashLength": 10,
+          "dashes": false,
+          "datasource": "InfluxDB",
+          "fill": 2,
+          "gridPos": {
+            "h": 10,
+            "w": 12,
+            "x": 0,
+            "y": 11
+          },
+          "id": 69,
+          "legend": {
+            "alignAsTable": true,
+            "avg": false,
+            "current": true,
+            "max": true,
+            "min": true,
+            "rightSide": false,
+            "show": true,
+            "total": false,
+            "values": true
+          },
+          "lines": true,
+          "linewidth": 1,
+          "links": [],
+          "nullPointMode": "null",
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [],
+          "spaceLength": 10,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "alias": "Total Entries ([[tag_Producer]], [[tag_node-name]], NPU [[tag_npu-hwr-list__npu-id]])",
+              "groupBy": [
+                {
+                  "params": [
+                    "Producer"
+                  ],
+                  "type": "tag"
+                },
+                {
+                  "params": [
+                    "node-name"
+                  ],
+                  "type": "tag"
+                },
+                {
+                  "params": [
+                    "npu-hwr-list__npu-id"
+                  ],
+                  "type": "tag"
+                }
+              ],
+              "measurement": "Cisco-IOS-XR-fretta-bcm-dpa-hw-resources-oper:dpa/stats/nodes/node/hw-resources-datas/hw-resources-data",
+              "orderByTime": "ASC",
+              "policy": "default",
+              "refId": "A",
+              "resultFormat": "time_series",
+              "select": [
+                [
+                  {
+                    "params": [
+                      "npu-hwr-list__inuse-objects"
+                    ],
+                    "type": "field"
+                  }
+                ]
+              ],
+              "tags": [
+                {
+                  "key": "resource",
+                  "operator": "=",
+                  "value": "encap"
+                }
+              ]
+            }
+          ],
+          "thresholds": [],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "ENCAP (EEDB) TABLE TOTAL",
+          "tooltip": {
+            "shared": true,
+            "sort": 0,
+            "value_type": "individual"
+          },
+          "type": "graph",
+          "xaxis": {
+            "buckets": null,
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": []
+          },
+          "yaxes": [
+            {
+              "format": "none",
+              "label": "Encap TOTAL Entries",
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            },
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            }
+          ]
+        },
+        {
+          "aliasColors": {},
+          "bars": false,
+          "dashLength": 10,
+          "dashes": false,
+          "datasource": "InfluxDB",
+          "fill": 2,
+          "gridPos": {
+            "h": 10,
+            "w": 12,
+            "x": 12,
+            "y": 11
+          },
+          "id": 70,
+          "legend": {
+            "alignAsTable": true,
+            "avg": false,
+            "current": true,
+            "max": true,
+            "min": true,
+            "rightSide": false,
+            "show": true,
+            "total": false,
+            "values": true
+          },
+          "lines": true,
+          "linewidth": 1,
+          "links": [],
+          "nullPointMode": "null",
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [],
+          "spaceLength": 10,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "alias": "Total Entries ([[tag_Producer]], [[tag_node-name]], NPU [[tag_npu-hwr-list__npu-id]])",
+              "groupBy": [
+                {
+                  "params": [
+                    "$interval"
+                  ],
+                  "type": "time"
+                },
+                {
+                  "params": [
+                    "Producer"
+                  ],
+                  "type": "tag"
+                },
+                {
+                  "params": [
+                    "node-name"
+                  ],
+                  "type": "tag"
+                },
+                {
+                  "params": [
+                    "npu-hwr-list__npu-id"
+                  ],
+                  "type": "tag"
+                }
+              ],
+              "measurement": "Cisco-IOS-XR-fretta-bcm-dpa-hw-resources-oper:dpa/stats/nodes/node/hw-resources-datas/hw-resources-data",
+              "orderByTime": "ASC",
+              "policy": "default",
+              "refId": "A",
+              "resultFormat": "time_series",
+              "select": [
+                [
+                  {
+                    "params": [
+                      "npu-hwr-list__inuse-objects"
+                    ],
+                    "type": "field"
+                  },
+                  {
+                    "params": [],
+                    "type": "last"
+                  },
+                  {
+                    "params": [],
+                    "type": "difference"
+                  }
+                ]
+              ],
+              "tags": [
+                {
+                  "key": "resource",
+                  "operator": "=",
+                  "value": "encap"
+                }
+              ]
+            }
+          ],
+          "thresholds": [],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "ENCAP (EEDB) TABLE TOTAL CHANGE",
+          "tooltip": {
+            "shared": true,
+            "sort": 0,
+            "value_type": "individual"
+          },
+          "type": "graph",
+          "xaxis": {
+            "buckets": null,
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": []
+          },
+          "yaxes": [
+            {
+              "format": "none",
+              "label": "Encap Entries Change",
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            },
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            }
+          ]
+        },
+        {
+          "aliasColors": {},
+          "bars": false,
+          "dashLength": 10,
+          "dashes": false,
+          "datasource": "InfluxDB",
+          "fill": 2,
+          "gridPos": {
+            "h": 10,
+            "w": 12,
+            "x": 0,
+            "y": 21
+          },
+          "id": 71,
+          "legend": {
+            "alignAsTable": true,
+            "avg": false,
+            "current": true,
+            "max": true,
+            "min": true,
+            "rightSide": false,
+            "show": true,
+            "total": false,
+            "values": true
+          },
+          "lines": true,
+          "linewidth": 1,
+          "links": [],
+          "nullPointMode": "null",
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [],
+          "spaceLength": 10,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "alias": "IPv4 NH Entries ([[tag_Producer]], [[tag_node-name]], NPU [[tag_npu-hwr-list__npu-id]])",
+              "groupBy": [
+                {
+                  "params": [
+                    "Producer"
+                  ],
+                  "type": "tag"
+                },
+                {
+                  "params": [
+                    "node-name"
+                  ],
+                  "type": "tag"
+                },
+                {
+                  "params": [
+                    "npu-hwr-list__npu-id"
+                  ],
+                  "type": "tag"
+                }
+              ],
+              "measurement": "Cisco-IOS-XR-fretta-bcm-dpa-hw-resources-oper:dpa/stats/nodes/node/hw-resources-datas/hw-resources-data",
+              "orderByTime": "ASC",
+              "policy": "default",
+              "refId": "A",
+              "resultFormat": "time_series",
+              "select": [
+                [
+                  {
+                    "params": [
+                      "npu-hwr-list__lt-hwr-list__hw-entries"
+                    ],
+                    "type": "field"
+                  }
+                ]
+              ],
+              "tags": [
+                {
+                  "key": "resource",
+                  "operator": "=",
+                  "value": "encap"
+                },
+                {
+                  "condition": "AND",
+                  "key": "npu-hwr-list__lt-hwr-list__name",
+                  "operator": "=",
+                  "value": "ipnh"
+                }
+              ]
+            }
+          ],
+          "thresholds": [],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "ENCAP (EEDB) TABLE IPv4 NEXTHOP",
+          "tooltip": {
+            "shared": true,
+            "sort": 0,
+            "value_type": "individual"
+          },
+          "type": "graph",
+          "xaxis": {
+            "buckets": null,
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": []
+          },
+          "yaxes": [
+            {
+              "format": "none",
+              "label": "Encap IPv4 NH Entries",
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            },
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            }
+          ]
+        },
+        {
+          "aliasColors": {},
+          "bars": false,
+          "dashLength": 10,
+          "dashes": false,
+          "datasource": "InfluxDB",
+          "fill": 2,
+          "gridPos": {
+            "h": 10,
+            "w": 12,
+            "x": 12,
+            "y": 21
+          },
+          "id": 74,
+          "legend": {
+            "alignAsTable": true,
+            "avg": false,
+            "current": true,
+            "max": true,
+            "min": true,
+            "rightSide": false,
+            "show": true,
+            "total": false,
+            "values": true
+          },
+          "lines": true,
+          "linewidth": 1,
+          "links": [],
+          "nullPointMode": "null",
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [],
+          "spaceLength": 10,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "alias": "IPv4 NH Group Entries ([[tag_Producer]], [[tag_node-name]], NPU [[tag_npu-hwr-list__npu-id]])",
+              "groupBy": [
+                {
+                  "params": [
+                    "$interval"
+                  ],
+                  "type": "time"
+                },
+                {
+                  "params": [
+                    "Producer"
+                  ],
+                  "type": "tag"
+                },
+                {
+                  "params": [
+                    "node-name"
+                  ],
+                  "type": "tag"
+                },
+                {
+                  "params": [
+                    "npu-hwr-list__npu-id"
+                  ],
+                  "type": "tag"
+                }
+              ],
+              "measurement": "Cisco-IOS-XR-fretta-bcm-dpa-hw-resources-oper:dpa/stats/nodes/node/hw-resources-datas/hw-resources-data",
+              "orderByTime": "ASC",
+              "policy": "default",
+              "refId": "A",
+              "resultFormat": "time_series",
+              "select": [
+                [
+                  {
+                    "params": [
+                      "npu-hwr-list__lt-hwr-list__hw-entries"
+                    ],
+                    "type": "field"
+                  },
+                  {
+                    "params": [],
+                    "type": "last"
+                  },
+                  {
+                    "params": [],
+                    "type": "difference"
+                  }
+                ]
+              ],
+              "tags": [
+                {
+                  "key": "resource",
+                  "operator": "=",
+                  "value": "encap"
+                },
+                {
+                  "condition": "AND",
+                  "key": "npu-hwr-list__lt-hwr-list__name",
+                  "operator": "=",
+                  "value": "ipnh"
+                }
+              ]
+            }
+          ],
+          "thresholds": [],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "ENCAP (EEDB) TABLE IPv4 NEXTHOP CHANGE",
+          "tooltip": {
+            "shared": true,
+            "sort": 0,
+            "value_type": "individual"
+          },
+          "type": "graph",
+          "xaxis": {
+            "buckets": null,
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": []
+          },
+          "yaxes": [
+            {
+              "format": "none",
+              "label": "IPv4 NH Entries Change",
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            },
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            }
+          ]
+        },
+        {
+          "aliasColors": {},
+          "bars": false,
+          "dashLength": 10,
+          "dashes": false,
+          "datasource": "InfluxDB",
+          "fill": 2,
+          "gridPos": {
+            "h": 10,
+            "w": 12,
+            "x": 0,
+            "y": 31
+          },
+          "id": 73,
+          "legend": {
+            "alignAsTable": true,
+            "avg": false,
+            "current": true,
+            "max": true,
+            "min": true,
+            "rightSide": false,
+            "show": true,
+            "total": false,
+            "values": true
+          },
+          "lines": true,
+          "linewidth": 1,
+          "links": [],
+          "nullPointMode": "null",
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [],
+          "spaceLength": 10,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "alias": "IPv6 NH Entries ([[tag_Producer]], [[tag_node-name]], NPU [[tag_npu-hwr-list__npu-id]])",
+              "groupBy": [
+                {
+                  "params": [
+                    "Producer"
+                  ],
+                  "type": "tag"
+                },
+                {
+                  "params": [
+                    "node-name"
+                  ],
+                  "type": "tag"
+                },
+                {
+                  "params": [
+                    "npu-hwr-list__npu-id"
+                  ],
+                  "type": "tag"
+                }
+              ],
+              "measurement": "Cisco-IOS-XR-fretta-bcm-dpa-hw-resources-oper:dpa/stats/nodes/node/hw-resources-datas/hw-resources-data",
+              "orderByTime": "ASC",
+              "policy": "default",
+              "refId": "A",
+              "resultFormat": "time_series",
+              "select": [
+                [
+                  {
+                    "params": [
+                      "npu-hwr-list__lt-hwr-list__hw-entries"
+                    ],
+                    "type": "field"
+                  }
+                ]
+              ],
+              "tags": [
+                {
+                  "key": "resource",
+                  "operator": "=",
+                  "value": "encap"
+                },
+                {
+                  "condition": "AND",
+                  "key": "npu-hwr-list__lt-hwr-list__name",
+                  "operator": "=",
+                  "value": "ip6nh"
+                }
+              ]
+            }
+          ],
+          "thresholds": [],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "ENCAP (EEDB) TABLE IPv6 NEXTHOP",
+          "tooltip": {
+            "shared": true,
+            "sort": 0,
+            "value_type": "individual"
+          },
+          "type": "graph",
+          "xaxis": {
+            "buckets": null,
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": []
+          },
+          "yaxes": [
+            {
+              "format": "none",
+              "label": "Encap IPv6 NH Entries",
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            },
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            }
+          ]
+        },
+        {
+          "aliasColors": {},
+          "bars": false,
+          "dashLength": 10,
+          "dashes": false,
+          "datasource": "InfluxDB",
+          "fill": 2,
+          "gridPos": {
+            "h": 10,
+            "w": 12,
+            "x": 12,
+            "y": 31
+          },
+          "id": 72,
+          "legend": {
+            "alignAsTable": true,
+            "avg": false,
+            "current": true,
+            "max": true,
+            "min": true,
+            "rightSide": false,
+            "show": true,
+            "total": false,
+            "values": true
+          },
+          "lines": true,
+          "linewidth": 1,
+          "links": [],
+          "nullPointMode": "null",
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [],
+          "spaceLength": 10,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "alias": "IPv6 NH Group Entries ([[tag_Producer]], [[tag_node-name]], NPU [[tag_npu-hwr-list__npu-id]])",
+              "groupBy": [
+                {
+                  "params": [
+                    "$interval"
+                  ],
+                  "type": "time"
+                },
+                {
+                  "params": [
+                    "Producer"
+                  ],
+                  "type": "tag"
+                },
+                {
+                  "params": [
+                    "node-name"
+                  ],
+                  "type": "tag"
+                },
+                {
+                  "params": [
+                    "npu-hwr-list__npu-id"
+                  ],
+                  "type": "tag"
+                }
+              ],
+              "measurement": "Cisco-IOS-XR-fretta-bcm-dpa-hw-resources-oper:dpa/stats/nodes/node/hw-resources-datas/hw-resources-data",
+              "orderByTime": "ASC",
+              "policy": "default",
+              "refId": "A",
+              "resultFormat": "time_series",
+              "select": [
+                [
+                  {
+                    "params": [
+                      "npu-hwr-list__lt-hwr-list__hw-entries"
+                    ],
+                    "type": "field"
+                  },
+                  {
+                    "params": [],
+                    "type": "last"
+                  },
+                  {
+                    "params": [],
+                    "type": "difference"
+                  }
+                ]
+              ],
+              "tags": [
+                {
+                  "key": "resource",
+                  "operator": "=",
+                  "value": "encap"
+                },
+                {
+                  "condition": "AND",
+                  "key": "npu-hwr-list__lt-hwr-list__name",
+                  "operator": "=",
+                  "value": "ip6nh"
+                }
+              ]
+            }
+          ],
+          "thresholds": [],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "ENCAP (EEDB) TABLE IPv6 NEXTHOP CHANGE",
+          "tooltip": {
+            "shared": true,
+            "sort": 0,
+            "value_type": "individual"
+          },
+          "type": "graph",
+          "xaxis": {
+            "buckets": null,
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": []
+          },
+          "yaxes": [
+            {
+              "format": "none",
+              "label": "IPv6 NH Entries Change",
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            },
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            }
+          ]
+        },
+        {
+          "aliasColors": {},
+          "bars": false,
+          "dashLength": 10,
+          "dashes": false,
+          "datasource": "InfluxDB",
+          "fill": 2,
+          "gridPos": {
+            "h": 10,
+            "w": 12,
+            "x": 0,
+            "y": 41
+          },
+          "id": 75,
+          "legend": {
+            "alignAsTable": true,
+            "avg": false,
+            "current": true,
+            "max": true,
+            "min": true,
+            "rightSide": false,
+            "show": true,
+            "total": false,
+            "values": true
+          },
+          "lines": true,
+          "linewidth": 1,
+          "links": [],
+          "nullPointMode": "null",
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [],
+          "spaceLength": 10,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "alias": "MPLS NH Entries ([[tag_Producer]], [[tag_node-name]], NPU [[tag_npu-hwr-list__npu-id]])",
+              "groupBy": [
+                {
+                  "params": [
+                    "Producer"
+                  ],
+                  "type": "tag"
+                },
+                {
+                  "params": [
+                    "node-name"
+                  ],
+                  "type": "tag"
+                },
+                {
+                  "params": [
+                    "npu-hwr-list__npu-id"
+                  ],
+                  "type": "tag"
+                }
+              ],
+              "measurement": "Cisco-IOS-XR-fretta-bcm-dpa-hw-resources-oper:dpa/stats/nodes/node/hw-resources-datas/hw-resources-data",
+              "orderByTime": "ASC",
+              "policy": "default",
+              "refId": "A",
+              "resultFormat": "time_series",
+              "select": [
+                [
+                  {
+                    "params": [
+                      "npu-hwr-list__lt-hwr-list__hw-entries"
+                    ],
+                    "type": "field"
+                  }
+                ]
+              ],
+              "tags": [
+                {
+                  "key": "resource",
+                  "operator": "=",
+                  "value": "encap"
+                },
+                {
+                  "condition": "AND",
+                  "key": "npu-hwr-list__lt-hwr-list__name",
+                  "operator": "=",
+                  "value": "mplsnh"
+                }
+              ]
+            }
+          ],
+          "thresholds": [],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "ENCAP (EEDB) TABLE MPLS NEXTHOP",
+          "tooltip": {
+            "shared": true,
+            "sort": 0,
+            "value_type": "individual"
+          },
+          "type": "graph",
+          "xaxis": {
+            "buckets": null,
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": []
+          },
+          "yaxes": [
+            {
+              "format": "none",
+              "label": "Encap MPLS NH Entries",
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            },
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            }
+          ]
+        },
+        {
+          "aliasColors": {},
+          "bars": false,
+          "dashLength": 10,
+          "dashes": false,
+          "datasource": "InfluxDB",
+          "fill": 2,
+          "gridPos": {
+            "h": 10,
+            "w": 12,
+            "x": 12,
+            "y": 41
+          },
+          "id": 76,
+          "legend": {
+            "alignAsTable": true,
+            "avg": false,
+            "current": true,
+            "max": true,
+            "min": true,
+            "rightSide": false,
+            "show": true,
+            "total": false,
+            "values": true
+          },
+          "lines": true,
+          "linewidth": 1,
+          "links": [],
+          "nullPointMode": "null",
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [],
+          "spaceLength": 10,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "alias": "MPLS NH Group Entries ([[tag_Producer]], [[tag_node-name]], NPU [[tag_npu-hwr-list__npu-id]])",
+              "groupBy": [
+                {
+                  "params": [
+                    "$interval"
+                  ],
+                  "type": "time"
+                },
+                {
+                  "params": [
+                    "Producer"
+                  ],
+                  "type": "tag"
+                },
+                {
+                  "params": [
+                    "node-name"
+                  ],
+                  "type": "tag"
+                },
+                {
+                  "params": [
+                    "npu-hwr-list__npu-id"
+                  ],
+                  "type": "tag"
+                }
+              ],
+              "measurement": "Cisco-IOS-XR-fretta-bcm-dpa-hw-resources-oper:dpa/stats/nodes/node/hw-resources-datas/hw-resources-data",
+              "orderByTime": "ASC",
+              "policy": "default",
+              "refId": "A",
+              "resultFormat": "time_series",
+              "select": [
+                [
+                  {
+                    "params": [
+                      "npu-hwr-list__lt-hwr-list__hw-entries"
+                    ],
+                    "type": "field"
+                  },
+                  {
+                    "params": [],
+                    "type": "last"
+                  },
+                  {
+                    "params": [],
+                    "type": "difference"
+                  }
+                ]
+              ],
+              "tags": [
+                {
+                  "key": "resource",
+                  "operator": "=",
+                  "value": "encap"
+                },
+                {
+                  "condition": "AND",
+                  "key": "npu-hwr-list__lt-hwr-list__name",
+                  "operator": "=",
+                  "value": "mplsnh"
+                }
+              ]
+            }
+          ],
+          "thresholds": [],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "ENCAP (EEDB) TABLE MPLS NEXTHOP CHANGE",
+          "tooltip": {
+            "shared": true,
+            "sort": 0,
+            "value_type": "individual"
+          },
+          "type": "graph",
+          "xaxis": {
+            "buckets": null,
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": []
+          },
+          "yaxes": [
+            {
+              "format": "none",
+              "label": "MPLS NH Entries Change",
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            },
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            }
+          ]
+        }
+      ],
+      "title": "ENCAP (EEDB) Table Historical",
+      "type": "row"
+    },
+    {
+      "collapsed": true,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 11
+      },
+      "id": 29,
+      "panels": [
+        {
+          "aliasColors": {},
+          "bars": false,
+          "dashLength": 10,
+          "dashes": false,
+          "datasource": "InfluxDB",
+          "fill": 2,
+          "gridPos": {
+            "h": 10,
+            "w": 12,
+            "x": 0,
+            "y": 12
+          },
+          "id": 77,
+          "legend": {
+            "alignAsTable": true,
+            "avg": false,
+            "current": true,
+            "max": true,
+            "min": true,
+            "rightSide": false,
+            "show": true,
+            "total": false,
+            "values": true
+          },
+          "lines": true,
+          "linewidth": 1,
+          "links": [],
+          "nullPointMode": "null",
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [],
+          "spaceLength": 10,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "alias": "IPv4 Entries ([[tag_Producer]], [[tag_node-name]], NPU [[tag_npu-hwr-list__npu-id]])",
+              "groupBy": [
+                {
+                  "params": [
+                    "Producer"
+                  ],
+                  "type": "tag"
+                },
+                {
+                  "params": [
+                    "node-name"
+                  ],
+                  "type": "tag"
+                },
+                {
+                  "params": [
+                    "npu-hwr-list__npu-id"
+                  ],
+                  "type": "tag"
+                }
+              ],
+              "measurement": "Cisco-IOS-XR-fretta-bcm-dpa-hw-resources-oper:dpa/stats/nodes/node/hw-resources-datas/hw-resources-data",
+              "orderByTime": "ASC",
+              "policy": "default",
+              "refId": "A",
+              "resultFormat": "time_series",
+              "select": [
+                [
+                  {
+                    "params": [
+                      "npu-hwr-list__lt-hwr-list__hw-entries"
+                    ],
+                    "type": "field"
+                  }
+                ]
+              ],
+              "tags": [
+                {
+                  "key": "resource",
+                  "operator": "=",
+                  "value": "ext-tcam-ipv4"
+                },
+                {
+                  "condition": "AND",
+                  "key": "npu-hwr-list__lt-hwr-list__name",
+                  "operator": "=",
+                  "value": "iproute"
+                }
+              ]
+            }
+          ],
+          "thresholds": [],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "eTCAM TABLE (IPv4)",
+          "tooltip": {
+            "shared": true,
+            "sort": 0,
+            "value_type": "individual"
+          },
+          "type": "graph",
+          "xaxis": {
+            "buckets": null,
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": []
+          },
+          "yaxes": [
+            {
+              "format": "none",
+              "label": "eTCAM IPv4 Entries",
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            },
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            }
+          ]
+        },
+        {
+          "aliasColors": {},
+          "bars": false,
+          "dashLength": 10,
+          "dashes": false,
+          "datasource": "InfluxDB",
+          "fill": 2,
+          "gridPos": {
+            "h": 10,
+            "w": 12,
+            "x": 12,
+            "y": 12
+          },
+          "id": 78,
+          "legend": {
+            "alignAsTable": true,
+            "avg": false,
+            "current": true,
+            "max": true,
+            "min": true,
+            "rightSide": false,
+            "show": true,
+            "total": false,
+            "values": true
+          },
+          "lines": true,
+          "linewidth": 1,
+          "links": [],
+          "nullPointMode": "null",
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [],
+          "spaceLength": 10,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "alias": "Total Entries ([[tag_Producer]], [[tag_node-name]], NPU [[tag_npu-hwr-list__npu-id]])",
+              "groupBy": [
+                {
+                  "params": [
+                    "$interval"
+                  ],
+                  "type": "time"
+                },
+                {
+                  "params": [
+                    "Producer"
+                  ],
+                  "type": "tag"
+                },
+                {
+                  "params": [
+                    "node-name"
+                  ],
+                  "type": "tag"
+                },
+                {
+                  "params": [
+                    "npu-hwr-list__npu-id"
+                  ],
+                  "type": "tag"
+                }
+              ],
+              "measurement": "Cisco-IOS-XR-fretta-bcm-dpa-hw-resources-oper:dpa/stats/nodes/node/hw-resources-datas/hw-resources-data",
+              "orderByTime": "ASC",
+              "policy": "default",
+              "refId": "A",
+              "resultFormat": "time_series",
+              "select": [
+                [
+                  {
+                    "params": [
+                      "npu-hwr-list__lt-hwr-list__hw-entries"
+                    ],
+                    "type": "field"
+                  },
+                  {
+                    "params": [],
+                    "type": "last"
+                  },
+                  {
+                    "params": [],
+                    "type": "difference"
+                  }
+                ]
+              ],
+              "tags": [
+                {
+                  "key": "resource",
+                  "operator": "=",
+                  "value": "ext-tcam-ipv4"
+                },
+                {
+                  "condition": "AND",
+                  "key": "npu-hwr-list__lt-hwr-list__name",
+                  "operator": "=",
+                  "value": "iproute"
+                }
+              ]
+            }
+          ],
+          "thresholds": [],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "eTCAM TABLE (IPv4) TOTAL CHANGE",
+          "tooltip": {
+            "shared": true,
+            "sort": 0,
+            "value_type": "individual"
+          },
+          "type": "graph",
+          "xaxis": {
+            "buckets": null,
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": []
+          },
+          "yaxes": [
+            {
+              "format": "none",
+              "label": "eTCAM IPv4 Entries Change",
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            },
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            }
+          ]
+        }
+      ],
+      "title": "eTCAM Table Historical",
+      "type": "row"
+    }
+  ],
+  "refresh": "5s",
+  "schemaVersion": 16,
+  "style": "dark",
+  "tags": [],
+  "templating": {
+    "list": []
+  },
+  "time": {
+    "from": "now-5m",
+    "to": "now"
+  },
+  "timepicker": {
+    "refresh_intervals": [
+      "5s",
+      "10s",
+      "30s",
+      "1m",
+      "5m",
+      "15m",
+      "30m",
+      "1h",
+      "2h",
+      "1d"
+    ],
+    "time_options": [
+      "5m",
+      "15m",
+      "1h",
+      "6h",
+      "12h",
+      "24h",
+      "2d",
+      "7d",
+      "30d"
+    ]
+  },
+  "timezone": "",
+  "title": "NCS55xx Global View",
+  "uid": "veJm6vomz",
+  "version": 48
+}

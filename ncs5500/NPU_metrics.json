@@ -1,0 +1,495 @@
+[
+
+  {
+    "basepath": "Cisco-IOS-XR-ethernet-lldp-oper:lldp/nodes/node/neighbors/summaries/summary",
+    "spec": {
+      "fields": [
+        {
+          "name": "interface-name"
+        },
+        {
+          "name": "device-id"
+        },
+        {
+          "name": "lldp-neighbor",
+          "fields": [
+            {
+              "name": "detail",
+              "fields": [
+                {
+                  "name": "network-addresses",
+                  "fields": [
+                    {
+                      "name": "lldp-addr-entry",
+                      "fields": [
+                        {
+                          "name": "address",
+                          "fields": [
+                            {
+                              "name": "address-type"
+                            },
+                            {
+                              "name": "ipv4-address"
+                            },
+                            {
+                              "name": "ipv6-address"
+                            }
+                          ]
+                        },
+                        {
+                          "name": "ma-subtype"
+                        },
+                        {
+                          "name": "if-num"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "peer-mac-address"
+                },
+                {
+                  "name": "port-description"
+                },
+                {
+                  "name": "system-name"
+                },
+                {
+                  "name": "system-description"
+                },
+                {
+                  "name": "time-remaining"
+                },
+                {
+                  "name": "system-capabilities"
+                },
+                {
+                  "name": "enabled-capabilities"
+                },
+                {
+                  "name": "auto-negotiation"
+                },
+                {
+                  "name": "physical-media-capabilities"
+                },
+                {
+                  "name": "media-attachment-unit-type"
+                },
+                {
+                  "name": "port-vlan-id"
+                }
+              ]
+            },
+            {
+              "name": "mib",
+              "fields": [
+                {
+                  "name": "unknown-tlv-list",
+                  "fields": [
+                    {
+                      "name": "lldp-unknown-tlv-entry",
+                      "fields": [
+                        {
+                          "name": "tlv-type"
+                        },
+                        {
+                          "name": "tlv-value"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "org-def-tlv-list",
+                  "fields": [
+                    {
+                      "name": "lldp-org-def-tlv-entry",
+                      "fields": [
+                        {
+                          "name": "oui"
+                        },
+                        {
+                          "name": "tlv-subtype"
+                        },
+                        {
+                          "name": "tlv-info-indes"
+                        },
+                        {
+                          "name": "tlv-value"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "rem-time-mark"
+                },
+                {
+                  "name": "rem-local-port-num"
+                },
+                {
+                  "name": "rem-index"
+                },
+                {
+                  "name": "chassis-id-sub-type"
+                },
+                {
+                  "name": "chassis-id-len"
+                },
+                {
+                  "name": "port-id-sub-type"
+                },
+                {
+                  "name": "port-id-len"
+                },
+                {
+                  "name": "combined-capabilities"
+                }
+              ]
+            },
+            {
+              "name": "receiving-interface-name"
+            },
+            {
+              "name": "receiving-parent-interface-name"
+            },
+            {
+              "name": "device-id"
+            },
+            {
+              "name": "chassis-id"
+            },
+            {
+              "name": "port-id-detail"
+            },
+            {
+              "name": "header-version"
+            },
+            {
+              "name": "hold-time"
+            },
+            {
+              "name": "enabled-capabilities"
+            },
+            {
+              "name": "platform"
+            }
+          ]
+        },
+        {
+          "name": "node-name",
+          "tag": true
+        }
+      ]
+    }
+  },
+  {
+    "basepath": "Cisco-IOS-XR-fretta-bcm-dpa-hw-resources-oper:dpa/stats/nodes/node/hw-resources-datas/hw-resources-data",
+    "spec": {
+      "fields": [
+        {
+          "name": "resource",
+          "tag": true
+        },
+        {
+          "name": "resource-id"
+        },
+        {
+          "name": "name"
+        },
+        {
+          "name": "num-npus"
+        },
+        {
+          "name": "cmd-invalid"
+        },
+        {
+          "name": "npu-hwr-list",
+          "fields": [
+            {
+              "name": "max-allowed"
+            },
+            {
+              "name": "npu-id",
+              "tag": true
+            },
+            {
+              "name": "max-entries"
+            },
+            {
+              "name": "red-oor-threshold"
+            },
+            {
+              "name": "red-oor-threshold-percent"
+            },
+            {
+              "name": "yellow-oor-threshold"
+            },
+            {
+              "name": "yellow-oor-threshold-percent"
+            },
+            {
+              "name": "inuse-objects"
+            },
+            {
+              "name": "num-lt"
+            },
+            {
+              "name": "oor-change-count"
+            },
+            {
+              "name": "oor-state-change-time1"
+            },
+            {
+              "name": "oor-state-change-time2"
+            },
+            {
+              "name": "oor-state"
+            },
+            {
+              "name": "lt-hwr-list",
+              "fields": [
+                {
+                  "name": "lt-id"
+                },
+                {
+                  "name": "name",
+		              "tag":true
+                },
+                {
+                  "name": "hw-entries"
+                },
+                {
+                  "name": "sw-entries"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "node-name",
+          "tag": true
+        }
+      ]
+    }
+  },
+  {
+    "basepath": "Cisco-IOS-XR-fretta-bcm-dpa-hw-resources-oper:dpa/stats/nodes/node/asic-statistics/asic-statistics-for-npu-ids/asic-statistics-for-npu-id",
+    "spec": {
+      "fields": [
+        {
+          "name": "npu-id",
+          "tag": true
+        },
+        {
+          "name": "statistics",
+          "fields": [
+            {
+              "name": "nbi-rx-total-byte-cnt"
+            },
+            {
+              "name": "nbi-rx-total-pkt-cnt"
+            },
+            {
+              "name": "ire-cpu-pkt-cnt"
+            },
+            {
+              "name": "ire-nif-pkt-cnt"
+            },
+            {
+              "name": "ire-oamp-pkt-cnt"
+            },
+            {
+              "name": "ire-olp-pkt-cnt"
+            },
+            {
+              "name": "ire-rcy-pkt-cnt"
+            },
+            {
+              "name": "ire-fdt-if-cnt"
+            },
+            {
+              "name": "idr-mmu-if-cnt"
+            },
+            {
+              "name": "idr-ocb-if-cnt"
+            },
+            {
+              "name": "iqm-enqueue-pkt-cnt"
+            },
+            {
+              "name": "iqm-dequeue-pkt-cnt"
+            },
+            {
+              "name": "iqm-deleted-pkt-cnt"
+            },
+            {
+              "name": "iqm-enq-discarded-pkt-cnt"
+            },
+            {
+              "name": "ipt-egq-pkt-cnt"
+            },
+            {
+              "name": "ipt-enq-pkt-cnt"
+            },
+            {
+              "name": "ipt-fdt-pkt-cnt"
+            },
+            {
+              "name": "ipt-cfg-event-cnt"
+            },
+            {
+              "name": "ipt-cfg-byte-cnt"
+            },
+            {
+              "name": "fdt-ipt-desc-cell-cnt"
+            },
+            {
+              "name": "fdt-ire-desc-cell-cnt"
+            },
+            {
+              "name": "fdt-transmitted-data-cells-cnt"
+            },
+            {
+              "name": "fdr-p1-cell-in-cnt"
+            },
+            {
+              "name": "fdr-p2-cell-in-cnt"
+            },
+            {
+              "name": "fdr-p3-cell-in-cnt"
+            },
+            {
+              "name": "fdr-cell-in-cnt-total"
+            },
+            {
+              "name": "fda-cells-in-cnt-p1"
+            },
+            {
+              "name": "fda-cells-in-cnt-p2"
+            },
+            {
+              "name": "fda-cells-in-cnt-p3"
+            },
+            {
+              "name": "fda-cells-in-tdm-cnt"
+            },
+            {
+              "name": "fda-cells-in-meshmc-cnt"
+            },
+            {
+              "name": "fda-cells-in-ipt-cnt"
+            },
+            {
+              "name": "fda-cells-out-cnt-p1"
+            },
+            {
+              "name": "fda-cells-out-cnt-p2"
+            },
+            {
+              "name": "fda-cells-out-cnt-p3"
+            },
+            {
+              "name": "fda-cells-out-tdm-cnt"
+            },
+            {
+              "name": "fda-cells-out-meshmc-cnt"
+            },
+            {
+              "name": "fda-cells-out-ipt-cnt"
+            },
+            {
+              "name": "fda-egq-drop-cnt"
+            },
+            {
+              "name": "fda-egq-meshmc-drop-cnt"
+            },
+            {
+              "name": "egq-fqp-pkt-cnt"
+            },
+            {
+              "name": "egq-pqp-uc-pkt-cnt"
+            },
+            {
+              "name": "egq-pqp-discard-uc-pkt-cnt"
+            },
+            {
+              "name": "egq-pqp-uc-bytes-cnt"
+            },
+            {
+              "name": "egq-pqp-mc-pkt-cnt"
+            },
+            {
+              "name": "egq-pqp-discard-mc-pkt-cnt"
+            },
+            {
+              "name": "egq-pqp-mc-bytes-cnt"
+            },
+            {
+              "name": "egq-ehp-uc-pkt-cnt"
+            },
+            {
+              "name": "egq-ehp-mc-high-pkt-cnt"
+            },
+            {
+              "name": "egq-ehp-mc-low-pkt-cnt"
+            },
+            {
+              "name": "egq-deleted-pkt-cnt"
+            },
+            {
+              "name": "egq-ehp-mc-high-discard-cnt"
+            },
+            {
+              "name": "egq-ehp-mc-low-discard-cnt"
+            },
+            {
+              "name": "egq-erpp-lag-pruning-discard-cnt"
+            },
+            {
+              "name": "egq-erpp-pmf-discard-cnt"
+            },
+            {
+              "name": "egq-erpp-vlan-mbr-discard-cnt"
+            },
+            {
+              "name": "epni-epe-byte-cnt"
+            },
+            {
+              "name": "epni-epe-pkt-cnt"
+            },
+            {
+              "name": "epni-epe-discard-cnt"
+            },
+            {
+              "name": "nbi-tx-total-byte-cnt"
+            },
+            {
+              "name": "nbi-tx-total-pkt-cnt"
+            }
+          ]
+        },
+        {
+          "name": "valid"
+        },
+        {
+          "name": "rack-number"
+        },
+        {
+          "name": "slot-number"
+        },
+        {
+          "name": "asic-instance"
+        },
+        {
+          "name": "chip-version"
+        },
+        {
+          "name": "node-name",
+          "tag": true
+        }
+      ]
+    }
+  }
+]
