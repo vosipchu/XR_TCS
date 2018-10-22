@@ -1,6 +1,3 @@
-{% include toc icon="table" title="Packet Size Distribution" %}
-{% include base_path %}
-
 Let's continue our series of posts dealing with different basic use cases for IOS XR Model Driven Telemetry. In our previous post, we explained how you can get a big set of different [NPU stats from NCS5500](https://xrdocs.io/telemetry/tutorials/2018-09-19-ncs5500-data-plane-monitoring/).
 Today we will make a short overview on how you can quickly check packet size distribution in your network on any router(s)/interface(s). As before, we will use the IOS XR MDT [collection stack](https://xrdocs.io/telemetry/tutorials/2018-06-04-ios-xr-telemetry-collection-stack-intro/) that can help you quickly build your infrastructure and start testing.
 
