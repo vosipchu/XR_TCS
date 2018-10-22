@@ -1,0 +1,178 @@
+[
+{
+    "basepath": "Cisco-IOS-XR-drivers-media-eth-oper:ethernet-interface/statistics/statistic",
+    "spec": {
+      "fields": [
+        {
+          "name": "interface-name",
+          "tag": true
+        },
+        {
+          "name": "received-total-bytes"
+        },
+        {
+          "name": "received-good-bytes"
+        },
+        {
+          "name": "received-total-frames"
+        },
+        {
+          "name": "received8021q-frames"
+        },
+        {
+          "name": "received-pause-frames"
+        },
+        {
+          "name": "received-unknown-opcodes"
+        },
+        {
+          "name": "received-total64-octet-frames"
+        },
+        {
+          "name": "received-total-octet-frames-from65-to127"
+        },
+        {
+          "name": "received-total-octet-frames-from128-to255"
+        },
+        {
+          "name": "received-total-octet-frames-from256-to511"
+        },
+        {
+          "name": "received-total-octet-frames-from512-to1023"
+        },
+        {
+          "name": "received-total-octet-frames-from1024-to1518"
+        },
+        {
+          "name": "received-total-octet-frames-from1519-to-max"
+        },
+        {
+          "name": "received-good-frames"
+        },
+        {
+          "name": "received-unicast-frames"
+        },
+        {
+          "name": "received-multicast-frames"
+        },
+        {
+          "name": "received-broadcast-frames"
+        },
+        {
+          "name": "number-of-buffer-overrun-packets-dropped"
+        },
+        {
+          "name": "number-of-aborted-packets-dropped"
+        },
+        {
+          "name": "numberof-invalid-vlan-id-packets-dropped"
+        },
+        {
+          "name": "invalid-dest-mac-drop-packets"
+        },
+        {
+          "name": "invalid-encap-drop-packets"
+        },
+        {
+          "name": "number-of-miscellaneous-packets-dropped"
+        },
+        {
+          "name": "dropped-giant-packets-greaterthan-mru"
+        },
+        {
+          "name": "dropped-ether-stats-undersize-pkts"
+        },
+        {
+          "name": "dropped-jabbers-packets-greaterthan-mru"
+        },
+        {
+          "name": "dropped-ether-stats-fragments"
+        },
+        {
+          "name": "dropped-packets-with-crc-align-errors"
+        },
+        {
+          "name": "ether-stats-collisions"
+        },
+        {
+          "name": "symbol-errors"
+        },
+        {
+          "name": "dropped-miscellaneous-error-packets"
+        },
+        {
+          "name": "rfc2819-ether-stats-oversized-pkts"
+        },
+        {
+          "name": "rfc2819-ether-stats-jabbers"
+        },
+        {
+          "name": "rfc2819-ether-stats-crc-align-errors"
+        },
+        {
+          "name": "rfc3635dot3-stats-alignment-errors"
+        },
+        {
+          "name": "total-bytes-transmitted"
+        },
+        {
+          "name": "total-good-bytes-transmitted"
+        },
+        {
+          "name": "total-frames-transmitted"
+        },
+        {
+          "name": "transmitted8021q-frames"
+        },
+        {
+          "name": "transmitted-total-pause-frames"
+        },
+        {
+          "name": "transmitted-total64-octet-frames"
+        },
+        {
+          "name": "transmitted-total-octet-frames-from65-to127"
+        },
+        {
+          "name": "transmitted-total-octet-frames-from128-to255"
+        },
+        {
+          "name": "transmitted-total-octet-frames-from256-to511"
+        },
+        {
+          "name": "transmitted-total-octet-frames-from512-to1023"
+        },
+        {
+          "name": "transmitted-total-octet-frames-from1024-to1518"
+        },
+        {
+          "name": "transmitted-total-octet-frames-from1518-to-max"
+        },
+        {
+          "name": "transmitted-good-frames"
+        },
+        {
+          "name": "transmitted-unicast-frames"
+        },
+        {
+          "name": "transmitted-multicast-frames"
+        },
+        {
+          "name": "transmitted-broadcast-frames"
+        },
+        {
+          "name": "buffer-underrun-packet-drops"
+        },
+        {
+          "name": "aborted-packet-drops"
+        },
+        {
+          "name": "uncounted-dropped-frames"
+        },
+        {
+          "name": "miscellaneous-output-errors"
+        }
+      ]
+    }
+  }
+  ]
